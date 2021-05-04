@@ -1,0 +1,20 @@
+Clone and create repo
+private not boxes checked
+git init
+ls -a
+rm -rf .git
+git add . git commit -m "asdfdsaf"
+
+copy and paste
+'2393f233a15a635115b89b0a1aa5da462e278ea75b25d07811fd1fe43b499ec0'
+
+CREATE USER hangin_dev WITH PASSWORD 'password';
+CREATE DATABASE hangin_db WITH OWNER hangin_dev;
+pipenv install boto3
+pipenv install Flask-DB
+
+
+flask db reset  delete all tables
+flask db init
+flask seed all
+
