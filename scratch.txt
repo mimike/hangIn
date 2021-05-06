@@ -19,28 +19,3 @@ flask db init
 flask seed all
 
 
-## Home Page
-
-* Nav bar component
-  -  Search bar
-  -  Displays a row Home, Network, Gigs and Me (dropdown)
-
-## Feed Page
-* Nav bar component
-  -  Search bar
-
-* shows all the posts a user follows before posts from non-followers
-
-
-## Profile Page
-* Nav bar component
-  -  Search bar
-
-* Cover photo
-* Profile Photo
-* Headline
-* About
-* Skills
-* Contact (email, website, social media links)
-* Favorite Experience
-* Latest Activity (gets a list of all their posts)

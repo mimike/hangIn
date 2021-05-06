@@ -1,6 +1,8 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const GET_USERS = 'session/GET_USERS';
+const GET_SINGLE_USER = 'session/GET_SINGLE_USER'
 
 const setUser = (user) => ({
     type: SET_USER,
@@ -11,6 +13,15 @@ const removeUser = () => ({
     type: REMOVE_USER
 })
 
+const getUsers = (users) => ({
+    type: GET_USERS,
+    payload: users
+})
+
+const getOneUser = (user) => ({
+    type: GET_SINGLE_USER,
+    payload: user
+})
 
 
 // thunks
@@ -26,7 +37,7 @@ export const authenticate = () => async (dispatch) => {
         return;
     }
     dispatch(setUser(data))
-    
+
 }
 
 export const login = (email, password) => async (dispatch) => {
@@ -59,14 +70,18 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, email, password) => async (dispatch)=> {
+export const signUp = (firstName, lastName, city, state, headline, email, password) => async (dispatch)=> {
     const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username,
+            firstName,
+            lastName,
+            city,
+            state,
+            headline,
             email,
             password,
         }),

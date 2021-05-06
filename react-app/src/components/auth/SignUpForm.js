@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+// import { Button, Form } from "react-bootstrap";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [headline, setHeadline] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(signUp(firstName, lastName, email, password));
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -34,6 +35,26 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const updateFirstName= (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName= (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateCity= (e) => {
+    setCity(e.target.value);
+  };
+
+  const updateState= (e) => {
+    setState(e.target.value);
+  };
+
+  const updateHeadline= (e) => {
+    setHeadline(e.target.value);
+  };
+
   if (user) {
     return <Redirect to="/" />;
   }
@@ -41,25 +62,17 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
+      <label>Email</label>
         <input
           type="text"
           name="email"
+          placeholder="Email"
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label>Password (6 or more characters)</label>
         <input
           type="password"
           name="password"
@@ -77,7 +90,63 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <div>
+        <label>First name</label>
+        <input
+        type="text"
+        name="firstname"
+        onChange={updateFirstName}
+        value={firstName}
+        >
+        </input>
+      </div>
+
+      <div>
+      <label>Last name</label>
+        <input
+          type="text"
+          name="lastname"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <label>Headline</label>
+        <input
+          type="text"
+          name="headline"
+          onChange={updateHeadline}
+          value={headline}
+        ></input>
+      </div>
+
+      <div>
+        <label>City</label>
+        <input
+          type="text"
+          name="city"
+          onChange={updateCity}
+          value={city}
+        ></input>
+      </div>
+
+      <div>
+        <label>State</label>
+        <input
+          type="text"
+          name="state"
+          onChange={updateState}
+          value={state}
+        ></input>
+      </div>
+
+
+      <div>
+        <h4>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</h4>
+      </div>
+
+      <button type="submit">Agree & Join</button>
+
     </form>
   );
 };
