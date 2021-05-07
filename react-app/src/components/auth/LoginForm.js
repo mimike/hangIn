@@ -21,13 +21,12 @@ const LoginForm = () => {
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
-
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -38,7 +37,6 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-
         <input
           name="email"
           type="text"

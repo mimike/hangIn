@@ -69,13 +69,13 @@ class User(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
-      "firstName": self.firstname,
-      "lastName": self.lastname,
+      "first_name": self.first_name,
+      "last_name": self.last_name,
       "headline": self.headline,
       "city": self.city,
       "state": self.state,
-      "avatarUrl": self.avatar_url,
-      "coverUrl": self.cover_url,
+      "avatar_url": self.avatar_url,
+      "cover_url": self.cover_url,
       "email": self.email
       # "comments": [comment.to_dict() for comment in comments]
     }

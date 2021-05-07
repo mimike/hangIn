@@ -21,5 +21,6 @@ class Post(db.Model):
             "media_url": self.media_url,
             "text_body": self.text_body,
             "comments": [comment.to_dict() for comment in self.comments],
-            "author": self.user.to_dict(),  #{id: 34, author: {id: 3, firstname: mimi, etc}}
+            "author": self.user.to_dict(),
+            #{id: 34, author: {id: 3, firstname: mimi, etc}}
         }

@@ -69,24 +69,26 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
 };
 
-
-export const signUp = (firstName, lastName, city, state, headline, email, password) => async (dispatch)=> {
+// first_name, last_name, city, state, headline, email, password. formData takes multiple data types and since we have an avatar photo we pass in formData
+export const signUp = (formData) => async (dispatch)=> {
     const response = await fetch("/api/auth/signup", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            firstName,
-            lastName,
-            city,
-            state,
-            headline,
-            email,
-            password,
-        }),
+        // headers: {
+        //     "Content-Type": "application/json",
+        // },
+        body:
+            formData
+        // JSON.stringify({
+        //     first_name,
+        //     last_name,
+        //     city,
+        //     state,
+        //     headline,
+        //     email,
+        //     password,
+        //}),
     });
-    const data = await response.json();
+    const data = await response.json(); // ??
     dispatch(setUser(data));
 }
 

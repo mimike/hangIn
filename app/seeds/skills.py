@@ -4,7 +4,7 @@ faker = Faker()
 import random
 
 def seed_skills():
-    skilllist = [
+    skill_list = [
         'Lyra',
         'Fabric',
         'Dance trapeze',
@@ -18,7 +18,7 @@ def seed_skills():
         'Invented apparatus'
     ]
     for num in range(100):
-        skill = Skill(user_id=num+1, skill_name=skilllist[faker.pyint(min_value=0, max_value=len(skilllist)-1)])
+        skill = Skill(user_id=num+1, skill_name=skill_list[faker.pyint(min_value=0, max_value=len(skill_list)-1)])
         db.session.add(skill)
     db.session.commit()
 

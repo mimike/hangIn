@@ -18,7 +18,7 @@ def seed_users():
     for photo in photo_object:
         new_list.append(photo["urls"]["regular"])
 
-    piclist = [
+    pic_list = [
         "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-63b10457-0c43-486c-8f77-fb7c0d2ac42c",
         "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-32d7ff95-7e42-4e99-91e2-7d4d106d9380",
         "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-94a4cc1f-1df9-4c4e-a25f-c899ffb3740e",
@@ -38,7 +38,7 @@ def seed_users():
     db.session.add(demo)
 
     for num in range(100):
-        user=User(first_name=faker.first_name_nonbinary(), last_name = faker.last_name(), headline = faker.job(), city = faker.city(), state = faker.state(), avatar_url = piclist[faker.pyint(min_value=0, max_value=len(piclist)-1)], cover_url=new_list[random.randrange(0, len(new_list) -1)],email=faker.email(), password = faker.password(length=7))
+        user=User(first_name=faker.first_name_nonbinary(), last_name = faker.last_name(), headline = faker.job(), city = faker.city(), state = faker.state(), avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)], cover_url=new_list[random.randrange(0, len(new_list) -1)],email=faker.email(), password = faker.password(length=7))
 
         db.session.add(user)
     db.session.commit()

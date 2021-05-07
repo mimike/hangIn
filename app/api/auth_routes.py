@@ -3,9 +3,10 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from app.awsS3 import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 auth_routes = Blueprint('auth', __name__)
-
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -16,7 +17,6 @@ def validation_errors_to_error_messages(validation_errors):
         for error in validation_errors[field]:
             errorMessages.append(f"{field} : {error}")
     return errorMessages
-
 
 @auth_routes.route('/')
 def authenticate():
@@ -33,6 +33,7 @@ def login():
     """
     Logs a user in
     """
+    print("HEEEELL!!!!!!!!!!!!")
     form = LoginForm()
     print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the
@@ -61,16 +62,37 @@ def sign_up():
     Creates a new user and logs them in
     """
     form = SignUpForm()
+    # if "image" not in request.files:
+    #     return {"errors": "image required"}, 400
+
+    image = request.files["avatar"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+    form['url'].data = url
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(request.get_json())
     if form.validate_on_submit():
         user = User(
-            first_name=form.data['firstName'],
-            last_name=form.data['lastName'],
-            city=form.data['city'],
-            state=form.data['state'],
-            headline=form.data['headline'],
-            email=form.data['email'],
-            password=form.data['password']
+            first_name=request.form['first_name'],
+            last_name=request.form['last_name'],
+            city=request.form['city'],
+            state=request.form['state'],
+            headline=request.form['headline'],
+            email=request.form['email'],
+            password=request.form['password'],
+            avatar_url=url
         )
         db.session.add(user)
         db.session.commit()
