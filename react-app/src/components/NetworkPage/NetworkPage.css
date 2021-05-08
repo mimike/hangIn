@@ -1,10 +1,10 @@
 body{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
-
 }
 .test{
     display:flex;
     flex-direction: row;
+    flex-wrap:wrap;
 }
 .tile-container{
     border: 0.5px solid rgb(223, 222, 222);

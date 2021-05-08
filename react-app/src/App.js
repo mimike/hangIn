@@ -6,6 +6,7 @@ import SignUpForm from "./components/auth/SignUpForm";
 import SplashPage from "./components/SplashPage"
 import NetworkPage from "./components/NetworkPage";
 import ProfilePage from "./components/ProfilePage";
+//import ProfileTile from "./components/NetworkPage/ProfileTile"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -33,20 +34,19 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation />
-      <Switch>
-      <Route path="/home" exact={true}>
-          <SplashPage />
-      </Route>
-      <Route path="/explore">
+        <Switch>
+        <Route path="/home" exact={true}>
+            <SplashPage />
+        </Route>
+        <Route path="/explore">
             <NetworkPage />
-
         </Route>
         <Route path="/feed">
           <UploadPage/>
         </Route>
-
         <Route path="/profile">
             <ProfilePage />
+            {/* <ProfileTile/> */}
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
