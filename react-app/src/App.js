@@ -46,7 +46,6 @@ function App() {
             <ProfilePage />
         </Route>
         <Route path="/login" exact={true}>
-
           <LoginForm />
         </Route>
 

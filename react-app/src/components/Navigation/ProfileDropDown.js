@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LogoutButton from '../auth/LogoutButton';
 import { logout } from "../../store/session";
-import { useHistory } from 'react-router-dom';
-
+import pic from "../../../src/images/profilepic.jpg"
 
 function ProfileButton() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
 
-    const targetUser = useSelector(state => state.session.target_user)
+    //const targetUser = useSelector(state => state.session.user) //target user
     const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
 
     // function to open the menu
@@ -40,14 +39,15 @@ function ProfileButton() {
     return (
         <>
 
+
             <button className="profile-button"  onClick={openMenu}>
-                <img className="profile-button" alt="profile" src={sessionUser.avatar_url}></img>
+            <img alt="temporary photo" src={pic}/>
             </button>
             {showMenu && (
 
                 <button className="profile-dropdown">
-                    <div>{user.firstName}!</div>
-                    <div>{user.headline}</div>
+                    {/* <div>{user.firstName}!</div>
+                    <div>{user.headline}</div> */}
 
                 <div className="drop-down-links">
 

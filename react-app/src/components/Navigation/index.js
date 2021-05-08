@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import "./Navigation.css"
+import "./Navigation.css";
+import ProfileButton from "./ProfileDropDown";
 
 const Navigation = () => {
 
@@ -9,6 +10,7 @@ const Navigation = () => {
     <nav>
       <ul>
         <li>
+          <ProfileButton/>
           <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>

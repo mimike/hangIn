@@ -10,10 +10,10 @@ const displayPost = () => {
 }
 
 export const uploadPost = (submission) => async (dispatch) =>{
-    const { mediaUrl, bodyText } = submission  //textbody!
+    const { mediaUrl, textBody } = submission  //textbody!
 
     const formData = new FormData()
-    formData.append("textBody", bodyText)
+    formData.append(textBody)
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }

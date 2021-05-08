@@ -12,12 +12,12 @@ function UploadPage(){
     // const sessionUser = useSelector(state => state.session.user)
 
     const [mediaUrl, setMediaUrl] = useState("")
-    const [bodyText, setBodyText] = useState("")  //TEXTBODY
+    const [textBody, setTextBody] = useState("")  //TEXTBODY
     const [photoCreated, setPhotoCreated] = useState()
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const submission = { mediaUrl, bodyText }
+      const submission = { mediaUrl, textBody }
       let createdPhoto = await dispatch(uploadPost(submission))
       // return alert('Post Created!')
       history.push('/profile')
@@ -26,8 +26,8 @@ function UploadPage(){
     const updateMediaUrl = (e) => {
       setMediaUrl(e.target.files[0])
     }
-    const updateBodyText = (e) => {
-      setBodyText(e.target.value)
+    const updatetextBody = (e) => {
+      setTextBody(e.target.value)
     }
 
     return (
@@ -49,9 +49,9 @@ function UploadPage(){
             <div className="start-post-container">
               <textarea className="post-box"
               type="text"
-              value = {bodyText}
+              value = {textBody}
               placeholder = "Start a post"
-              onChange = {updateBodyText}
+              onChange = {updatetextBody}
               />
             </div>
 

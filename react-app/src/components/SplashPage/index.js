@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SplashPage.css"
 import splash from "../../images/ffp.jpg"
-import LogoutButton from '../auth/LogoutButton'
+//import LogoutButton from '../auth/LogoutButton'
 //import Navigation from '../Navigation'
 
 function SplashPage() {
@@ -15,7 +15,7 @@ function SplashPage() {
           Welcome to your <br/>aerial community
         </h1>
       </div>
-      <LogoutButton/>
+      {/* <LogoutButton/> */}
     </>
   );
 }
