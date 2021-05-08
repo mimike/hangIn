@@ -1,21 +1,21 @@
 import React from 'react';
 import "./SplashPage.css"
-import splash from "../../images/ffp.jpg"
-//import LogoutButton from '../auth/LogoutButton'
-//import Navigation from '../Navigation'
+import splash from "../../images/photohang.jpeg"
+import SplashNav from "./SplashNav"
+
 
 function SplashPage() {
   return (
     <>
-      {/* <Navigation /> */}
-      <div>
+      <SplashNav/>
+      <div className="splash-container">
+        <div className="splash-text">
+          <h1>Hang <i class="fab fa-linkedin"></i></h1>
+          <h3>Welcome to your <br/>aerial community</h3>
+        </div>
         <img className="splash-photo" alt="splash" src={splash}></img>
-        <h1>Hang <i class="fab fa-linkedin"></i></h1>
-        <h1>
-          Welcome to your <br/>aerial community
-        </h1>
       </div>
-      {/* <LogoutButton/> */}
+
     </>
   );
 }

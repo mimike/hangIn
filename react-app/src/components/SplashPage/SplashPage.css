@@ -1,5 +1,52 @@
+.splash-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .splash-photo {
-    width: 70%;
-    height: 70%;
+    margin: 100px;
+    width: 40%;
+    height: 40%;
     border-radius: 100%;
 }
+.splash-text{
+    margin-left: 50px;
+    margin-top: -60px;
+}
+.splash-text h1{
+    font-weight: 200;
+    font-family: sans-serif;
+    line-height: 70px;
+    font-size: 4rem;
+    font-weight: 300;
+    font-size: 50px;
+}
+.splash-text h3{
+    font-weight: 200;
+    line-height: 70px;
+    font-size: 5.6rem;
+
+}
+
+.splash-button-container {
+    margin: 400px;
+    border: 2px solid green;
+    /* background-color:azure;
+    border-bottom: 1px solid rgb(185, 184, 184);
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    font-weight: 300;
+    color: #ccc; */
+}
+.splash-button a{
+    font-family: 'Cormorant Garamond', serif;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+  }

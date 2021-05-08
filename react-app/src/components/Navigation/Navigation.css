@@ -1,3 +1,23 @@
+.search-btn{
+    width: 200px;
+    height: 35px;
+    background: rgb(239, 245, 252);
+    display: flex;
+    color: rgb(150, 148, 148);
+    flex-direction: row;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 10px;
+    font-weight: 300;
+
+}
+li-icon{
+    margin: 3px;
+}
+.searching {
+    margin: 3px;
+}
 .profile-button img{
     height: 40px;
     width: 40px;
@@ -8,15 +28,20 @@
     background-color: white;
     cursor: pointer;
 }
+
+.fa-linkedin:before{
+    font-size: 40px;
+}
 a {
     text-decoration: none;
-    margin: 8px;
+    margin: 4px;
+    color:black;
 }
 li {
     align-items: center;
     cursor: pointer;
     list-style-type: none;
-    margin: 10px;
+    margin: 4px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +52,9 @@ li {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
+    font-weight: 300;
+    color: black;
+    /* color: #ccc; */
 }
 .profile-dropdown{
     border-radius: 5px;

@@ -12,7 +12,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
-import UploadPage from "./components/UploadPage";
+import UploadBox from "./components/UploadBox";
 import Navigation from "./components/Navigation/index.js"
 
 function App() {
@@ -33,19 +33,22 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation />
+
         <Switch>
-        <Route path="/home" exact={true}>
+        <Route path="/" exact={true}>
             <SplashPage />
         </Route>
         <Route path="/explore">
+          <Navigation />
             <NetworkPage />
         </Route>
         <Route path="/feed">
-          <UploadPage/>
+          <Navigation />
+          <UploadBox/>
         </Route>
         <Route path="/profile">
-            <ProfilePage />
+          <Navigation />
+          <ProfilePage />
             {/* <ProfileTile/> */}
         </Route>
         <Route path="/login" exact={true}>
@@ -57,17 +60,14 @@ function App() {
         </Route>
 
         <ProtectedRoute path="/users" exact={true} >
+          <Navigation />
           <UsersList/>
         </ProtectedRoute>
 
         <ProtectedRoute path="/users/:userId" exact={true} >
+          <Navigation />
           <User />
         </ProtectedRoute>
-
-
-
-
-
       </Switch>
     </BrowserRouter>
   );

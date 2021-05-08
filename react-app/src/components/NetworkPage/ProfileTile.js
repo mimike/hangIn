@@ -1,7 +1,7 @@
 import React from "react"
 import "./NetworkPage.css"
 import pic from "../../../src/images/profilepic.jpg"
-import cover from "../../images/sahara.jpg"
+import cover from "../../images/mimicover.jpeg"
 function ProfileTile (){
     return (
         <>

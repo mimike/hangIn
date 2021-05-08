@@ -2,7 +2,7 @@ import React from 'react';
 import "./ProfilePage.css"
 import ProfileTile from "../NetworkPage/ProfileTile"
 import "./ProfilePage.css"
-import cover from "../../images/sahara.jpg"
+import cover from "../../images/mimicover.jpeg"
 import pic from "../../../src/images/profilepic.jpg"
 
 const ProfilePage = () => {
@@ -26,7 +26,19 @@ const ProfilePage = () => {
         <div className="middle-container">
             <div className="about-container">
               <h4>About</h4>
-              <h5>My desire to create is what drove me to become a software developer. I love the process of conceptualizing an idea and using technology to engineer a solution. I have experience building dynamic, modern websites using Javascript, Python, React, Redux, Express, Flask-SQLAlchemy, HTML, and CSS.</h5>
+              <h5>My desire to create is what drove me to become a software developer. I love the process of conceptualizing an idea and using technology to engineer a solution. I have experience building dynamic, modern websites using Javascript, Python, React, Redux, Express, Flask-SQLAlchemy, HTML, and CSS.
+                <h5>
+                  Main Discipline: Fabric
+                </h5>
+
+                <h5>
+                  Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
+                </h5>
+
+                <h5>
+                  Other: Coding, Collaborating, Crashing
+                </h5>
+              </h5>
             </div>
 
         </div>

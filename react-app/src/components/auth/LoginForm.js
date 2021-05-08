@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import { Form, Button } from "react-bootstrap";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -26,11 +27,60 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/feed" />;
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <>
+      <div className="log-in-container">
+      <Form
+      onSubmit={onLogin} className="log-in-form"
+      >
+			{/* {errors.length > 0 && <h2>{errors} </h2>} */}
+			<Form.Group controlId="email-form">
+
+				<Form.Control
+					type="email"
+          name="email"
+
+					onChange={updateEmail}
+					value={email}
+					required
+					placeholder="Email"
+				/>
+			</Form.Group>
+			<Form.Group controlId="password-form">
+				<Form.Control
+					type="password"
+          autoComplete="password"
+					value={password}
+					onChange={updatePassword}
+					required
+					placeholder="Password"
+				/>
+			</Form.Group>
+
+			<Button variant="primary" type="submit">
+				Sign in
+			</Button>
+		</Form>
+    {/* <Form>
+      <Form.Group controlId="formBasicEmail" value={email}
+          onChange={updateEmail}>
+        <Form.Control type="email" placeholder="Email" />
+      </Form.Group>
+
+      <Form.Group controlId="formBasicPassword" value={password}
+          onChange={updatePassword}>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit!
+      </Button>
+    </Form> */}
+
+    {/* <form onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -55,7 +105,10 @@ const LoginForm = () => {
         />
         <button type="submit">Sign in</button>
       </div>
-    </form>
+    </form> */}
+      </div>
+
+    </>
   );
 };
 

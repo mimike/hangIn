@@ -5,6 +5,7 @@ import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
 
 const Navigation = () => {
+  const magnifying = <i class="fas fa-search"></i>
 
   return (
     <nav>
@@ -15,6 +16,24 @@ const Navigation = () => {
             <i class="fab fa-linkedin" ></i>
           </a>
           </li>
+
+          <button className="search-btn" type="button">
+            <li-icon  type="search-icon" className="search-icon"><i class="fas fa-search"></i> </li-icon>
+            <div className="searching"> Search</div>
+          </button>
+          <form action="/" method="get">
+            <label htmlFor="header-search">
+                <span className="visually-hidden"></span>
+            </label>
+
+        <input
+            type="text"
+            id="header-search"
+            placeholder="Search"
+            name="s"
+        />
+        {/* <button type="submit">Search</button> */}
+    </form>
           <li>
           <li>
             <i class="fas fa-home"></i>
@@ -38,12 +57,14 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
+          <i class="fas fa-users"></i>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
         </li>
 
         <li>
+          <i class="fas fa-users"></i>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
             Sign Up
           </NavLink>

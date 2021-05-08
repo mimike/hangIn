@@ -1,0 +1,17 @@
+.splash-btn-container {
+    margin-right: 30px;
+    margin-top: 30px;
+    display:flex;
+    flex-direction: row-reverse;
+}
+.splash-login a{
+    color: black;
+    padding: 20px;
+    font-weight: 500;
+}
+.splash-sign-up a{
+    color: black;
+    padding: 20px;
+    font-weight: 500;
+
+}
