@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import { Form, Button } from "react-bootstrap";
+import DemoUser from "./DemoUser"
+import "./auth.css"
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,88 +28,50 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/feed" />;
+    return <Redirect to="/home" />;
   }
 
   return (
     <>
-      <div className="log-in-container">
-      <Form
-      onSubmit={onLogin} className="log-in-form"
-      >
-			{/* {errors.length > 0 && <h2>{errors} </h2>} */}
-			<Form.Group controlId="email-form">
+    <div className="log-in-container">
+      <div className="log-in-form">
+        <h1>Sign in</h1>
+        <h4>Stay connected with your community</h4>
+        <form onSubmit={onLogin}>
+          <div>
+            {errors.map((error) => (
+              <div>{error}</div>
+            ))}
+          </div>
 
-				<Form.Control
-					type="email"
-          name="email"
+          <div>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+            <button type="submit">Sign in</button>
 
-					onChange={updateEmail}
-					value={email}
-					required
-					placeholder="Email"
-				/>
-			</Form.Group>
-			<Form.Group controlId="password-form">
-				<Form.Control
-					type="password"
-          autoComplete="password"
-					value={password}
-					onChange={updatePassword}
-					required
-					placeholder="Password"
-				/>
-			</Form.Group>
-
-			<Button variant="primary" type="submit">
-				Sign in
-			</Button>
-		</Form>
-    {/* <Form>
-      <Form.Group controlId="formBasicEmail" value={email}
-          onChange={updateEmail}>
-        <Form.Control type="email" placeholder="Email" />
-      </Form.Group>
-
-      <Form.Group controlId="formBasicPassword" value={password}
-          onChange={updatePassword}>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Submit!
-      </Button>
-    </Form> */}
-
-    {/* <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
+          </div>
+        </form>
+        <div>
+          <DemoUser/>
+          </div>
+        </div>
       </div>
-      <div>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Sign in</button>
-      </div>
-    </form> */}
-      </div>
-
     </>
+
   );
 };
 

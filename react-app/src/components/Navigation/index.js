@@ -37,7 +37,7 @@ const Navigation = () => {
           <li>
           <li>
             <i class="fas fa-home"></i>
-            <NavLink to="/home" exact={true} activeClassName="active">
+            <NavLink to="/feed" exact={true} activeClassName="active">
               Home
             </NavLink>
           </li>
@@ -52,7 +52,7 @@ const Navigation = () => {
 
         <li>
           <i class="fas fa-briefcase"></i>
-          <NavLink to="/feed" exact={true} activeClassName="active">
+          <NavLink to="/upload" exact={true} activeClassName="active">
             Jobs
           </NavLink>
         </li>
@@ -76,7 +76,7 @@ const Navigation = () => {
         </li> */}
 
         <li>
-          {/* <LogoutButton /> */}
+          
         </li>
         <ProfileButton/>
       </div>
