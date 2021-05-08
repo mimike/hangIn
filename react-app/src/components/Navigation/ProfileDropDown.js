@@ -5,6 +5,7 @@ import * as sessionActions from '../../store/session';
 import LogoutButton from '../auth/LogoutButton';
 import { logout } from "../../store/session";
 import pic from "../../../src/images/profilepic.jpg"
+import "./Navigation.css"
 
 function ProfileButton() {
     const history = useHistory();
@@ -38,13 +39,12 @@ function ProfileButton() {
 
     return (
         <>
-
-
-            <button className="profile-button"  onClick={openMenu}>
-            <img alt="temporary photo" src={pic}/>
-            </button>
+            <div className="drop-down">
+              <button className="profile-button"  onClick={openMenu}>
+              <img alt="temporary photo" src={pic}/>
+              </button>
+            </div>
             {showMenu && (
-
                 <button className="profile-dropdown">
                     {/* <div>{user.firstName}!</div>
                     <div>{user.headline}</div> */}
@@ -61,8 +61,6 @@ function ProfileButton() {
                     <Link onClick={logout} style={{textDecoration:"none", color:"black"}}>Sign out</Link>
                   </div>
                 </div>
-
-
               </button>
 
             )}

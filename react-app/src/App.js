@@ -39,7 +39,10 @@ function App() {
       </Route>
       <Route path="/explore">
             <NetworkPage />
-            <UploadPage/>
+
+        </Route>
+        <Route path="/feed">
+          <UploadPage/>
         </Route>
 
         <Route path="/profile">

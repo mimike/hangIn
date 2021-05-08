@@ -1,0 +1,78 @@
+body{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+
+}
+.test{
+    display:flex;
+    flex-direction: row;
+}
+.tile-container{
+    border: 0.5px solid rgb(223, 222, 222);
+    width: 180px;
+    height: 260px;
+    border-radius: 10px;
+    margin: 12px;
+    cursor: pointer;
+
+    /* box-shadow:1px 1px 1px rgba(235, 233, 233, 0.829); */
+    /* padding: 12px; */
+
+}
+.tile-container:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    transition: box-shadow .3s;
+}
+/* .tile-container img{
+    height: 90px;
+    width: 90px;
+
+} */
+.cover-pic{
+    position: relative;
+    background-size: cover;
+    width: 180px;
+    height: 70px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.avatar-pic{
+    border-radius: 50%;
+    z-index: 1;
+    height: 90px;
+    width: 90px;
+    left: 45px;
+    top: -60px;
+    position: relative;
+
+}
+.connect-btn{
+    text-align: center;
+
+}
+.photo-container{
+    height:100px;
+}
+.connect-btn button{
+    width: 150px;
+    border-radius: 20px;
+    background: none;
+    padding: 4px;
+    border: 2px solid rgb(30, 98, 199);
+    color:rgb(30, 98, 199);
+    font-weight:bold;
+    cursor: pointer;
+}
+.profile-text{
+    margin-top: 0px;
+}
+.name{
+    font-weight: 600;
+}
+.job{
+    font-weight: 200;
+    color:  rgba(0,0,0,.6);
+}
+p{
+    text-align: center;
+}

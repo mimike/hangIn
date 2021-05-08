@@ -9,7 +9,7 @@ function SplashPage() {
     <>
       {/* <Navigation /> */}
       <div>
-        <img alt="splash" src={splash}></img>
+        <img className="splash-photo" alt="splash" src={splash}></img>
         <h1>Hang <i class="fab fa-linkedin"></i></h1>
         <h1>
           Welcome to your <br/>aerial community

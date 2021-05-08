@@ -8,11 +8,33 @@ const Navigation = () => {
 
   return (
     <nav>
-      <ul>
+      <div className="nav-bar-container">
+        {/* <Search /> */}
         <li>
-          <ProfileButton/>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
+          <a>
+            <i class="fab fa-linkedin" ></i>
+          </a>
+          </li>
+          <li>
+          <li>
+            <i class="fas fa-home"></i>
+            <NavLink to="/home" exact={true} activeClassName="active">
+              Home
+            </NavLink>
+          </li>
+        </li>
+
+        <li>
+          <i class="fas fa-users"></i>
+          <NavLink to="/explore" exact={true} activeClassName="active">
+            My Network
+          </NavLink>
+        </li>
+
+        <li>
+          <i class="fas fa-briefcase"></i>
+          <NavLink to="/feed" exact={true} activeClassName="active">
+            Jobs
           </NavLink>
         </li>
         <li>
@@ -20,20 +42,23 @@ const Navigation = () => {
             Login
           </NavLink>
         </li>
+
         <li>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
             Sign Up
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
           </NavLink>
-        </li>
+        </li> */}
+
         <li>
-          <LogoutButton />
+          {/* <LogoutButton /> */}
         </li>
-      </ul>
+        <ProfileButton/>
+      </div>
     </nav>
   );
 }
