@@ -5,7 +5,7 @@ import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
 
 const Navigation = () => {
-  const magnifying = <i class="fas fa-search"></i>
+  
 
   return (
     <nav>
@@ -76,7 +76,7 @@ const Navigation = () => {
         </li> */}
 
         <li>
-          
+
         </li>
         <ProfileButton/>
       </div>
