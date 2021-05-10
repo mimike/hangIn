@@ -1,17 +1,26 @@
 body{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
 }
+.people h2{
+    margin-left: 70px;
+    margin-top: 40px;
+    font-weight: 400;
+}
 .test{
     display:flex;
+    margin: 50px;
     flex-direction: row;
     flex-wrap:wrap;
 }
 .tile-container{
     border: 0.5px solid rgb(223, 222, 222);
-    width: 180px;
-    height: 260px;
+    width: 190px;
+    height: 250px;
     border-radius: 10px;
-    margin: 12px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
 
     /* box-shadow:1px 1px 1px rgba(235, 233, 233, 0.829); */
@@ -30,7 +39,7 @@ body{
 .cover-pic{
     position: relative;
     background-size: cover;
-    width: 180px;
+    width: 190px;
     height: 70px;
     border-radius: 10px;
     border-bottom-right-radius: 0;
@@ -58,7 +67,7 @@ body{
     border-radius: 20px;
     background: none;
     padding: 4px;
-    border: 2px solid rgb(30, 98, 199);
+    border: 0.5px solid rgb(30, 98, 199);
     color:rgb(30, 98, 199);
     font-weight:bold;
     cursor: pointer;
@@ -68,11 +77,37 @@ body{
 }
 .name{
     font-weight: 600;
+    font-size: 15px;
 }
 .job{
     font-weight: 200;
+    font-size: 12px;
     color:  rgba(0,0,0,.6);
 }
 p{
     text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.connect-btn a{
+    /* border: 1px solid blue;
+    border-radius: 10px */
+    font-size: 0.5rem;
+
+}
+.connect-btn {
+    width:
+}
+.connect-link{
+
+    /* width: 550px; */
+    border-radius: 20px;
+    background: none;
+    padding: 4px;
+    border: 0.5px solid rgb(30, 98, 199);
+    width: 400px;
+    color: rgb(30, 98, 199);
+    font-weight: bold;
+    cursor: pointer;
+
 }

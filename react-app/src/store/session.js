@@ -91,8 +91,7 @@ export const signUp = (formData) => async (dispatch)=> {
         // headers: {
         //     "Content-Type": "application/json",
         // },
-        body:
-            formData
+        body: formData
         // JSON.stringify({
         //     first_name,
         //     last_name,
@@ -103,8 +102,10 @@ export const signUp = (formData) => async (dispatch)=> {
         //     password,
         //}),
     });
+
     const data = await response.json(); // ??
     dispatch(setUser(data));
+    return response
 }
 
 // reducer

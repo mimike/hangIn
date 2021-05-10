@@ -2,9 +2,9 @@
 const GET_USERS = "users/GET_USERS"
 // const SINGLE_USER ="users/GET_USER"
 
-const getUsers = people => ({
+const getUsers = users => ({
     type: GET_USERS,
-    payload: people
+    payload: users
 })
 
 //thunk:

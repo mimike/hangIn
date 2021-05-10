@@ -64,29 +64,38 @@ def sign_up():
     form = SignUpForm()
     # if "image" not in request.files:
     #     return {"errors": "image required"}, 400
+    print(request.files, "!!!")
+    for what in request.files:
+        print(what)
+    print("DFDFS!!!!!!")
+    image = None
+    upload = None
+    url = None
 
-    image = request.files["avatar"]
+    if (request.files):
+        image = request.files["avatar"]
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
 
-    image.filename = get_unique_filename(image.filename)
-    upload = upload_file_to_s3(image)
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
-
-    url = upload["url"]
-    form['url'].data = url
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return upload, 400
+        url = upload["url"]
+        form['url'].data = url
+    print("at line 81!!")
+    print(upload, "uplaod!!")
     form['csrf_token'].data = request.cookies['csrf_token']
     print(request.get_json())
     if form.validate_on_submit():
         user = User(
-            first_name=request.form['first_name'],
-            last_name=request.form['last_name'],
+            first_name=request.form['firstName'],
+            last_name=request.form['lastName'],
             city=request.form['city'],
             state=request.form['state'],
             headline=request.form['headline'],

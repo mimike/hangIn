@@ -13,8 +13,12 @@ function NetworkPage() {
   }, [dispatch])   //dependancy array {}
   return (
     <>
-        <h1>Connections</h1>
-        <h1>People u may know</h1>
+
+      
+        <div className="people">
+          <h2>People you may know</h2>
+        </div>
+
         <ProfileTile/>
     </>
   );

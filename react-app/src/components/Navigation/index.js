@@ -5,7 +5,7 @@ import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
 
 const Navigation = () => {
-  
+
 
   return (
     <nav>
@@ -52,7 +52,7 @@ const Navigation = () => {
 
         <li>
           <i class="fas fa-briefcase"></i>
-          <NavLink to="/upload" exact={true} activeClassName="active">
+          <NavLink to="/feed" exact={true} activeClassName="active">
             Jobs
           </NavLink>
         </li>

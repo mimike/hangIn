@@ -5,6 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import SplashPage from "./components/SplashPage"
 import NetworkPage from "./components/NetworkPage";
+import Feed from "./components/Feed"
 import ProfilePage from "./components/ProfilePage";
 //import ProfileTile from "./components/NetworkPage/ProfileTile"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -12,7 +13,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
-import UploadBox from "./components/UploadBox";
+// import UploadBox from "./components/UploadBox";
 import Navigation from "./components/Navigation/index.js"
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
         </Route>
         <Route path="/feed">
           <Navigation />
-          <UploadBox/>
+
+          <Feed/>
         </Route>
         <Route path="/profile">
           <Navigation />

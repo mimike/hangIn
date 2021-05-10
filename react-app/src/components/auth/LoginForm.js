@@ -3,7 +3,7 @@ import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import DemoUser from "./DemoUser"
-import "./auth.css"
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/feed" />;
   }
 
   return (
@@ -61,7 +61,7 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <button type="submit">Sign in</button>
+            <button className="submit-button" type="submit">Sign in</button>
 
           </div>
         </form>

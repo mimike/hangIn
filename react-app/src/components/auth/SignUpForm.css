@@ -1,0 +1,73 @@
+.sign-up-container{
+    text-align:center;
+    margin: 60px;
+}
+.sign-up-form{
+    /* box-sizing: border-box; */
+    border: 1px solid rgb(226, 219, 219);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    width: 500px;
+    text-align: left;
+    display:inline-block;
+
+}
+
+label{
+    font-weight: 300;
+    color: rgb(131, 130, 130);
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+.state-dropdown{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+select{
+    color: rgb(75, 75, 75)
+}
+
+
+.continue-button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.5;
+  border-radius: 30px;
+}
+
+.submit-button{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.5;
+    border-radius: 30px;
+
+}
+button:hover {
+    opacity:1;
+  }

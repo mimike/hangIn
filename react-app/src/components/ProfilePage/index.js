@@ -4,6 +4,8 @@ import ProfileTile from "../NetworkPage/ProfileTile"
 import "./ProfilePage.css"
 import cover from "../../images/mimicover.jpeg"
 import pic from "../../../src/images/profilepic.jpg"
+import {getUsersThunk} from "../../store/users"
+import {useDispatch, useSelector} from "react-redux";
 
 const ProfilePage = () => {
   return (

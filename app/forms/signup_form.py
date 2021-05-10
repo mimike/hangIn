@@ -15,13 +15,13 @@ def user_exists(form, field):
 class SignUpForm(FlaskForm):
 
     email = StringField('email', validators=[DataRequired(), user_exists])
-    first_name = StringField('firstName', validators=[DataRequired()])
-    last_name = StringField('lastName', validators=[DataRequired()])
+    firstName = StringField('firstName', validators=[DataRequired()])
+    lastName = StringField('lastName', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
-    state = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
     headline = StringField('headline')
-    #avatar_url
-    #cover_url
+    url = StringField('avatarUrl')
+    # cover = StringField('coverUrl')
 
     # firstName references frontend signnpform

@@ -28,7 +28,6 @@ def get_single_post(id):
 def post_post():
     print("POSTFORM")
     form = UploadForm()
-
     data = request.json
     print("DATA!!!", data)
     if "mediaUrl" not in request.files:

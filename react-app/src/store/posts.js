@@ -15,10 +15,12 @@ export const uploadPost = (submission) => async (dispatch) =>{
     const { mediaUrl, textBody } = submission  //textbody!
 
     const formData = new FormData()
-    formData.append(textBody)
+    formData.append("textBody", textBody)
+    //formData.append("mediaUrl", mediaUrl)
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
+
     console.log("!!!!", submission)
     const res = await fetch("/api/posts", {
         method: "POST",
@@ -38,12 +40,18 @@ export const getAllPosts = () => async (dispatch) => {
     }
 }
 
-export default function reducer(state = {}, action) {
+export default function postsReducers(state = {}, action) {
     switch (action.type) {
         case UPLOAD_POST:
+            //////////DO!!!!!!
             return action.payload;
         case DISPLAY_POSTS:
-            return action.payload;
+            const postsPayload = action.payload
+            const newPosts = {}
+            for (const post of postsPayload.posts){
+                newPosts[post.id] = post
+            }
+            return newPosts
         default:
             return state;
     }

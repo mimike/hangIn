@@ -6,18 +6,10 @@ import random
 
 def seed_posts():
     pic_list = [
-        "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-63b10457-0c43-486c-8f77-fb7c0d2ac42c",
-        "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-32d7ff95-7e42-4e99-91e2-7d4d106d9380",
-        "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-94a4cc1f-1df9-4c4e-a25f-c899ffb3740e",
-        "https://www.mimikeaerial.com/gallery-1?pgid=jcosfzqj-591d29fe-730e-4f54-874a-89c2070fe230",
-        "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-04508de1-d641-4f90-a126-45ac598fb321",
-        "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-ee30e6fb-1867-4da0-a6c8-678635bee331",
-        "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-ddd9571a-9275-440a-b2da-6e6bcada36e6",
-         "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-d640133e-d5a5-4e26-99de-bb17c11b4e7b",
-        "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-6abf5abf-a612-4fc4-8115-364ff5e16877",
-         "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-f155e7e7-1cb5-4bf4-8c3a-63696a832950",
-        "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-dd67e183-9d60-4586-a8d1-14c7a51459df",
-         "https://www.sarahflyaerial.com/gallerygrid?pgid=kjvkz4oy-afbab4c5-aefb-4294-84ff-8cd3a7c91383"
+       "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/68670682_10156795678960895_694072019318210560_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=NStd5en57R4AX95Rqom&tn=B-mwjtcTSdVGbGSa&_nc_ht=scontent-msp1-1.xx&oh=bf4c7916e15e27df83248a990d9e4520&oe=60BE149C",
+        "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/18402290_10154581850965895_7194188292456553506_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=2eGUyST3VtkAX_5pVyJ&_nc_ht=scontent-msp1-1.xx&oh=b0e4b24aa980c1eb024cb79e2da09564&oe=60BBA183",
+        "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/18402290_10154581850965895_7194188292456553506_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=2eGUyST3VtkAX_5pVyJ&_nc_ht=scontent-msp1-1.xx&oh=b0e4b24aa980c1eb024cb79e2da09564&oe=60BBA183",
+        "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/105990717_10157082896541561_9222893570307527658_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=174925&_nc_ohc=9_D-xsFdLeEAX-aOQXM&_nc_ht=scontent-msp1-1.xx&oh=60636f981b6b74353e6c9253a89a6bf8&oe=60BE3C38"
     ]
 
     for num in range(100):
