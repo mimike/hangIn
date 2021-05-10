@@ -48,5 +48,20 @@
     border: none;
     justify-content: left;
     color: blue;
-    
+
 }
+.avatar-circle{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin: 10px;
+}
+.post-container{
+    margin-left: 10px;
+}
+.post-top{
+    order: 1;
+}
+.post-bottom{
+    order: 2;
+    }

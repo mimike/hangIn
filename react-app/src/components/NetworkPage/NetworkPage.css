@@ -67,10 +67,15 @@ body{
     border-radius: 20px;
     background: none;
     padding: 4px;
-    border: 0.5px solid rgb(30, 98, 199);
-    color:rgb(30, 98, 199);
+    border: 0.5px solid rgb(24, 36, 53);
+    color:rgb(55, 88, 138);
     font-weight:bold;
     cursor: pointer;
+}
+.connect-btn btn:hover{
+    /* box-shadow: 0 0 11px rgba(33,33,33,.2);
+    transition: box-shadow .3s;
+    opacity: 1; */
 }
 .profile-text{
     margin-top: 0px;
@@ -94,20 +99,33 @@ p{
     border-radius: 10px */
     font-size: 0.5rem;
 
+
 }
 .connect-btn {
-    width:
+
+    border: 1px solid rgb(60, 60, 196);
+    border-radius: 50px;
+    width: 140px;
+    height:25px;
+    margin-left: 20px;
+
+
+
+
 }
 .connect-link{
-
     /* width: 550px; */
     border-radius: 20px;
     background: none;
     padding: 4px;
-    border: 0.5px solid rgb(30, 98, 199);
+    cursor: pointer;
+    /* border: 0.5px solid rgb(30, 98, 199); */
     width: 400px;
+
     color: rgb(30, 98, 199);
     font-weight: bold;
     cursor: pointer;
+
+
 
 }

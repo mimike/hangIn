@@ -68,24 +68,93 @@ def post_post():
         return post.to_dict()
     return {'error': form.errors}, 401
 
-# PATCH a single post:
-# @post_routes.route('/<int:id>', methods=['PATCH'])
-# @login_required
-# def patch_post(id):
-#     form = PatchForm()
-#     post = Post.query.get(id)
-#     post.media_url = form.media_url.data
-#     post.text_body = form.text_body.data
-#     # only edit if the post belongs to the user
-#     # if Posts.author_id = author_id
-#     db.session.commit()
-#     return redirect('/')
+# PATCH a single post: //doesn't work??
+@post_routes.route('/<int:id>', methods=['PATCH'])
+@login_required
+def patch_post(id):
+    form = UploadForm()  #new instance of fomr
+    post = Post.query.get(id)
+    if(post.author_id == current_user.id): # front end needs
+        if(form.media_url.data):
+            post.media_url = form.media_url.data
+        if(form.text_body.data):
+            post.text_body = form.text_body.data
+        # only edit if the post belongs to the user
+        # if Posts.author_id = author_id
+        db.session.add(post)
+        db.session.commit()
+    return redirect('/')
 
-# DELETE a single post:
+# DELETE a single post: localhost:5000/api/posts/1 works
 @post_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_post(id):
     post = Post.query.get(id)
-    db.session.delete(post)
+    if(post):
+        db.session.delete(post)
+        db.session.commit()
+        return jsonify("deleted!")
+    return jsonify("failed")
+
+#GET all posts for a single User WORKS!
+#localhost:5000/api/posts/user/1
+@post_routes.route('/user/<int:id>')
+@login_required
+def get_user_posts(id):
+    posts = Post.query.filter_by(author_id=id).all()   
+    print("1111111111", posts)
+    return {"posts": [post.to_dict() for post in posts]}
+
+
+# Like a Post <3 ?? not tested
+# localhost5000:api/posts/like/3 likeId
+@post_routes.route('/<int:id>/like', methods=['POST'])
+@login_required
+def like_post(id):
+    like = PostLike(
+        user_id = current_user.id,
+        post_id = id
+    )
+    db.session.add(like)
     db.session.commit()
-    return redirect('/')
+    return like.to_dict()  # return {user_id: 3, post_id: 1} vs redirect ?
+
+
+#Unlike a Post
+#localhost5000:api/posts/comments/12
+# @post_routes('/like/<int:likeId', methods = ['DELETE'])
+# @login_required
+# def unlike_post(likeId):
+#     like = PostLike.query.get(likeId)
+#     db.session.delete(like)
+#     deb.session.commit()
+#     return {"like": "false"}
+
+
+# COMMENT ROUTES.....
+
+# POST a Comment  ?? not tested
+# localhost5000:api/posts/12/comments
+@post_routes.route('/<int:id>/comments', methods=['POST'])
+@login_required
+def post_comment(id):
+
+    print(request.json['comment'])
+
+    addedComment = Comment(
+        author_id = current_user.id,
+        post_id = id,  #error?
+        comment_text = request.json['commentText']  #frontend component useState not done
+    )
+    db.session.add(addedComment)
+    deb.session.commit()
+    return addedComment.to_dict() #redirect('/feed)
+
+#DELETE a Comment  ?? doesn't work.
+@post_routes.route('/<int:id>/comments', methods=['DELETE'])
+@login_required
+def delete_comment(commentId): #commentId frontEnd state varaiable name?
+    comment = Comment.query(commentId)
+    db.session.delete(commentId)
+    db.session.commit()
+    return redirect ('/feed')  # redirect vs return {"delete": "post deleted!"}

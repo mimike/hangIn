@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LogoutButton from '../auth/LogoutButton';
 import { logout } from "../../store/session";
-import pic from "../../../src/images/profilepic.jpg"
+
 import "./Navigation.css"
 
 function ProfileButton() {
     const history = useHistory();
     const dispatch = useDispatch();
+
+    const user = useSelector(state => state.session.user);
     // const sessionUser = useSelector(state => state.session.user)
 
     //const targetUser = useSelector(state => state.session.user) //target user
@@ -42,8 +44,8 @@ function ProfileButton() {
         <>
             <div className="drop-down">
               <button className="profile-button"  onClick={openMenu}>
-              <img alt="temporary photo" src={pic}/>
-              {/* <img src={user.avatar_url}/> */}
+
+              <img src={user.avatar_url}/>
               </button>
             </div>
             {showMenu && (

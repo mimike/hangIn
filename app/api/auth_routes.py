@@ -74,6 +74,7 @@ def sign_up():
 
     if (request.files):
         image = request.files["avatar"]
+        image2 = request.files["cover"]
 
         if not allowed_file(image.filename):
             return {"errors": "file type not permitted"}, 400
@@ -88,8 +89,8 @@ def sign_up():
             return upload, 400
         url = upload["url"]
         form['url'].data = url
-    print("at line 81!!")
-    print(upload, "uplaod!!")
+    # print("at line 81!!")
+    # print(upload, "uplaod!!")
     form['csrf_token'].data = request.cookies['csrf_token']
     print(request.get_json())
     if form.validate_on_submit():
@@ -102,6 +103,7 @@ def sign_up():
             email=request.form['email'],
             password=request.form['password'],
             avatar_url=url
+
         )
         db.session.add(user)
         db.session.commit()

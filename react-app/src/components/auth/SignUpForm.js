@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp, setUser } from '../../store/session';
 import "./SignUpForm.css"
 // import { Button, Form } from "react-bootstrap";
 
@@ -20,12 +20,14 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
+  const [cover, setCover] = useState(null);
   const [imageLoading, setImageLoading] = useState(false)
   const [edit, setEdit] = useState(false)
   // setImageLoading(true)
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
     const formData = new FormData()
     let response;
     formData.append("password", password)
@@ -37,10 +39,9 @@ const SignUpForm = () => {
     formData.append("state", state)
     formData.append("headline", headline)
     formData.append("avatar", avatar)
-
+    formData.append("cover", cover)
 
     if (password === repeatPassword) {
-
       response = await dispatch(signUp(formData));
     }; // formData instead of passing: firstName, lastName, city, state, headline, email, password, avatar
     if(response.ok){
@@ -89,6 +90,10 @@ const SignUpForm = () => {
 
   const updateAvatar= (e) => {
     setAvatar(e.target.files[0]);
+  };
+
+  const updateCover= (e) => {
+    setCover(e.target.files[0]);
   };
 
   if (user) {
@@ -226,13 +231,24 @@ const SignUpForm = () => {
             <form className="fourth-form-container">
               <h1>Add a Photo</h1>
               <div className="upload-avatar-box">
-                <label className="upload-label" htmlFor="file">Upload Profile Profile <i class="fas fa-upload"></i></label>
+                <label className="upload-label" htmlFor="file">Upload Profile Photo<i class="fas fa-upload"></i></label>
                     <input
                     id = "file"
                     className="input-file"
                     name = "image"
                     type = "file"
                     onChange = {updateAvatar}
+                    />
+              </div>
+
+              <div className="upload-avatar-box">
+                <label className="upload-label" htmlFor="file">Upload Cover Photo <i class="fas fa-upload"></i></label>
+                    <input
+                    id = "file"
+                    className="input-file"
+                    name = "image"
+                    type = "file"
+                    onChange = {updateCover}
                     />
               </div>
               <button className='continue-button' onClick={nextPage}>Continue</button>

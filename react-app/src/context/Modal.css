@@ -16,9 +16,10 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background: transparent;
-    /* background-color: rgba(0, 0, 0, 0.7); */
-    /* background-color: plum; */
+    /* background: transparent; */
+    background: rgba(240, 248, 255, 0.18);
+    background-color: rgba(26, 25, 25, 0.4);
+
   }
 
   #modal-content {

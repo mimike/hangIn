@@ -12,6 +12,8 @@ def users():
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
 
+    # return jsonify([user.to_dict() for user in users])  # for every value in users, we turn it into a dic, so now it's in a list/array instead of obj/dict
+
 # Get single user
 @user_routes.route('/<int:id>')
 @login_required

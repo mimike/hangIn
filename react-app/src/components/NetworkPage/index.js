@@ -13,8 +13,6 @@ function NetworkPage() {
   }, [dispatch])   //dependancy array {}
   return (
     <>
-
-      
         <div className="people">
           <h2>People you may know</h2>
         </div>

@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { uploadPost } from "../../store/posts"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import './UploadForm.css';
 import { Modal } from '../../context/Modal';
 
 const UploadForm = () => {
   let history = useHistory()
+  let user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState(false);
   const [mediaUrl, setMediaUrl] = useState("")
   const [textBody, setTextBody] = useState("")  //TEXTBODY
   const [photoCreated, setPhotoCreated] = useState()
   const [errors, setErrors] = useState([])
-  
+
   //when u submit, the post will be in the database and  when u redirect to /feed the post should be in the feed.
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,13 +42,23 @@ const UploadForm = () => {
 
     return (
       <>
-        <form onSubmit={handleSubmit}>
+        <div className="modal-container">
+        <form className="upload-post-form" onSubmit={handleSubmit}>
           {/* <ul>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </ul> */}
-          <h1>THE POST POPUP MODAL to post stuff!</h1>
+          <div className="top-modal">
+            <h1>Create a post</h1>
+          </div>
+
+          <div>
+            <img className="avatar-circle" alt="profile circle" src={user.avatar_url}/>
+          </div>
+          <div className="profile-name">
+            <p>{user.first_name} {user.last_name}</p>
+          </div>
 
           <div className="upload-image-box">
               <label className="upload-label" htmlFor="file"><i class="far fa-images" ></i></label>
@@ -73,8 +84,9 @@ const UploadForm = () => {
               <button>Start post</button>
             </div> */}
 
-          <button className="submit-button" type="submit">Poosst</button>
+          <button className="submit-button" type="submit">Post</button>
         </form>
+        </div>
       </>
     );
           };

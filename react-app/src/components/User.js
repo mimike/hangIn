@@ -1,29 +1,79 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsersThunk } from "../store/users"
 
+//profile page
 function User() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   // Notice we use useParams here instead of getting the params
   // From props.
   const { userId }  = useParams();
+  const people = useSelector(state => state.users)
+  // console.log("PERSON!", person)
 
   useEffect(() => {
-    if (!userId) {
-      return
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+    dispatch(getUsersThunk())
+  }, [dispatch])
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return
+  //   }
+  //   (async () => {
+  //     const response = await fetch(`/api/users/${userId}`);
+  //     // const user = await response.json();
+  //     // setUser(user);
+  //   })();
+  // }, [userId]);
 
   if (!user) {
     return null;
   }
-
+  const person = people[userId]
   return (
-    <ul>
+    <>
+
+      <div className="profile-page-container">
+              <div className="first-container">
+                  <div className="cover-container">
+                      <img className="cover-pic1" src={person?.cover_url} />
+                      <img className="avatar-pic1" src={person?.avatar_url} />
+                  </div>
+                  <div className="profile-text1">
+                      <h3 className="my-name">{person?.first_name} {person?.last_name}</h3>
+                      <h3 className="my-headline">{person?.headline}</h3>
+                  <div className="my-location">
+                    <h3>{person?.city}, {person?.state}</h3>
+                  </div>
+              </div>
+
+              </div>
+              <div className="middle-container">
+                  <div className="about-container">
+                    <h4>About</h4>
+                    <h5>My desire to create is what drove me to become a software developer. I love the process of conceptualizing an idea and using technology to engineer a solution. I have experience building dynamic, modern websites using Javascript, Python, React, Redux, Express, Flask-SQLAlchemy, HTML, and CSS.
+                      <h5>
+                        Main Discipline: Fabric
+                      </h5>
+
+                      <h5>
+                        Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
+                      </h5>
+
+                      <h5>
+                        Other: Coding, Collaborating, Crashing
+                      </h5>
+                    </h5>
+                  </div>
+
+              </div>
+              <div className="last-container">
+                <h4>Experience</h4>
+                <h5>As a Portfolio Analyst, it was my job to work closely with project managers and keep track of financial information and the status of projects. I met regularly with three project managers and reviewed project plans, analyzed possible risks a project might have, and submitted projects for approval to the program manager.</h5>
+              </div>
+            </div>
+    {/* <ul>
       <li>
         <strong>User Id</strong> {userId}
       </li>
@@ -33,7 +83,8 @@ function User() {
       <li>
         <strong>Email</strong> {user.email}
       </li>
-    </ul>
+    </ul> */}
+    </>
   );
 }
 export default User;

@@ -43,6 +43,7 @@ function App() {
           <Navigation />
             <NetworkPage />
         </Route>
+
         <Route path="/feed">
           <Navigation />
 
@@ -66,10 +67,11 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
 
-        <ProtectedRoute path="/users/:userId" exact={true} >
+        <Route path="/user/:userId" exact={true} >
           <Navigation />
           <User />
-        </ProtectedRoute>
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );

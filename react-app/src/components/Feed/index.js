@@ -1,16 +1,21 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getAllPosts} from "../../store/posts";
 import "./Feed.css"
 import UploadBox from "../UploadBox"
+// import Comments from "../Comments"
 
 function Feed() {
   const dispatch = useDispatch();
+
   const posts = useSelector(state => state.posts)
   console.log("POSTS", posts)
 
+  const [likeId, setLikeId] = useState()
+  const [postId, setPostId] = useState()
+  const [commentId, setCommentId] = useState()
+
   useEffect(()=> {
-    console.log("WEGOTTOHER11111EEEEELKkdfjlsfdjasl")
     dispatch(getAllPosts())
   }, [dispatch])   //dependancy array {}
   return (
@@ -33,6 +38,7 @@ function Feed() {
                           <img className="photo-post" alt="post-photo" src={post.media_url}/>
 
                           <div className="comment-container">
+                            {/* <Comments/> */}
                           <h1>add a comment:</h1>
                           <div>
                             <i class="far fa-thumbs-up"></i>

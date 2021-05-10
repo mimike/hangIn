@@ -6,7 +6,6 @@ import ProfileButton from "./ProfileDropDown";
 
 const Navigation = () => {
 
-
   return (
     <nav>
       <div className="nav-bar-container">
@@ -63,12 +62,12 @@ const Navigation = () => {
           </NavLink>
         </li>
 
-        <li>
+        {/* <li>
           <i class="fas fa-users"></i>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
             Sign Up
           </NavLink>
-        </li>
+        </li> */}
         {/* <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users

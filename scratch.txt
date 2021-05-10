@@ -1,3 +1,11 @@
+1. Delete routes
+2. Patch routes
+3. thunk for likePost / deletePost
+4. thunk for commentPost
+5. do you need an action for 
+
+
+
 Clone and create repo
 private not boxes checked
 git init
@@ -17,5 +25,3 @@ pipenv install Flask-DB
 flask db reset  delete all tables
 flask db init
 flask seed all
-
-

@@ -1,7 +1,7 @@
 const UPLOAD_POST = "posts/UPLOAD_POST"
 const DISPLAY_POSTS = "posts/DISPLAY_POSTS"
 
-const createPost = (submission) => ({
+const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
 })
@@ -20,8 +20,6 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
-
-    console.log("!!!!", submission)
     const res = await fetch("/api/posts", {
         method: "POST",
         body: formData
@@ -29,7 +27,6 @@ export const uploadPost = (submission) => async (dispatch) =>{
 }
 
 export const getAllPosts = () => async (dispatch) => {
-
     const response = await fetch('/api/posts/', {
         method: "GET",
     });
@@ -39,20 +36,56 @@ export const getAllPosts = () => async (dispatch) => {
         return posts
     }
 }
+export const getAllUserPosts = () => async dispatch => {
+    const response = await fetch ('api/posts/user/:id', )
+}
+//?
+export const likePost = (params) => async dispatch => {
+    const { post_id} = params;
+    const response = await fetch (`api/posts/${post_id}/like`, {
+        method: "POST",
+    })
+    const data = await response.json()
+}
+//?
+export const unlikePost = (params) => async dispatch => {
+    const { like_id} = params; //????
+    const response = await fetch (`api/posts/like/${like_id}`, {
+        method: "DELETE",
+    })
+    const data = await response.json()
+    return
+}
+//?
+export const commentPost = (submission) => async dispatch => {
+    const {postId, commentText} = submission
+    const formData = new FormData()
+    formData.append("commentText", commentText)
 
-export default function postsReducers(state = {}, action) {
+    const res = await fetch(`/api/posts/${postId}/comments`, {
+        method: "POST",
+        body: formData
+    })
+}
+
+const initialState = {}
+export default function postsReducers(posts = initialState, action) {
     switch (action.type) {
         case UPLOAD_POST:
-            //////////DO!!!!!!
-            return action.payload;
+
+            const postPayload = action.payload
+            const newPosts = {...posts}  //...we dont want to get rid of other posts
+            newPosts[postPayload.id] = postPayload
+            return newPosts
+
         case DISPLAY_POSTS:
             const postsPayload = action.payload
-            const newPosts = {}
+            const newAllPosts = {}
             for (const post of postsPayload.posts){
-                newPosts[post.id] = post
+                newAllPosts[post.id] = post
             }
-            return newPosts
+            return newAllPosts
         default:
-            return state;
+            return posts;
     }
 }

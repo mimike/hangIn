@@ -3,6 +3,7 @@ import { Modal } from '../../context/Modal';
 // import UploadBox from './UploadBox';
 import "./UploadForm.css"
 import UploadForm from "./UploadForm"
+import "./UploadForm.css"
 function UploadFormModal() {
   const [showModal, setShowModal] = useState(false);
 
