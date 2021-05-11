@@ -24,6 +24,8 @@ export const uploadPost = (submission) => async (dispatch) =>{
         method: "POST",
         body: formData
     })
+    return true;
+
 }
 
 export const getAllPosts = () => async (dispatch) => {
@@ -56,17 +58,27 @@ export const unlikePost = (params) => async dispatch => {
     const data = await response.json()
     return
 }
-//?
+//add a comment
 export const commentPost = (submission) => async dispatch => {
-    const {postId, commentText} = submission
-    const formData = new FormData()
-    formData.append("commentText", commentText)
-
-    const res = await fetch(`/api/posts/${postId}/comments`, {
+    console.log("!!", submission)
+    // const {postId} = submissions
+    // const formData = new FormData()
+    // formData.append("commentText", commentText)
+    // // console.log("Df!!")
+    // formData.append("postId", post_id)
+    const res = await fetch(`/api/posts/${submission.postId}/comments`, {
         method: "POST",
-        body: formData
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(submission)  // we send this to backend route it gets commited
+
     })
+
+    const data = await res.json()
+    return //? u have to return
 }
+
 
 const initialState = {}
 export default function postsReducers(posts = initialState, action) {

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import db, Post, PostLike, User, Skill, follows
+from app.models import db, Post, PostLike, User, Skill, Comment, follows
 from app.forms.upload_form import UploadForm
 # from app.forms.comment_form import CommentForm
 from app.awsS3 import (
@@ -26,7 +26,7 @@ def get_single_post(id):
 @post_routes.route('', methods=['POST'])
 @login_required
 def post_post():
-    print("POSTFORM")
+    
     form = UploadForm()
     data = request.json
     print("DATA!!!", data)
@@ -34,7 +34,6 @@ def post_post():
         return {"errors": "image required"}, 400
 
     media_url = request.files["mediaUrl"]
-
 
     if not allowed_file(media_url.filename):
         return {"errors": "file type not permitted"}, 400
@@ -101,7 +100,7 @@ def delete_post(id):
 @post_routes.route('/user/<int:id>')
 @login_required
 def get_user_posts(id):
-    posts = Post.query.filter_by(author_id=id).all()   
+    posts = Post.query.filter_by(author_id=id).all()
     print("1111111111", posts)
     return {"posts": [post.to_dict() for post in posts]}
 
@@ -118,7 +117,6 @@ def like_post(id):
     db.session.add(like)
     db.session.commit()
     return like.to_dict()  # return {user_id: 3, post_id: 1} vs redirect ?
-
 
 #Unlike a Post
 #localhost5000:api/posts/comments/12
@@ -138,16 +136,18 @@ def like_post(id):
 @post_routes.route('/<int:id>/comments', methods=['POST'])
 @login_required
 def post_comment(id):
-
-    print(request.json['comment'])
-
+    #print("!!!", request.form['commentText'])
+    print(request.get_json())
     addedComment = Comment(
         author_id = current_user.id,
-        post_id = id,  #error?
-        comment_text = request.json['commentText']  #frontend component useState not done
+        post_id = request.json["postId"],  #form vs .json
+        comment_text = request.json['commentText']
+        # author_id = current_user.id,
+        # post_id = id,  #error?
+        # comment_text = request.json['commentText']  #frontend component useState not done
     )
     db.session.add(addedComment)
-    deb.session.commit()
+    db.session.commit()
     return addedComment.to_dict() #redirect('/feed)
 
 #DELETE a Comment  ?? doesn't work.

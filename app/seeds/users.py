@@ -42,11 +42,11 @@ def seed_users():
 
     ]
 
-    demo = User(first_name="Mimi", last_name="Key", headline="Aerialist | Choreographer", city="Chicago", state="Illinois", avatar_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/102697356_10200707403385824_3446115515710983555_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=18Cw2BNBOIcAX9gFbZn&_nc_ht=scontent-msp1-1.xx&oh=7a413661ce5ac48712b9d554730ba5dc&oe=60BEC3AA", cover_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/32247261_4662155230221_6666452128644464640_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=19026a&_nc_ohc=vIh0ZNiE2yoAX9U8A_y&tn=P88s18J4M9h37Kox&_nc_ht=scontent-msp1-1.xx&oh=3cdfe1a83e5b357ec81ae5c463434b60&oe=60BC4E1C", email='demo@aa.io', password='password')
+    demo = User(first_name="Mimi", last_name="Key", headline="Aerialist | Choreographer", city="Chicago", state="Illinois", about="I've been a software engineer for more than two decades. I've coded in dozens of programming languages and worked with teams and companies of all sizes. I find value in working with diverse teams, because each individual can give new insights into any project, and my favorite aspect of my career has always been mentoring others. Now I get to use my skills and experience to instruct a new generation of programmers in the art of coding,", avatar_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/102697356_10200707403385824_3446115515710983555_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=18Cw2BNBOIcAX9gFbZn&_nc_ht=scontent-msp1-1.xx&oh=7a413661ce5ac48712b9d554730ba5dc&oe=60BEC3AA", cover_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/32247261_4662155230221_6666452128644464640_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=19026a&_nc_ohc=vIh0ZNiE2yoAX9U8A_y&tn=P88s18J4M9h37Kox&_nc_ht=scontent-msp1-1.xx&oh=3cdfe1a83e5b357ec81ae5c463434b60&oe=60BC4E1C", email='demo@aa.io', password='password')
     db.session.add(demo)
 
     for num in range(100):
-        user=User(first_name=faker.first_name_nonbinary(), last_name = faker.last_name(), headline = faker.job(), city = faker.city(), state = faker.state(), avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)], cover_url=new_list[random.randrange(0, len(new_list) -1)],email=faker.email(), password = faker.password(length=7))
+        user=User(first_name=faker.first_name_nonbinary(), last_name = faker.last_name(), headline = faker.job(), city = faker.city(), state = faker.state(), avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)], about=faker.paragraph(nb_sentences=6), cover_url=new_list[random.randrange(0, len(new_list) -1)],email=faker.email(), password = faker.password(length=7))
 
         db.session.add(user)
     db.session.commit()

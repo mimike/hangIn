@@ -100,6 +100,7 @@ def sign_up():
             city=request.form['city'],
             state=request.form['state'],
             headline=request.form['headline'],
+            about=request.form['about'],
             email=request.form['email'],
             password=request.form['password'],
             avatar_url=url

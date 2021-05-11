@@ -26,14 +26,12 @@ function User() {
   //     // setUser(user);
   //   })();
   // }, [userId]);
-
   if (!user) {
     return null;
   }
   const person = people[userId]
   return (
     <>
-
       <div className="profile-page-container">
               <div className="first-container">
                   <div className="cover-container">
@@ -48,25 +46,27 @@ function User() {
                   </div>
               </div>
 
-              </div>
-              <div className="middle-container">
+      </div>
+            <div className="middle-container">
                   <div className="about-container">
                     <h4>About</h4>
-                    <h5>My desire to create is what drove me to become a software developer. I love the process of conceptualizing an idea and using technology to engineer a solution. I have experience building dynamic, modern websites using Javascript, Python, React, Redux, Express, Flask-SQLAlchemy, HTML, and CSS.
-                      <h5>
+                    <h5>
+                      {person?.about}
+                    <h5/>
+
+                    <h5>
                         Main Discipline: Fabric
-                      </h5>
+                    </h5>
 
-                      <h5>
-                        Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
-                      </h5>
+                    <h5>
+                      Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
+                    </h5>
 
-                      <h5>
-                        Other: Coding, Collaborating, Crashing
-                      </h5>
+                    <h5>
+                      Other: Coding, Collaborating, Crashing
+                    </h5>
                     </h5>
                   </div>
-
               </div>
               <div className="last-container">
                 <h4>Experience</h4>

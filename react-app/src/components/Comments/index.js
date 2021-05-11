@@ -1,37 +1,38 @@
-import React from "react"
-import { commentPost } from '../../store/posts'; //logic not done!
+import React, {useState} from "react";
+import { commentPost } from '../../store/posts';
 import "./Comments.css"
-import { useDispatch } from "react-redux";
-
-function Comments(postId){
+import { useParams} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {getAllPosts} from "../../store/posts";
+function Comments({post_id}){
     const dispatch = useDispatch()
 
-    const [comment, setComment] = useState("")
+    const [commentText, setCommentText] = useState("")
+
+
     const updateComment = (e) => {
-        setComment(e.target.value)
+        setCommentText(e.target.value)
     }
-
-    //when a user submits their comment, it should populate the posts comment and redirect to that post with the new comments
-    const handleCommentSubmit = async(e) => {
+    const handleCommentSubmit = (e) => {
+        console.log("!!!!!")
         e.preventDefault()
-        const params = { author_id, post_id, comment_text }  //camelcase?
-        //or const formData = new FormData()
-        //form.append("comment", comment)
+        const params = { postId: post_id, commentText }  //camelcase?
         dispatch(commentPost(params))
+        dispatch(getAllPosts())
 
-        
     }
+
     return(
         <>
         <form className= "comment-form" onSubmit={handleCommentSubmit}>
             <input
                 className="comment-input"
                 type="text"
-                value={comment}
+                value={commentText}
                 placeholder="Write stuff here"
-                onChange={setComment}
+                onChange={updateComment}
             />
-            <button className="post-comment">Post</button>
+            <button type="submit" className="post-comment">Post</button>
         </form>
         </>
     )

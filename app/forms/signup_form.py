@@ -21,7 +21,9 @@ class SignUpForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     headline = StringField('headline')
+    about = StringField('about')
     url = StringField('avatarUrl')
     cover = StringField('coverUrl')
+
 
     # firstName references frontend signnpform

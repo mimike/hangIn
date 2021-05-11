@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
   headline = db.Column(db.String())
   city = db.Column(db.String(), nullable = False)
   state = db.Column(db.String(), nullable = False)
+  about = db.Column(db.Text)
   avatar_url = db.Column(db.Text)
   cover_url = db.Column(db.Text)
   email = db.Column(db.String(), nullable = False, unique = True)
@@ -48,7 +49,8 @@ class User(db.Model, UserMixin):
   #User.user_post_likes gives an array of all the user's likes
 
   comments = db.relationship(
-    "Comment", backref="user", cascade="all, delete"
+    "Comment", back_populates="user", cascade="all, delete"
+    #comment.py line 14 relationship back_populates="comments"
   )
 
 
@@ -74,6 +76,7 @@ class User(db.Model, UserMixin):
       "headline": self.headline,
       "city": self.city,
       "state": self.state,
+      "about": self.about,
       "avatar_url": self.avatar_url,
       "cover_url": self.cover_url,
       "email": self.email

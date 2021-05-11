@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
-import { uploadPost } from "../../store/posts"
+import { uploadPost, getAllPosts } from "../../store/posts"
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import './UploadForm.css';
 import { Modal } from '../../context/Modal';
 
 const UploadForm = () => {
-  let history = useHistory()
-  let user = useSelector(state => state.session.user)
+  const history = useHistory()
+  const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState(false);
   const [mediaUrl, setMediaUrl] = useState("")
   const [textBody, setTextBody] = useState("")  //TEXTBODY
   const [photoCreated, setPhotoCreated] = useState()
   const [errors, setErrors] = useState([])
+  let close = document.getElementById("modal-background")
+
 
   //when u submit, the post will be in the database and  when u redirect to /feed the post should be in the feed.
   const handleSubmit = async (e) => {
     e.preventDefault();
    const submission = { mediaUrl, textBody }
-   return dispatch(uploadPost(submission))
+
+   const success = await dispatch(uploadPost(submission))
+   if(success){
+    dispatch(getAllPosts())
+    close.click()
+   }
     history.push('/feed')
   }
 
@@ -31,6 +38,9 @@ const UploadForm = () => {
   const updateTextBody = (e) => {
     setTextBody(e.target.value)
   }
+//CLOSE is the background of the modal
+//Close.click()
+
 
 // const onPost = async (e) => {
 //     e.preventDefault();
@@ -42,6 +52,7 @@ const UploadForm = () => {
 
     return (
       <>
+      
         <div className="modal-container">
         <form className="upload-post-form" onSubmit={handleSubmit}>
           {/* <ul>
@@ -85,6 +96,7 @@ const UploadForm = () => {
             </div> */}
 
           <button className="submit-button" type="submit">Post</button>
+
         </form>
         </div>
       </>

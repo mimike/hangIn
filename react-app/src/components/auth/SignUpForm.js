@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { signUp, setUser } from '../../store/session';
+//import {ListItem} from "react-native-elements"
 import "./SignUpForm.css"
 // import { Button, Form } from "react-bootstrap";
 
@@ -21,6 +22,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const [cover, setCover] = useState(null);
+  const [about, setAbout] = useState(null);
   const [imageLoading, setImageLoading] = useState(false)
   const [edit, setEdit] = useState(false)
   // setImageLoading(true)
@@ -40,6 +42,7 @@ const SignUpForm = () => {
     formData.append("headline", headline)
     formData.append("avatar", avatar)
     formData.append("cover", cover)
+    // formData.append("about", about)
 
     if (password === repeatPassword) {
       response = await dispatch(signUp(formData));
@@ -83,6 +86,10 @@ const SignUpForm = () => {
   const updateState= (e) => {
     setState(e.target.value);
   };
+
+  const updateAbout = (e) => {
+    setAbout(e.target.value);
+  }
 
   const updateHeadline= (e) => {
     setHeadline(e.target.value);
@@ -152,7 +159,7 @@ const SignUpForm = () => {
             </div>
             {!edit &&<button className='continue-button' onClick={nextPage}>Continue</button>}
 
-            {edit && <button className='continue-btn first-continue' onClick={() => setPageNumber(4)}>Update</button>}
+            {/* {edit && <button className='back-button' onClick={prevPage}>Back</button>} */}
         </form>
 
         )}
@@ -188,13 +195,24 @@ const SignUpForm = () => {
               <input
                 type="text"
                 name="headline"
-                // placeholder="Headline"
+                placeholder=""
                 onChange={updateHeadline}
                 value={headline}
               ></input>
             </div>
+            <div>
+              <label>About</label>
+              <input
+                type="textarea"
+                name="about"
+                placeholder=""
+                onChange={updateAbout}
+                value={about}
+              ></input>
+            </div>
+
             <button className='continue-button' onClick={nextPage}>Continue</button>
-            {edit && <button className='continue-btn first-continue' onClick={() => setPageNumber(4)}>Update</button>}
+            {!edit && <button className='back-button' onClick={prevPage}>Back</button>}
           </form>
         )}
 
@@ -223,7 +241,7 @@ const SignUpForm = () => {
           </div>
 
           <button className='continue-button' onClick={nextPage}>Continue</button>
-          {edit && <button className='continue-btn first-continue' onClick={() => setPageNumber(4)}>Update</button>}
+          {!edit && <button className='back-button' onClick={prevPage}>Back</button>}
         </form>
         )}
 
@@ -253,31 +271,41 @@ const SignUpForm = () => {
               </div>
               <button className='continue-button' onClick={nextPage}>Continue</button>
               {imageLoading && <div>Uploading...</div>}
-              {edit && <button className='continue-btn first-continue' onClick={() => setPageNumber(4)}>Update</button>}
+              {edit && <button className='back-button' onClick={prevPage}>Back</button>}
           </form>
 
         )}
         {pageNumber === 4 &&(
-          <div>
-            <h4>Is this info correct?!</h4>
-             <input
-                value = {firstName}
-                    />
-              <input
-              value = {lastName}
-              />
-              <input
-              value = {city}
-              />
-              <input
-              value = {state}
-              /><input
+          <div className='validate_form'>
+            <h4>Please check if this information is correct</h4>
+             <h5>
+                First name: {firstName}
+                </h5>
+              <h5>
+              Last name: {lastName}
+              </h5>
+              <h5>
+              City: {city}
+              </h5>
+              <h5>
+              State: {state}
+              </h5>
+
+              <h5>
               value = {headline}
-              />
-              <input
-              value = {avatar}
-              />
-            <button className="back-it-up" onClick={() => setPageNumber(0)}>Start over Update</button>
+              </h5>
+
+              <h5>
+              Email: {email}
+              </h5>
+
+              <h5>
+              About: {about}
+              </h5>
+              {/* <input
+              value = {cover}
+              /> */}
+            <button className="back-it-up" onClick={() => setPageNumber(0)}>Start Over Update</button>
             <h4>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</h4>
             <button className="submit-button" onClick={onSignUp}>Agree & Join</button>
           </div>
