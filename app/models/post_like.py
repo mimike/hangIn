@@ -14,3 +14,11 @@ class PostLike(db.Model):
     # since it's backref, we don't have to have the association here but.... like_post,
     #  PostLike.like_post.author_id
     # getting all the posts associated with the likes (of the author )
+    def to_dict(self):   #{id: asdf, username: asdf}
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "post_id": self.post_id
+
+            #{id: 34, author: {id: 3, firstname: mimi, etc}}
+        }

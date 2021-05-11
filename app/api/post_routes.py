@@ -26,7 +26,7 @@ def get_single_post(id):
 @post_routes.route('', methods=['POST'])
 @login_required
 def post_post():
-    
+
     form = UploadForm()
     data = request.json
     print("DATA!!!", data)
@@ -136,15 +136,13 @@ def like_post(id):
 @post_routes.route('/<int:id>/comments', methods=['POST'])
 @login_required
 def post_comment(id):
-    #print("!!!", request.form['commentText'])
-    print(request.get_json())
+    #print(request.form['commentText'])
+    #print(request.get_json())
     addedComment = Comment(
         author_id = current_user.id,
         post_id = request.json["postId"],  #form vs .json
         comment_text = request.json['commentText']
-        # author_id = current_user.id,
-        # post_id = id,  #error?
-        # comment_text = request.json['commentText']  #frontend component useState not done
+        
     )
     db.session.add(addedComment)
     db.session.commit()

@@ -9,17 +9,15 @@ function Comments({post_id}){
 
     const [commentText, setCommentText] = useState("")
 
-
     const updateComment = (e) => {
         setCommentText(e.target.value)
     }
     const handleCommentSubmit = (e) => {
         console.log("!!!!!")
         e.preventDefault()
-        const params = { postId: post_id, commentText }  //camelcase?
+        const params = { postId: post_id, commentText }
         dispatch(commentPost(params))
         dispatch(getAllPosts())
-
     }
 
     return(
