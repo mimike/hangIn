@@ -249,7 +249,7 @@ const SignUpForm = () => {
             <form className="fourth-form-container">
               <h1>Add a Photo</h1>
               <div className="upload-avatar-box">
-                <label className="upload-label" htmlFor="file">Upload Profile Photo<i class="fas fa-upload"></i></label>
+                <label className="upload-profile-label" htmlFor="file">Upload Profile Photo<i class="fas fa-upload"></i></label>
                     <input
                     id = "file"
                     className="input-file"
@@ -260,7 +260,7 @@ const SignUpForm = () => {
               </div>
 
               <div className="upload-avatar-box">
-                <label className="upload-label" htmlFor="file">Upload Cover Photo <i class="fas fa-upload"></i></label>
+                <label className="upload-cover-label" htmlFor="file">Upload Cover Photo <i class="fas fa-upload"></i></label>
                     <input
                     id = "file"
                     className="input-file"
@@ -292,7 +292,7 @@ const SignUpForm = () => {
               </h5>
 
               <h5>
-              value = {headline}
+              Headline = {headline}
               </h5>
 
               <h5>

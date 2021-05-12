@@ -69,8 +69,17 @@ const UploadForm = () => {
             <p>{user.first_name} {user.last_name}</p>
           </div>
 
+          <div className="start-post-container">
+                <textarea className="post-box"
+                type="text"
+                value = {textBody}
+                placeholder = "What do u wanna talk about?"
+                onChange = {updateTextBody}
+                />
+          </div>
+
           <div className="upload-image-box">
-              <label className="upload-label" htmlFor="file"><i class="far fa-images" ></i></label>
+              <label className="upload-post-label" htmlFor="file"><i class="far fa-images" ></i></label>
                   <input
                   id = "file"
                   className="input-file"
@@ -80,14 +89,7 @@ const UploadForm = () => {
                   />
           </div>
 
-          <div className="start-post-container">
-                <textarea className="post-box"
-                type="text"
-                value = {textBody}
-                placeholder = "What do u wanna talk about?"
-                onChange = {updateTextBody}
-                />
-          </div>
+
 
             {/* <div className="click-to-post">
               <button>Start post</button>
