@@ -105,7 +105,7 @@ def get_user_posts(id):
     return {"posts": [post.to_dict() for post in posts]}
 
 
-# Like a Post <3 ?? not tested
+# Like a Post <3 WORKS!
 # localhost5000:api/posts/like/3 likeId
 @post_routes.route('/<int:id>/like', methods=['POST'])
 @login_required
@@ -118,15 +118,16 @@ def like_post(id):
     db.session.commit()
     return like.to_dict()  # return {user_id: 3, post_id: 1} vs redirect ?
 
-#Unlike a Post
+#Unlike a Post WORKS!!
 #localhost5000:api/posts/comments/12
-# @post_routes('/like/<int:likeId', methods = ['DELETE'])
-# @login_required
-# def unlike_post(likeId):
-#     like = PostLike.query.get(likeId)
-#     db.session.delete(like)
-#     deb.session.commit()
-#     return {"like": "false"}
+@post_routes.route('/like/<int:likeId>', methods = ['DELETE'])
+@login_required
+def unlike_post(likeId):
+    like = PostLike.query.get(likeId)
+    post = Post.query.filter(Post.id == like.post_id)
+    db.session.delete(like)
+    db.session.commit()
+    return {"like": "false"}
 
 
 # COMMENT ROUTES.....
@@ -142,7 +143,7 @@ def post_comment(id):
         author_id = current_user.id,
         post_id = request.json["postId"],  #form vs .json
         comment_text = request.json['commentText']
-        
+
     )
     db.session.add(addedComment)
     db.session.commit()

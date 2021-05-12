@@ -13,19 +13,18 @@ function UploadBox(){
 
     return (
         <>
-          <div className="post-container">
-            <div className="post-top">
 
+
+            <div className="post-top">
               <img className="avatar-circle" alt="circle" src={user.avatar_url}/>
             </div>
 
             <div className="post-bottom">
-
             <UploadModal/>
             </div>
 
 
-          </div>
+          
         </>
     )
 }

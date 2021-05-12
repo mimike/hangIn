@@ -2,6 +2,16 @@
     border: 1px solid gray;
     border-radius: 20px;
     margin: 50px;
+}
+.post-top {
+    display: flex;
+    align-items: center;
+}
+.avatar-circle {
+
+}
+.post-container{
+    margin: 10px;
 
 }
 .start-post-container{
@@ -15,13 +25,7 @@
     border-radius: 15px;
     display:flex;
 }
-/* textarea{
-    width: 450px;
-    padding-left: 10px;
-    height: 65.5px;
-    resize: none;
-    font-size: 14px;
-} */
+
 .start-post-container button{
     background: transparent;
     padding: 5px;
@@ -56,12 +60,3 @@
     border-radius: 100%;
     margin: 10px;
 }
-.post-container{
-    margin-left: 10px;
-}
-.post-top{
-    order: 1;
-}
-.post-bottom{
-    order: 2;
-    }

@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import {useLocation} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import {getAllPosts} from "../../store/posts";
 import "./Feed.css"
+import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
 import Comments from "../Comments"
 import Likes from "../Likes"
 
+import { generatePath } from "react-router";
+
 function Feed() {
-  console.log("is this?!?!?")
+  const history = useHistory()
   const dispatch = useDispatch();
 
   const [displayPosts, setDisplayPosts] = useState([])
@@ -24,11 +28,22 @@ function Feed() {
   }, [dispatch])   //dependancy array {}
   // history.push('/feed')
 
+  const profileLink = id => {
+    console.log("ID", id)
+    const location = {
+      //here to grab that id
+      pathname: `/user/${id}`
+    }
+    console.log(location.pathname, "LOCAT")
+    history.push(location.pathname)
+  }
 
-
+  // generatePath("/user/:id:entity(")
   return (
     <>
-        <UploadBox/>
+        <div className="upload-box-container">
+          <UploadBox/>
+        </div>
         <div className="feed-container">
           <div className="post-container">
               {Object.values(displayPosts).map((post, index) => {
@@ -50,9 +65,17 @@ function Feed() {
                             <Comments post_id={post.id}/>
 
                             {post.comments.map((comment, index) => {
+                              const commenterId = comment.author_id
+                              // console.log("COMEnterid", commenterId)
                               return(
                                 <div className= "comment-by" key={`${post.id}-${comment.id}`}>
-                                  <div className="user-by">{comment.user}</div>
+                                    <div className="click-me" id = {commenterId} onClick={()=> profileLink(commenterId)}>
+                                      <img className="comment-photo" src={comment.photo}/>
+                                    </div>
+
+                                  <div
+                                  onClick={()=> profileLink(commenterId)} className="user-by">{comment.user}
+                                  </div>
                                   <div className="comment-text">{comment.comment_text}</div>
                                 </div>
                               )

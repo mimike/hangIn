@@ -1,6 +1,17 @@
 const UPLOAD_POST = "posts/UPLOAD_POST"
 const DISPLAY_POSTS = "posts/DISPLAY_POSTS"
+const ADD_LIKE = "posts/ADD_LIKE"
+const REMOVE_LIKE = "posts/REMOVE_LIKE"
 
+const addLike = (postId) => ({
+    type: ADD_LIKE,
+    payload: postId
+
+})
+const removeLike = (postId) => ({
+    type: REMOVE_LIKE,
+    payload: postId
+})
 const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
@@ -10,6 +21,7 @@ const displayPosts = (posts) => ({
     type: DISPLAY_POSTS,
     payload: posts
 })
+
 
 export const uploadPost = (submission) => async (dispatch) =>{
     const { mediaUrl, textBody } = submission  //textbody!
@@ -25,7 +37,6 @@ export const uploadPost = (submission) => async (dispatch) =>{
         body: formData
     })
     return true;
-
 }
 
 export const getAllPosts = () => async (dispatch) => {
@@ -41,21 +52,31 @@ export const getAllPosts = () => async (dispatch) => {
 export const getAllUserPosts = () => async dispatch => {
     const response = await fetch ('api/posts/user/:id', )
 }
-//?
+
 export const likePost = (params) => async dispatch => {
     const { post_id} = params;
     const response = await fetch (`api/posts/${post_id}/like`, {
         method: "POST",
     })
     const data = await response.json()
+    if(response.ok){
+        dispatch(addLike(post_id))
+        return true;
+    }
 }
 //?
 export const unlikePost = (params) => async dispatch => {
-    const { like_id} = params; //????
+    const { like_id } = params;
     const response = await fetch (`api/posts/like/${like_id}`, {
         method: "DELETE",
     })
+   //we need the postId b/c its not in params
+
     const data = await response.json()
+    // if(response.ok){
+    //     dispatch(removeLike(post_id))
+    //     return true;
+    //}
     return
 }
 //add a comment
@@ -64,8 +85,8 @@ export const commentPost = (submission) => async dispatch => {
     // const {postId} = submissions
     // const formData = new FormData()
     // formData.append("commentText", commentText)
-    // // console.log("Df!!")
     // formData.append("postId", post_id)
+
     const res = await fetch(`/api/posts/${submission.postId}/comments`, {
         method: "POST",
         headers: {

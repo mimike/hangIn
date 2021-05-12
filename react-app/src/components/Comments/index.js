@@ -27,7 +27,7 @@ function Comments({post_id}){
                 className="comment-input"
                 type="text"
                 value={commentText}
-                placeholder="Write stuff here"
+                placeholder="Add a comment"
                 onChange={updateComment}
             />
             <button type="submit" className="post-comment">Post</button>

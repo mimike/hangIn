@@ -22,7 +22,8 @@ class Comment(db.Model):
                 "post_id": self.post_id,
                 "author_id": self.author_id,
                 "comment_text": self.comment_text,
-                "user": self.user.first_name + " " + self.user.last_name
+                "user": self.user.first_name + " " + self.user.last_name,
+                "photo": self.user.avatar_url
                 # "user_last": self.user.last_name
                 # "comment_author": current_user
             }

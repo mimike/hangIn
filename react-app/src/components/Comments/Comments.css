@@ -1,0 +1,19 @@
+.comment-form [type=text]{
+    width: 80%;
+    border-radius: 30px;
+    margin: 30px;
+}
+.post-comment{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 3333px 0; */
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    opacity: 0.5;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}

@@ -16,10 +16,10 @@ const Navigation = () => {
           </a>
           </li>
 
-          <button className="search-btn" type="button">
+          {/* <button className="search-btn" type="button">
             <li-icon  type="search-icon" className="search-icon"><i class="fas fa-search"></i> </li-icon>
             <div className="searching"> Search</div>
-          </button>
+          </button> */}
           <form action="/" method="get">
             <label htmlFor="header-search">
                 <span className="visually-hidden"></span>
@@ -52,15 +52,15 @@ const Navigation = () => {
         <li>
           <i class="fas fa-briefcase"></i>
           <NavLink to="/feed" exact={true} activeClassName="active">
-            Jobs
+            Feed
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <i class="fas fa-users"></i>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
-        </li>
+        </li> */}
 
         {/* <li>
           <i class="fas fa-users"></i>

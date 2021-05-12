@@ -1,15 +1,24 @@
-.post-container{
-    border: 1px solid gray;
-
-}
 .post-box{
     border: 1px solid rgb(216, 213, 213);
     border-radius: 70px;
     margin: 20px;
     height: 50px;
 
+}
+.upload-box-container{
+    display: flex;
+    border: 1px solid lightgray;
 
 }
+
+.avatar-circle{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-circle img{
+    align-items: center;
+}
+
 .post-box button{
     border: 1px solid gray;
     background: none;
@@ -20,6 +29,7 @@
     text-align: left;
     margin-left: 20px;
     margin-top: 15px;
+
 }
 
 .upload-post-form{
