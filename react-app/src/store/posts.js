@@ -1,27 +1,30 @@
 const UPLOAD_POST = "posts/UPLOAD_POST"
 const DISPLAY_POSTS = "posts/DISPLAY_POSTS"
+
 const ADD_LIKE = "posts/ADD_LIKE"
 const REMOVE_LIKE = "posts/REMOVE_LIKE"
+const SET_LIKES = "posts/SET_LIKES"
 
+const createPost = (submission) => ({  //not calling this
+    type: UPLOAD_POST,
+    payload: submission
+})
+const displayPosts = (posts) => ({
+    type: DISPLAY_POSTS,
+    payload: posts
+})
 const addLike = (postId) => ({
     type: ADD_LIKE,
     payload: postId
-
 })
 const removeLike = (postId) => ({
     type: REMOVE_LIKE,
     payload: postId
 })
-const createPost = (submission) => ({  //not calling this
-    type: UPLOAD_POST,
-    payload: submission
+const setLikes = (info) => ({
+    type: SET_LIKES,
+    payload: info
 })
-
-const displayPosts = (posts) => ({
-    type: DISPLAY_POSTS,
-    payload: posts
-})
-
 
 export const uploadPost = (submission) => async (dispatch) =>{
     const { mediaUrl, textBody } = submission  //textbody!
@@ -53,6 +56,19 @@ export const getAllUserPosts = () => async dispatch => {
     const response = await fetch ('api/posts/user/:id', )
 }
 
+
+export const getPostLikes = (post_id) => async dispatch => {
+    const response = await fetch (`api/posts/${post_id}`, {
+        headers: { 'Content-Type': 'application/json'}
+
+    })
+
+    if (response.ok){
+        const likes = await response.json()
+        dispatch(setLikes(likes))
+    }
+}
+
 export const likePost = (params) => async dispatch => {
     const { post_id} = params;
     const response = await fetch (`api/posts/${post_id}/like`, {
@@ -64,6 +80,7 @@ export const likePost = (params) => async dispatch => {
         return true;
     }
 }
+
 //?
 export const unlikePost = (params) => async dispatch => {
     const { like_id } = params;
@@ -79,6 +96,7 @@ export const unlikePost = (params) => async dispatch => {
     //}
     return
 }
+
 //add a comment
 export const commentPost = (submission) => async dispatch => {
     console.log("!!", submission)
@@ -100,7 +118,6 @@ export const commentPost = (submission) => async dispatch => {
     return //? u have to return
 }
 
-
 const initialState = {}
 export default function postsReducers(posts = initialState, action) {
     switch (action.type) {
@@ -118,6 +135,10 @@ export default function postsReducers(posts = initialState, action) {
                 newAllPosts[post.id] = post
             }
             return newAllPosts
+
+        case SET_LIKES:
+            console.log("STATE", posts)
+            console.log("PAYLOAD", action.payload)
         default:
             return posts;
     }

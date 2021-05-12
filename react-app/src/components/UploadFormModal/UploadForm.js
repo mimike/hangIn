@@ -15,10 +15,9 @@ const UploadForm = () => {
   const [textBody, setTextBody] = useState("")  //TEXTBODY
   const [photoCreated, setPhotoCreated] = useState()
   const [errors, setErrors] = useState([])
+
   let close = document.getElementById("modal-background")
 
-
-  //when u submit, the post will be in the database and  when u redirect to /feed the post should be in the feed.
   const handleSubmit = async (e) => {
     e.preventDefault();
    const submission = { mediaUrl, textBody }
@@ -38,8 +37,7 @@ const UploadForm = () => {
   const updateTextBody = (e) => {
     setTextBody(e.target.value)
   }
-//CLOSE is the background of the modal
-//Close.click()
+
 
 
 // const onPost = async (e) => {
@@ -52,7 +50,7 @@ const UploadForm = () => {
 
     return (
       <>
-      
+
         <div className="modal-container">
         <form className="upload-post-form" onSubmit={handleSubmit}>
           {/* <ul>

@@ -1,11 +1,11 @@
 1. Delete routes
 2. Patch routes
 3. thunk for likePost / deletePost
-4. thunk for commentPost
-5. do you need an action for
+
 
 things to do:
 error handling for users
+likes/unlikes
 
 
 Clone and create repo

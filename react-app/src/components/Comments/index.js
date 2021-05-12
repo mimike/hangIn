@@ -1,3 +1,4 @@
+//this component is the add a comment and post button
 import React, {useState} from "react";
 import { commentPost } from '../../store/posts';
 import "./Comments.css"
@@ -32,6 +33,7 @@ function Comments({post_id}){
             />
             <button type="submit" className="post-comment">Post</button>
         </form>
+        {/* <button type="submit" className="see-comments">Comments</button> */}
         </>
     )
 }

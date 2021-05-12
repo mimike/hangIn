@@ -17,3 +17,17 @@
     margin-left: 10px;
     margin-bottom: 20px;
 }
+.see-comments{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    opacity: 0.5;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}

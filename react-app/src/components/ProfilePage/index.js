@@ -1,3 +1,4 @@
+//this needs to be deleted after refactoring to User.js
 import React from 'react';
 import "./ProfilePage.css"
 import ProfileTile from "../NetworkPage/ProfileTile"

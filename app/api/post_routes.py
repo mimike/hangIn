@@ -20,6 +20,9 @@ def get_posts():
 @login_required
 def get_single_post(id):
     post = Post.query.get(id)
+    #likes = PostLike.query.filter(PostLike.post_id == id)
+
+
     return {"post": post.to_dict()}
 
 # POST a single post:
@@ -104,6 +107,7 @@ def get_user_posts(id):
     print("1111111111", posts)
     return {"posts": [post.to_dict() for post in posts]}
 
+#GET all likes for a Post
 
 # Like a Post <3 WORKS!
 # localhost5000:api/posts/like/3 likeId

@@ -2,7 +2,7 @@ from app.models import db, PostLike
 import random
 
 def seed_post_likes():
-    for num in range(200):
+    for num in range(50):
         post_like = PostLike(user_id=random.randrange(1,31), post_id=random.randrange(1,31))
         db.session.add(post_like)
 
