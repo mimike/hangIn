@@ -1,7 +1,7 @@
 .comment-form [type=text]{
     width: 80%;
     border-radius: 30px;
-    margin: 30px;
+
 }
 .post-comment{
     background-color: #04AA6D;
@@ -30,4 +30,21 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
+}
+.user-comment-box{
+    margin-top: 10px;
+
+    padding-top: 20px;
+    /* flex-direction: row; */
+}
+.avatar-circle-comment{
+    order: 1;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+}
+.comment-form [type=text]{
+    order: 2;
+
 }

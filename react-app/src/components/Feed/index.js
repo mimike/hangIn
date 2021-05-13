@@ -36,7 +36,6 @@ useEffect(()=> {
   //   dispatch(getAllPosts())
   // }
 
-
   return (
     <>
         <div className="upload-box-container">
@@ -59,19 +58,20 @@ useEffect(()=> {
 
                           <li className="text-post" >{post.text_body}</li>
                           <img className="photo-post" alt="post-photo" src={post.media_url}/>
-
-                          <div>
-                              <Likes post={post}/>
-                          </div>
-
-
-                          <div className="num-comments-icon">
-                                <i class="far fa-comment-dots commented"></i>
-                          <div/>
-                                <div className="comment-numbers">
-                                  {posts[post.id].num_comments}
-                                </div>
+                          <div className="likes-comments-icon-container">
+                            <div>
+                                <Likes post={post}/>
                             </div>
+
+
+                            <div className="num-comments-icon">
+                                  <i class="far fa-comment-dots commented"></i>
+                            <div/>
+                                  <div className="comment-numbers">
+                                    {posts[post.id].num_comments}
+                                  </div>
+                              </div>
+                          </div>
 
                           <div className="comment-container" >
                           <CommentsBoxModal/>

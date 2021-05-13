@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 // import { } from "../../store/posts"
 import "./Likes.css"
+import "../Feed/Feed.css"
 import {likePost, unlikePost} from "../../store/posts"
 // Post Likes / Unlikes
 function Likes({post}) {
