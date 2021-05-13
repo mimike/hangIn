@@ -19,6 +19,7 @@ function Comments({post_id}){
         const params = { postId: post_id, commentText }
         dispatch(commentPost(params))
         dispatch(getAllPosts())
+        //dispatch(getAllPosts()) limit(10)
     }
 
     return(

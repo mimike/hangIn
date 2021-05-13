@@ -4,7 +4,7 @@
 .upload-box-container{
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid grey;
+
 }
 .post-container{
     border-radius: 10px;
@@ -12,12 +12,15 @@
     text-align: left;
     display: inline-block;
     align-items: center;
+    padding: 3px;
 }
 
 .single-post{
     width: 600px;
     height: auto;
-    border: 0.5px solid gray;
+
+    border: 1px solid rgb(226, 219, 219);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
     border-radius: 5px;
     margin: 60px;
     margin-bottom: 20px;

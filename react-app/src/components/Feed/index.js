@@ -15,26 +15,18 @@ function Feed() {
   const dispatch = useDispatch();
   const [displayPosts, setDisplayPosts] = useState([])
   const posts = useSelector(state => state.posts)
-  // console.log("POSTS", posts)
+  const user = useSelector(state =>  state.session.user)
+
   //const comments = posts[postId]  //this logic??
 
-  //when i do line 31- infin loop
-  // useEffect(() =>  {
-  //   setDisplayPosts(posts)
-  // }, [posts])
+useEffect(() =>  {
+  setDisplayPosts(posts)
+}, [posts])
 
-  // useEffect(()=> {
-  //   dispatch(getAllPosts())
-  // }, [dispatch])
+useEffect(()=> {
+  dispatch(getAllPosts())
+}, [dispatch])   //dependancy array {}
 
-  useEffect(() =>  {
-    setDisplayPosts(posts)
-  }, [posts])
-
-  useEffect(()=> {
-    dispatch(getAllPosts())
-  }, [dispatch])   //dependancy array {}
-  history.push('/feed')
 
   const profileLink = id => {
     history.push(`/user/${id}`)
@@ -93,7 +85,7 @@ function Feed() {
                             })}
 
                             <div>
-                              <Likes/>
+                              <Likes post={post}/>
                             </div>
 
                           </div>

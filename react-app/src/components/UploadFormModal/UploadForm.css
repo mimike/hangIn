@@ -1,13 +1,32 @@
-.post-box{
+.post2-box{
     border: 1px solid rgb(216, 213, 213);
     border-radius: 70px;
-    margin: 20px;
-    height: 50px;
+    margin: 10px;
+    margin-left: 4px;
+    height: 40px;
+    text-decoration: none;
+    border: none;
+    /* background: #f1f1f1; */
+    border: 1px solid rgb(216, 213, 213);
+    border-radius: 10px;
+    margin-left: 4px;
+    height: 120px;
+    text-decoration: none;
+    border: none;
+    width: 600px;
 
 }
+.modal-container{
+    border-radius: 20px;
+    border: none;
+}
 .upload-box-container{
+    margin-top: 40px;
     display: flex;
-    border: 1px solid lightgray;
+
+}
+.on-your-mind-box{
+    border: 1px solid gray;
 
 }
 
@@ -18,10 +37,15 @@
 .avatar-circle img{
     align-items: center;
 }
-
+.post-box{
+    background-color:#f1f1f1;
+    border-radius:50px;
+    height: 40px;
+}
 .post-box button{
     border: 1px solid gray;
     background: none;
+
     border: none;
     width: 300px;
     border-radius: 50px;
@@ -29,12 +53,13 @@
     text-align: left;
     margin-left: 20px;
     margin-top: 15px;
-
 }
 
 .upload-post-form{
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     padding: 20px;
+    width: 500px;
+    border-radius: 25px;
 
 }
 .top-modal{
@@ -43,17 +68,35 @@
 .input-file{
     display: none;
 }
+
+
 .upload-post-label{
     cursor: pointer;
-    color: white;
     border: none;
-
-    background-color: rgb(52, 121, 211);
-    background-image: linear-gradient(45deg, #BA00B4, #1D0AC9);
+    font-size: 13px;
+    /* background-color: rgb(52, 121, 211); */
+    /* background-image: linear-gradient(45deg, #BA00B4, #1D0AC9); */
     width: 500px;
-    border-radius: 100%;
+    border-radius: 50px;
     padding: 10px;
     /* margin-top: 330px;
     margin-bottom: 50px; */
-    font-family: -apple-system,BlinkMacSystemFont,“Segoe UI”,Roboto,Helvetica,Arial,sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,“Segoe UI”,Roboto,
+    Helvetica,Arial,sans-serif;
+
+
+}
+.upload-post-label label{
+    color: lightgray;
+}
+.user-top{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.avatar-circle{
+    order: 1;
+}
+.profile-name{
+    order: 2;
 }

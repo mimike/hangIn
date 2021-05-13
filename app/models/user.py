@@ -79,6 +79,13 @@ class User(db.Model, UserMixin):
       "about": self.about,
       "avatar_url": self.avatar_url,
       "cover_url": self.cover_url,
-      "email": self.email
+      "email": self.email,
+      "likes": {like.post_id: like.post_id for like in self.user_post_likes}
+      # object containing all the likes via the post id.
+      # [{PostLike: {userid: 3, post_id: 3}}, {PostLike: {userid: 4, post_id: 5}}]
+
+
+
+
       # "comments": [comment.to_dict() for comment in comments]
     }

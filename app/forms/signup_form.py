@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -21,9 +21,9 @@ class SignUpForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     headline = StringField('headline')
-    about = StringField('about')
+    about = TextAreaField('about')
     url = StringField('avatarUrl')
-    cover = StringField('coverUrl')
+    #coverUrl = StringField('coverUrl')
 
 
     # firstName references frontend signnpform

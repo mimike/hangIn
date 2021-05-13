@@ -107,31 +107,7 @@ def get_user_posts(id):
     print("1111111111", posts)
     return {"posts": [post.to_dict() for post in posts]}
 
-#GET all likes for a Post
 
-# Like a Post <3 WORKS!
-# localhost5000:api/posts/like/3 likeId
-@post_routes.route('/<int:id>/like', methods=['POST'])
-@login_required
-def like_post(id):
-    like = PostLike(
-        user_id = current_user.id,
-        post_id = id
-    )
-    db.session.add(like)
-    db.session.commit()
-    return like.to_dict()  # return {user_id: 3, post_id: 1} vs redirect ?
-
-#Unlike a Post WORKS!!
-#localhost5000:api/posts/comments/12
-@post_routes.route('/like/<int:likeId>', methods = ['DELETE'])
-@login_required
-def unlike_post(likeId):
-    like = PostLike.query.get(likeId)
-    post = Post.query.filter(Post.id == like.post_id)
-    db.session.delete(like)
-    db.session.commit()
-    return {"like": "false"}
 
 
 # COMMENT ROUTES.....
@@ -161,3 +137,47 @@ def delete_comment(commentId): #commentId frontEnd state varaiable name?
     db.session.delete(commentId)
     db.session.commit()
     return redirect ('/feed')  # redirect vs return {"delete": "post deleted!"}
+
+
+#LIKES
+
+#GET all likes for a Post
+
+# Like a Post <3 WORKS!
+# localhost5000:api/posts/like/3 likeId
+@post_routes.route('/like', methods=['POST'])
+@login_required
+def like_post():
+    liked_post_id = request.json["post_id"]
+
+    existing_like = PostLike.query.filter(
+        PostLike.post_id == liked_post_id,
+        PostLike.user_id == current_user.id
+    ).first()
+
+    if existing_like:
+        return {"message": "like exists"}, 500
+    like = PostLike(
+        user_id = current_user.id,
+        post_id = liked_post_id
+    )
+    db.session.add(like)
+    db.session.commit()
+    return {"post_id": like.post_id}
+#  { "post_id": 1}
+
+#Unlike a Post WORKS!!
+#localhost5000:api/posts/comments/12
+@post_routes.route('/like', methods = ['DELETE'])
+@login_required
+def unlike_post():
+    post_id = request.json["post_id"]
+    like = PostLike.query.filter(
+        PostLike.post_id == post_id,
+        PostLike.user_id == current_user.id
+    ).first()
+
+    db.session.delete(like)
+    db.session.commit()
+    return {"post_id":  post_id}
+#  { "post_id": 1} if we dont have this info, we can't manipulate the state and we will have to do it in the store

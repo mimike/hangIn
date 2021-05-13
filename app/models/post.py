@@ -22,5 +22,7 @@ class Post(db.Model):
             "text_body": self.text_body,
             "comments": [comment.to_dict() for comment in self.comments],
             "author": self.user.to_dict(),
+            "num_likes": len(self.post_likes),
+            "num_comments": len(self.comments)
             #{id: 34, author: {id: 3, firstname: mimi, etc}}
         }

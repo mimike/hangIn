@@ -36,17 +36,46 @@
 
 }
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 90%;
     padding: 15px;
     margin: 5px 0 22px 0;
+    margin-left: 15px;
     display: inline-block;
     border: none;
     background: #f1f1f1;
   }
+  label{
+      margin-left: 15px;
+  }
+  .about-box [type=textarea]{
+      margin-left: 15px;
+      width: 90%;
+     overflow: auto;
+  }
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
+    opacity: 0.5;
+
   }
+
 .demo-link{
-    margin: 15px;
+    text-align: center;
+}
+input[type="submit" i] {
+    width: 100%;
+    margin-top: 10px;
+    border-radius:50px;
+    background: green;
+    border: none;
+    height: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.5;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, #BA00B4, #1D0AC9);
+
+
+
 }

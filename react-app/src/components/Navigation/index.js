@@ -3,23 +3,21 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
+import Search from "./Search"
 
 const Navigation = () => {
 
   return (
     <nav>
       <div className="nav-bar-container">
-        {/* <Search /> */}
-        <li>
+        <Search />
+        {/* <li>
           <a>
             <i class="fab fa-linkedin" ></i>
           </a>
           </li>
 
-          {/* <button className="search-btn" type="button">
-            <li-icon  type="search-icon" className="search-icon"><i class="fas fa-search"></i> </li-icon>
-            <div className="searching"> Search</div>
-          </button> */}
+
           <form action="/" method="get">
             <label htmlFor="header-search">
                 <span className="visually-hidden"></span>
@@ -30,9 +28,9 @@ const Navigation = () => {
             id="header-search"
             placeholder="Search"
             name="s"
-        />
+        /> */}
         {/* <button type="submit">Search</button> */}
-    </form>
+    {/* </form> */}
           <li>
           <li>
             <i class="fas fa-home"></i>

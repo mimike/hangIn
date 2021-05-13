@@ -38,6 +38,7 @@ const SignUpForm = () => {
     formData.append("lastName", lastName)
     formData.append("email", email)
     formData.append("city", city)
+    formData.append("about", about)
     formData.append("state", state)
     formData.append("headline", headline)
     formData.append("avatar", avatar)
@@ -91,6 +92,8 @@ const SignUpForm = () => {
     setAbout(e.target.value);
   }
 
+
+
   const updateHeadline= (e) => {
     setHeadline(e.target.value);
   };
@@ -127,6 +130,7 @@ const SignUpForm = () => {
             <div>
               <label>Email</label>
                 <input
+                  required
                   type="text"
                   name="email"
                   // placeholder="Email"
@@ -138,6 +142,7 @@ const SignUpForm = () => {
             <div>
               <label>Password (6 or more characters)</label>
               <input
+              required
                 // placeholder="Password (6 or more characters)"
                 type="password"
                 name="password"
@@ -149,6 +154,7 @@ const SignUpForm = () => {
             <div>
               <label>Repeat Password</label>
               <input
+              required
                 type="password"
                 name="repeat_password"
                 // placeholder="Repeat Password"
@@ -200,7 +206,7 @@ const SignUpForm = () => {
                 value={headline}
               ></input>
             </div>
-            <div>
+            <div className="about-box">
               <label>About</label>
               <input
                 type="textarea"
@@ -306,7 +312,7 @@ const SignUpForm = () => {
               value = {cover}
               /> */}
             <button className="back-it-up" onClick={() => setPageNumber(0)}>Start Over Update</button>
-            <h4>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</h4>
+            <h4>By clicking Agree & Join, you agree to the HangIn User Agreement, Privacy Policy, and Cookie Policy.</h4>
             <button className="submit-button" onClick={onSignUp}>Agree & Join</button>
           </div>
         )}

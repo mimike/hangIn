@@ -27,3 +27,15 @@ pipenv install Flask-DB
 flask db reset  delete all tables
 flask db init
 flask seed all
+
+def like_post():
+    liked_post_id = request.json["post_id"]
+
+    existing_like = PostLike.query.filter(
+        PostLike.post_id == liked_post_id,   # if you have liked many posts, you need to keep track of all the post ids that you've liked
+        #
+        PostLike.user_id == current_user.id   # check to see if the user is the one liked
+    ).first() 
+    print("existin!!", existing_like)
+    # w/o .first we will return a query object (funky) which isn't a model
+# return {user_id: 3, post_id: 1} vs redirect ?

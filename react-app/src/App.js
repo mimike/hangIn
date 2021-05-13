@@ -6,6 +6,7 @@ import SignUpForm from "./components/auth/SignUpForm";
 import SplashPage from "./components/SplashPage"
 import NetworkPage from "./components/NetworkPage";
 import Feed from "./components/Feed"
+
 import ProfilePage from "./components/ProfilePage";
 //import ProfileTile from "./components/NetworkPage/ProfileTile"
 import ProtectedRoute from "./components/auth/ProtectedRoute";

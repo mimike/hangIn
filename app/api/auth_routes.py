@@ -64,33 +64,40 @@ def sign_up():
     form = SignUpForm()
     # if "image" not in request.files:
     #     return {"errors": "image required"}, 400
-    print(request.files, "!!!")
+
     for what in request.files:
         print(what)
-    print("DFDFS!!!!!!")
+
     image = None
     upload = None
     url = None
 
     if (request.files):
         image = request.files["avatar"]
-        image2 = request.files["cover"]
+        # image2 = request.files["coverUrl"]
+
 
         if not allowed_file(image.filename):
+        # or not allowed_file(image2.filename):
             return {"errors": "file type not permitted"}, 400
 
         image.filename = get_unique_filename(image.filename)
+        # image2.filename = get_unique_filename(image2.filename)
         upload = upload_file_to_s3(image)
+        # upload2 = upload_file_to_s3(image2)
 
         if "url" not in upload:
+        # or "url" not in upload2:
             # if the dictionary doesn't have a url key
             # it means that there was an error when we tried to upload
             # so we send back that error message
             return upload, 400
         url = upload["url"]
+        # url2 = upload["url"]
+
         form['url'].data = url
-    # print("at line 81!!")
-    # print(upload, "uplaod!!")
+        # form['cover_url'].data = url2
+
     form['csrf_token'].data = request.cookies['csrf_token']
     print(request.get_json())
     if form.validate_on_submit():
@@ -103,7 +110,8 @@ def sign_up():
             about=request.form['about'],
             email=request.form['email'],
             password=request.form['password'],
-            avatar_url=url
+            avatar_url=url,
+            # cover_url= url2
 
         )
         db.session.add(user)

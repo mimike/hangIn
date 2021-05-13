@@ -3,6 +3,8 @@ const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_USERS = 'session/GET_USERS';
 const GET_SINGLE_USER = 'session/GET_SINGLE_USER'
+const LIKE_POST = 'session/LIKE_POST'
+const UNLIKE_POST = 'session/UNLIKE_POST'
 
 const setUser = (user) => ({
     type: SET_USER,
@@ -21,6 +23,15 @@ const getUsers = (users) => ({
 const getOneUser = (user) => ({
     type: GET_SINGLE_USER,
     payload: user
+})
+export const userLikePost = (postId) => ({
+    type: LIKE_POST,
+    payload: postId
+})
+export const userUnlikePost = (postId) => ({
+    type: UNLIKE_POST,
+    payload: postId
+
 })
 
 
@@ -111,6 +122,7 @@ export const signUp = (formData) => async (dispatch)=> {
 // reducer
 
 const initialState = { user: null };
+//not logged in user null
 
 // useSelector(state => state.session.user)
 
@@ -120,6 +132,15 @@ export default function reducer(state = initialState, action) {
             return { user: action.payload };
         case REMOVE_USER:
             return { user: null };
+        case LIKE_POST:
+            console.log("!!", action.payload)
+            state.user.likes[action.payload] = action.payload
+            return {...state}
+
+        case UNLIKE_POST:
+            console.log("unlike!", action.payload)
+            delete state.user.likes[action.payload]
+            return {...state}
         default:
             return state;
     }
