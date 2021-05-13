@@ -40,11 +40,8 @@ export const getUserThunk = (id) => async(dispatch) => {
     }
 }
 // export const singleUserThunk = () => async (dispatch) => {
-
 // }
-
 const initialState = {}
-
 const usersReducer = (users = initialState, action)=> {
     switch (action.type){
         case GET_USERS:

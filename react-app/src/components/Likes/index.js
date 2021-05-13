@@ -14,7 +14,7 @@ function Likes({post}) {
   const [ switched, setSwitched ] = useState("")
 
   useEffect (() => {
-    
+
     if(user.likes[post.id]){
       setLiked(true)
     } else if(!user.likes[post.id]){
@@ -29,20 +29,30 @@ function Likes({post}) {
   }
 
   const handleUnlike = async (e) => {
-
     await dispatch(unlikePost(post.id))
     setSwitched(false)
   }
 
     return (
         <>
-          {posts[post.id].num_likes}
-          { liked &&
-            <div onClick={handleUnlike}><i className="far fa-thumbs-up liked" ></i></div>
-          }
-          { !liked &&
-            <div onClick={handleLike}><i className="far fa-thumbs-up unliked"></i></div>
-          }
+          <div className="likes-container">
+          <div className="num-likes">
+            {posts[post.id].num_likes}
+          </div>
+
+          <div className = "like-icon">
+            { liked &&
+              <div onClick={handleUnlike}>
+                <i className="far fa-thumbs-up liked" ></i>
+                </div>
+            }
+            { !liked &&
+              <div onClick={handleLike}>  <i className="far fa-thumbs-up unliked"></i></div>
+            }
+
+
+            </div>
+          </div>
         </>
     )
 }

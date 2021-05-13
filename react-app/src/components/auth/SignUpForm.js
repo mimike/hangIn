@@ -29,7 +29,8 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-
+    console.log("!!!!av", avatar)
+    console.log("!!!!cv", cover)
     const formData = new FormData()
     let response;
     formData.append("password", password)
@@ -41,9 +42,9 @@ const SignUpForm = () => {
     formData.append("about", about)
     formData.append("state", state)
     formData.append("headline", headline)
-    formData.append("avatar", avatar)
+    formData.append("avatar", avatar) // the contents of avatar is request.files["avatar"]
     formData.append("cover", cover)
-    // formData.append("about", about)
+
 
     if (password === repeatPassword) {
       response = await dispatch(signUp(formData));
@@ -92,8 +93,6 @@ const SignUpForm = () => {
     setAbout(e.target.value);
   }
 
-
-
   const updateHeadline= (e) => {
     setHeadline(e.target.value);
   };
@@ -103,6 +102,7 @@ const SignUpForm = () => {
   };
 
   const updateCover= (e) => {
+
     setCover(e.target.files[0]);
   };
 
@@ -266,11 +266,11 @@ const SignUpForm = () => {
               </div>
 
               <div className="upload-avatar-box">
-                <label className="upload-cover-label" htmlFor="file">Upload Cover Photo <i class="fas fa-upload"></i></label>
+                <label className="upload-cover-label" htmlFor="file1">Upload Cover Photo <i class="fas fa-upload"></i></label>
                     <input
-                    id = "file"
+                    id = "file1"
                     className="input-file"
-                    name = "image"
+                    name = "image1"
                     type = "file"
                     onChange = {updateCover}
                     />

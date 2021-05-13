@@ -14,10 +14,11 @@
 .post-bottom {
     order: 2;
 }
-.post-container{
+.main-post-container{
+
     margin-top: 10px;
-    /* border: 1px solid rgb(226, 219, 219);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%); */
+
+   
 
 }
 
@@ -75,7 +76,7 @@
 .icon-container{
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 1px;
     padding: 15px;
 }
 .fa-newspaper:before{

@@ -68,35 +68,56 @@ def sign_up():
     for what in request.files:
         print(what)
 
-    image = None
-    upload = None
-    url = None
+    avatarImage = None
+    avatarUpload = None
+    avatarUrl = None
+
+    coverImage = None
+    coverUpload = None
+    coverUrl = None
 
     if (request.files):
-        image = request.files["avatar"]
-        # image2 = request.files["coverUrl"]
+        try:
+            if(request.files["avatar"]):
+                avatarImage = request.files["avatar"]
 
+                if not allowed_file(avatarImage.filename):
+                    return {"errors": "file type not permitted"}, 400
 
-        if not allowed_file(image.filename):
-        # or not allowed_file(image2.filename):
-            return {"errors": "file type not permitted"}, 400
+                avatarImage.filename = get_unique_filename(avatarImage.filename)
+                avatarUpload = upload_file_to_s3(avatarImage)
 
-        image.filename = get_unique_filename(image.filename)
-        # image2.filename = get_unique_filename(image2.filename)
-        upload = upload_file_to_s3(image)
-        # upload2 = upload_file_to_s3(image2)
+                if "url" not in avatarUpload:
+                    # if the dictionary doesn't have a url key
+                    # it means that there was an error when we tried to upload
+                    # so we send back that error message
+                    return avatarUpload, 400
 
-        if "url" not in upload:
-        # or "url" not in upload2:
-            # if the dictionary doesn't have a url key
-            # it means that there was an error when we tried to upload
-            # so we send back that error message
-            return upload, 400
-        url = upload["url"]
-        # url2 = upload["url"]
+                avatarUrl = avatarUpload["url"]
+                form['avatarUrl'].data = avatarUrl
+        except:
+            pass
 
-        form['url'].data = url
-        # form['cover_url'].data = url2
+        try:
+            if(request.files["cover"]):
+                coverImage = request.files["cover"]
+
+                if not allowed_file(coverImage.filename):
+                    return {"errors": "file type not permitted"}, 400
+
+                coverImage.filename = get_unique_filename(coverImage.filename)
+                coverUpload = upload_file_to_s3(coverImage)
+
+                if "url" not in coverUpload:
+                    # if the dictionary doesn't have a url key
+                    # it means that there was an error when we tried to upload
+                    # so we send back that error message
+                    return avatarUpload, 400
+
+                coverUrl = coverUpload["url"]
+                form['coverUrl'].data = coverUrl
+        except:
+            pass
 
     form['csrf_token'].data = request.cookies['csrf_token']
     print(request.get_json())
@@ -110,9 +131,8 @@ def sign_up():
             about=request.form['about'],
             email=request.form['email'],
             password=request.form['password'],
-            avatar_url=url,
-            # cover_url= url2
-
+            avatar_url= avatarUrl,
+            cover_url= coverUrl
         )
         db.session.add(user)
         db.session.commit()

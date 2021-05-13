@@ -16,7 +16,6 @@ function Feed() {
   const [displayPosts, setDisplayPosts] = useState([])
   const posts = useSelector(state => state.posts)
   const user = useSelector(state =>  state.session.user)
-
   //const comments = posts[postId]  //this logic??
 
 useEffect(() =>  {
@@ -44,7 +43,7 @@ useEffect(()=> {
           <UploadBox/>
         </div>
         <div className="feed-container">
-          <div className="post-container">
+          <div className="main-post-container">
               {Object.values(displayPosts).map((post, index) => {
 
                   return(
@@ -60,6 +59,19 @@ useEffect(()=> {
 
                           <li className="text-post" >{post.text_body}</li>
                           <img className="photo-post" alt="post-photo" src={post.media_url}/>
+
+                          <div>
+                              <Likes post={post}/>
+                          </div>
+
+
+                          <div className="num-comments-icon">
+                                <i class="far fa-comment-dots commented"></i>
+                          <div/>
+                                <div className="comment-numbers">
+                                  {posts[post.id].num_comments}
+                                </div>
+                            </div>
 
                           <div className="comment-container" >
                           <CommentsBoxModal/>
@@ -84,9 +96,7 @@ useEffect(()=> {
                               )
                             })}
 
-                            <div>
-                              <Likes post={post}/>
-                            </div>
+
 
                           </div>
 

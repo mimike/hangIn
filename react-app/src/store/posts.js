@@ -7,6 +7,7 @@ const ADD_LIKE = "posts/ADD_LIKE"
 const REMOVE_LIKE = "posts/REMOVE_LIKE"
 const SET_LIKES = "posts/SET_LIKES"
 
+
 const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
@@ -87,6 +88,7 @@ export const likePost = (post_id) => async dispatch => {
     const data = await response.json()
     if(response.ok){
         await dispatch(userLikePost(data.post_id))
+        await dispatch(addLike(data.post_id))
         return true;
     }
 }
@@ -101,13 +103,12 @@ export const unlikePost = (post_id) => async dispatch => {
         })
     })
    //we need the postId b/c its not in params
-
     const data = await response.json()
     if(response.ok){
         await dispatch(userUnlikePost(data.post_id))
+        await dispatch(removeLike(data.post_id))
         return true;
     }
-
 }
 
 //add a comment
@@ -124,7 +125,6 @@ export const commentPost = (submission) => async dispatch => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(submission)  // we send this to backend route it gets commited
-
     })
 
     const data = await res.json()
@@ -133,6 +133,7 @@ export const commentPost = (submission) => async dispatch => {
 
 const initialState = {}
 export default function postsReducers(posts = initialState, action) {
+    let postId;
     switch (action.type) {
         case UPLOAD_POST:
             const postPayload = action.payload
@@ -147,9 +148,17 @@ export default function postsReducers(posts = initialState, action) {
                 newAllPosts[post.id] = post
             }
             return newAllPosts
-
+        case ADD_LIKE:
+            postId = action.payload
+            posts[postId].num_likes++;
+            return {...posts}
+        case REMOVE_LIKE:
+            postId = action.payload
+            if(posts[postId].num_likes > 0){
+                posts[postId].num_likes--;
+            }
+            return {...posts}
         case SET_LIKES:
-
             console.log("STATE", posts)
             console.log("PAYLOAD", action.payload)
         default:

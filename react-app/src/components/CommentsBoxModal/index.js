@@ -11,8 +11,8 @@ function CommentsBoxModal() {
     <>
       <div className=".all-comments-container">
         <div className="all-comments-box">
-          <button className="post-box"
-          onClick={() => setShowModal(true)}>Add a comment!</button>
+          {/* <button className="post-box"
+          onClick={() => setShowModal(true)}>Add a comment!</button> */}
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <Test/>

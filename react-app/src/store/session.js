@@ -14,12 +14,10 @@ const setUser = (user) => ({
 const removeUser = () => ({
     type: REMOVE_USER
 })
-
 const getUsers = (users) => ({
     type: GET_USERS,
     payload: users
 })
-
 const getOneUser = (user) => ({
     type: GET_SINGLE_USER,
     payload: user
@@ -31,9 +29,7 @@ export const userLikePost = (postId) => ({
 export const userUnlikePost = (postId) => ({
     type: UNLIKE_POST,
     payload: postId
-
 })
-
 
 // thunks
 export const authenticate = () => async (dispatch) => {
@@ -105,13 +101,8 @@ export const signUp = (formData) => async (dispatch)=> {
         body: formData
         // JSON.stringify({
         //     first_name,
-        //     last_name,
-        //     city,
-        //     state,
-        //     headline,
-        //     email,
-        //     password,
-        //}),
+        
+
     });
 
     const data = await response.json(); // ??
@@ -133,8 +124,9 @@ export default function reducer(state = initialState, action) {
         case REMOVE_USER:
             return { user: null };
         case LIKE_POST:
-            console.log("!!", action.payload)
+
             state.user.likes[action.payload] = action.payload
+
             return {...state}
 
         case UNLIKE_POST:
