@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
-import Search from "./Search"
+import Search from "./Search.js"
 
 const Navigation = () => {
-
   return (
     <nav>
       <div className="nav-bar-container">
@@ -16,7 +15,6 @@ const Navigation = () => {
             <i class="fab fa-linkedin" ></i>
           </a>
           </li>
-
 
           <form action="/" method="get">
             <label htmlFor="header-search">
@@ -53,27 +51,7 @@ const Navigation = () => {
             Feed
           </NavLink>
         </li>
-        {/* <li>
-          <i class="fas fa-users"></i>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li> */}
-
-        {/* <li>
-          <i class="fas fa-users"></i>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li> */}
-        {/* <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li> */}
-
         <li>
-
         </li>
         <ProfileButton/>
       </div>

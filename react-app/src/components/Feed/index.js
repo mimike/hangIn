@@ -26,7 +26,6 @@ useEffect(()=> {
   dispatch(getAllPosts())
 }, [dispatch])   //dependancy array {}
 
-
   const profileLink = id => {
     history.push(`/user/${id}`)
   }
@@ -46,7 +45,6 @@ useEffect(()=> {
               {Object.values(displayPosts).map((post, index) => {
 
                   return(
-
                       <div className="single-post" onClick={() => getAllPosts(post.id)} key={index}>
                           <div className="top-post-container">
                             <img className="author-photo" alt="avatar" src={post.author.avatar_url}/>
@@ -62,7 +60,6 @@ useEffect(()=> {
                             <div>
                                 <Likes post={post}/>
                             </div>
-
 
                             <div className="num-comments-icon">
                                   <i class="far fa-comment-dots commented"></i>

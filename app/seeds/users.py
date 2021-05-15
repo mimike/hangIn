@@ -17,7 +17,7 @@ def seed_users():
     photo_object = response["results"]
     for photo in photo_object:
         new_list.append(photo["urls"]["regular"])
-
+    print("api here")
     pic_list = [
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/33511491_4674909669074_3860000440217239552_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=mimfYEtLwacAX-h9jq0&tn=JWSOvWr-z0BXHxBi&_nc_ht=scontent-msp1-1.xx&oh=b7ed98adff249601e6e06d2487686d65&oe=60BB4C92",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/48413309_4899175355576_999433533954981888_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=HK1h-V9LR3sAX84jUot&_nc_ht=scontent-msp1-1.xx&oh=615dceb3a50eb5fa0ed0a81c2706c72d&oe=60BCE92C",
@@ -39,18 +39,53 @@ def seed_users():
         "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/18402290_10154581850965895_7194188292456553506_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=2eGUyST3VtkAX_5pVyJ&_nc_ht=scontent-msp1-1.xx&oh=b0e4b24aa980c1eb024cb79e2da09564&oe=60BBA183",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/18402290_10154581850965895_7194188292456553506_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=2eGUyST3VtkAX_5pVyJ&_nc_ht=scontent-msp1-1.xx&oh=b0e4b24aa980c1eb024cb79e2da09564&oe=60BBA183",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/105990717_10157082896541561_9222893570307527658_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=174925&_nc_ohc=9_D-xsFdLeEAX-aOQXM&_nc_ht=scontent-msp1-1.xx&oh=60636f981b6b74353e6c9253a89a6bf8&oe=60BE3C38"
-
     ]
-
-    demo = User(first_name="Mimi", last_name="Key", headline="Aerialist | Choreographer", city="Chicago", state="Illinois", about="I've been a software engineer for more than two decades. I've coded in dozens of programming languages and worked with teams and companies of all sizes. I find value in working with diverse teams, because each individual can give new insights into any project, and my favorite aspect of my career has always been mentoring others. Now I get to use my skills and experience to instruct a new generation of programmers in the art of coding,", avatar_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/102697356_10200707403385824_3446115515710983555_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=18Cw2BNBOIcAX9gFbZn&_nc_ht=scontent-msp1-1.xx&oh=7a413661ce5ac48712b9d554730ba5dc&oe=60BEC3AA", cover_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/32247261_4662155230221_6666452128644464640_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=19026a&_nc_ohc=vIh0ZNiE2yoAX9U8A_y&tn=P88s18J4M9h37Kox&_nc_ht=scontent-msp1-1.xx&oh=3cdfe1a83e5b357ec81ae5c463434b60&oe=60BC4E1C", email='demo@aa.io', password='password')
+    print("after pic list!")
+    demo = User(
+        first_name="Mimi",
+        last_name="K",
+        headline="Aerialist | Choreographer",
+        city="Chicago",
+        state="Illinois",
+        about="I've been a software engineer for more than two decades. I've coded in dozens of programming languages and worked with teams and companies of all sizes. I find value in working with diverse teams, because each individual can give new insights into any project, and my favorite aspect of my career has always been mentoring others. Now I get to use my skills and experience to instruct a new generation of programmers in the art of coding.",
+        experience="15 years of they usually perform as part of a group and know a variety of dance styles, including ballet, tap, and modern dance. In addition to traditional performances in front of a live audience, many perform on TV, in videos on the Internet, and in music videos, in which they also may sing or act. Many dancers perform in shows at casinos, in theme parks, and on cruise ships.",
+        main_skills="Fabric",
+        avatar_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/46636067_4869486253367_7726473666732490752_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=O9iItk8vEzcAX9mCQo2&_nc_ht=scontent-msp1-1.xx&oh=64324826657ae61f4751f2e2b7fea7aa&oe=60C247F3",
+        cover_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/32247261_4662155230221_6666452128644464640_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=19026a&_nc_ohc=vIh0ZNiE2yoAX9U8A_y&tn=P88s18J4M9h37Kox&_nc_ht=scontent-msp1-1.xx&oh=3cdfe1a83e5b357ec81ae5c463434b60&oe=60BC4E1C",
+        email='demo@aa.io',
+        password='password'
+        )
     db.session.add(demo)
-
+    print("before skillz!!")
+    skills_list =[
+        'Fabric',
+        'Hoop',
+        'Static trapeze',
+        'Corde lisse',
+        'Pole',
+        'Chinese pole',
+        'Hammock',
+        'Invented apparatus'
+    ]
+    print("after pic list!")
     for num in range(100):
-        user=User(first_name=faker.first_name_nonbinary(), last_name = faker.last_name(), headline = faker.job(), city = faker.city(), state = faker.state(), avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)], about=faker.paragraph(nb_sentences=6), cover_url=new_list[random.randrange(0, len(new_list) -1)],email=faker.email(), password = faker.password(length=7))
-
+        user=User(
+            first_name=faker.first_name_nonbinary(),
+            last_name = faker.last_name(),
+            headline = faker.job(),
+            city = faker.city(),
+            state = faker.state(),
+            avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)],
+            main_skills = skills_list[faker.pyint(min_value=0, max_value=len(skills_list)-1)],
+            about=faker.paragraph(nb_sentences=6),
+            experience=faker.paragraph(nb_sentences=6),
+            cover_url=new_list[random.randrange(0, len(new_list) -1)],
+            email=faker.email(),
+            password = faker.password(length=7)
+            )
         db.session.add(user)
+    print("after add user!")
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

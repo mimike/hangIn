@@ -11,9 +11,7 @@
     width: 500px;
     text-align: left;
     display:inline-block;
-
 }
-
 label{
     font-weight: 300;
     color: rgb(131, 130, 130);
@@ -24,9 +22,8 @@ input[type=text], input[type=password]{
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
+    color: black;
   }
-
   input[type=textarea] {
     width: 100%;
     height: 180px;
@@ -41,20 +38,35 @@ input[type=text]:focus, input[type=password], input[type=textarea]:focus {
     background-color: #ddd;
     outline: none;
   }
+  select {
 
+    opacity: 0.9;
+  }
 
 .state-dropdown{
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
+    opacity: 0.4;
+    margin: 15px;
+    background-color: #ddd;
+    outline: none;
 }
-select{
-    color: rgb(75, 75, 75)
-}
+.skills-dropdown {
 
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  opacity: 0.4;
+  margin: 15px;
+  background-color: #ddd;
+  outline: none;
+}
 
 .continue-button {
   background-color: #04AA6D;
@@ -94,8 +106,6 @@ select{
 }
 button:hover {
     opacity:1;
-
-
   }
 .back-it-up{
     background-color: #04AA6D;
@@ -123,7 +133,6 @@ button:hover {
   margin: 20px;
   font-family: -apple-system,BlinkMacSystemFont,“Segoe UI”,Roboto,Helvetica,Arial,sans-serif;
 }
-
 .upload-cover-label{
   cursor: pointer;
   color: white;
@@ -135,4 +144,7 @@ button:hover {
   padding: 10px;
   margin: 20px;
   font-family: -apple-system,BlinkMacSystemFont,“Segoe UI”,Roboto,Helvetica,Arial,sans-serif;
+}
+.state-dropdown {
+  width: 96%;
 }

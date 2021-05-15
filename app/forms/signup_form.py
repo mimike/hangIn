@@ -22,6 +22,8 @@ class SignUpForm(FlaskForm):
     state = StringField('state', validators=[DataRequired()])
     headline = StringField('headline')
     about = TextAreaField('about')
+    skills = StringField('skills')
+    experience = TextAreaField('experience')
     avatarUrl = StringField('avatarUrl')
     coverUrl = StringField('coverUrl')
 

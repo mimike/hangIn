@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../store/users"
+import {follow, unfollow} from '../store/users'
+import "../components/ProfilePage/ProfilePage.css"
 
 //profile page
 function User() {
@@ -10,8 +12,27 @@ function User() {
   // Notice we use useParams here instead of getting the params
   // From props.
   const { userId }  = useParams();
+  const currentUser = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)
   // console.log("PERSON!", person)
+
+  //hook
+  const followButton = async(e) => {
+    e.preventDefault();
+    dispatch(follow(userId, currentUser))
+    return {
+      "userId": userId,
+      "currentUser": currentUser
+    }
+  }
+
+  function checkUser(){
+    if(currentUser != userId){
+      return (
+        <button className="follow-me" onClick={followButton}>Connect</button>
+      )
+    }
+  }
 
   useEffect(() => {
     dispatch(getUsersThunk())
@@ -39,13 +60,14 @@ function User() {
                       <img className="avatar-pic1" src={person?.avatar_url} />
                   </div>
                   <div className="profile-text1">
+                    {checkUser()}
                       <h3 className="my-name">{person?.first_name} {person?.last_name}</h3>
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
                     <h3>{person?.city}, {person?.state}</h3>
+                    <span>138 Connections</span>
                   </div>
               </div>
-
       </div>
             <div className="middle-container">
                   <div className="about-container">
@@ -55,7 +77,7 @@ function User() {
                     <h5/>
 
                     <h5>
-                        Main Discipline: Fabric
+                        Main Discipline: {person?.skills}
                     </h5>
 
                     <h5>
@@ -69,8 +91,7 @@ function User() {
                   </div>
               </div>
               <div className="last-container">
-                <h4>Experience</h4>
-                <h5>As a Portfolio Analyst, it was my job to work closely with project managers and keep track of financial information and the status of projects. I met regularly with three project managers and reviewed project plans, analyzed possible risks a project might have, and submitted projects for approval to the program manager.</h5>
+                {person?.experience}
               </div>
             </div>
     {/* <ul>

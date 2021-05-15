@@ -16,7 +16,7 @@ def seed_posts():
 
     ]
 
-    for num in range(50):
+    for num in range(20):
         post = Post(author_id=num+1, text_body=faker.paragraph(nb_sentences=5), media_url=pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)])
         db.session.add(post)
     db.session.commit()

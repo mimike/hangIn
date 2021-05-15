@@ -8,6 +8,8 @@ const REMOVE_LIKE = "posts/REMOVE_LIKE"
 const SET_LIKES = "posts/SET_LIKES"
 
 
+
+
 const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
@@ -83,8 +85,8 @@ export const likePost = (post_id) => async dispatch => {
         body: JSON.stringify({
             post_id
         })
-
     })
+    
     const data = await response.json()
     if(response.ok){
         await dispatch(userLikePost(data.post_id))

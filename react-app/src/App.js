@@ -16,6 +16,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 // import UploadBox from "./components/UploadBox";
 import Navigation from "./components/Navigation/index.js"
+import "./index.css"
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);

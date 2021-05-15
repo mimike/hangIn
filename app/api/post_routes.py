@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import db, Post, PostLike, User, Skill, Comment, follows
+from app.models import db, Post, PostLike, User, Skill, Comment
 from app.forms.upload_form import UploadForm
 # from app.forms.comment_form import CommentForm
 from app.awsS3 import (

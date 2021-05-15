@@ -1,25 +1,4 @@
-/* .log-in-container{
-    display: flex;
 
-}
-.log-in-form{
-    text-align: left;
-    height: 400px;
-    border: 1px solid black;
-    width: 200px;
-}
-.log-in-form div {
-    margin: 10px;
-}
-.log-in-form h1{
-    margin: 10px;
-}
-.log-in-form h4{
-    margin: 10px;
-}
-.form-control{
-    width: 100px;
-} */
 .log-in-container{
     text-align: center;
     margin: 60px;
@@ -42,7 +21,8 @@ input[type=text], input[type=password] {
     margin-left: 15px;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
+    background: #dae5f3;
+    opacity: 0.4;
   }
   label{
       margin-left: 15px;
@@ -50,13 +30,25 @@ input[type=text], input[type=password] {
   .about-box [type=textarea]{
       margin-left: 15px;
       width: 90%;
-     overflow: auto;
+      height: 130px;
+     overflow: hidden;
+     background: #dae5f3;
+    opacity: 0.4;
+  }
+
+  .experience-box [type=textarea]{
+    margin-left: 15px;
+    width: 90%;
+    height: 130px;
+   overflow: hidden;
+   background: #dae5f3;
+  opacity: 0.4;
+
   }
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
     opacity: 0.5;
-
   }
 
 .demo-link{

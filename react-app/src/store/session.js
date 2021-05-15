@@ -3,8 +3,11 @@ const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_USERS = 'session/GET_USERS';
 const GET_SINGLE_USER = 'session/GET_SINGLE_USER'
+
 const LIKE_POST = 'session/LIKE_POST'
 const UNLIKE_POST = 'session/UNLIKE_POST'
+
+
 
 const setUser = (user) => ({
     type: SET_USER,
@@ -61,7 +64,6 @@ export const demoLogin = () => async (dispatch) => {
     dispatch(setUser(data));
     return response;
 }
-
 export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -101,8 +103,6 @@ export const signUp = (formData) => async (dispatch)=> {
         body: formData
         // JSON.stringify({
         //     first_name,
-        
-
     });
 
     const data = await response.json(); // ??
@@ -111,12 +111,9 @@ export const signUp = (formData) => async (dispatch)=> {
 }
 
 // reducer
-
 const initialState = { user: null };
 //not logged in user null
-
 // useSelector(state => state.session.user)
-
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_USER:
@@ -124,16 +121,19 @@ export default function reducer(state = initialState, action) {
         case REMOVE_USER:
             return { user: null };
         case LIKE_POST:
-
             state.user.likes[action.payload] = action.payload
-
             return {...state}
-
         case UNLIKE_POST:
             console.log("unlike!", action.payload)
             delete state.user.likes[action.payload]
             return {...state}
+
+
         default:
             return state;
     }
 }
+
+// a thunk calls to the backend dispatches the action w/ the backend info.
+// your reducer takes the payload of the ACTION, and puts it in the store.
+// u use ur store to render w/e u want in ur component.

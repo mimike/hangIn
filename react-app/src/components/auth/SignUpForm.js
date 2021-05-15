@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { signUp, setUser } from '../../store/session';
 //import {ListItem} from "react-native-elements"
 import "./SignUpForm.css"
+import "./LoginForm.css"
 // import { Button, Form } from "react-bootstrap";
 
 const SignUpForm = () => {
@@ -23,6 +24,8 @@ const SignUpForm = () => {
   const [avatar, setAvatar] = useState(null);
   const [cover, setCover] = useState(null);
   const [about, setAbout] = useState(null);
+  const [skills, setSkills] = useState("Fabric");
+  const [experience, setExperience] = useState("");
   const [imageLoading, setImageLoading] = useState(false)
   const [edit, setEdit] = useState(false)
   // setImageLoading(true)
@@ -40,11 +43,12 @@ const SignUpForm = () => {
     formData.append("email", email)
     formData.append("city", city)
     formData.append("about", about)
+    formData.append("experience", experience)
     formData.append("state", state)
+    formData.append("skills", skills)
     formData.append("headline", headline)
     formData.append("avatar", avatar) // the contents of avatar is request.files["avatar"]
     formData.append("cover", cover)
-
 
     if (password === repeatPassword) {
       response = await dispatch(signUp(formData));
@@ -92,6 +96,14 @@ const SignUpForm = () => {
   const updateAbout = (e) => {
     setAbout(e.target.value);
   }
+  const updateSkills = (e) => {
+    setSkills(e.target.value);
+  }
+
+  const updateExperience= (e)=> {
+    setExperience(e.target.value);
+  }
+
 
   const updateHeadline= (e) => {
     setHeadline(e.target.value);
@@ -119,6 +131,7 @@ const SignUpForm = () => {
 
   const states=['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
+  const skillz = ['Fabric', 'Hoop', "Rope", "Static trapeze"]
 
   return (
     <>
@@ -206,6 +219,7 @@ const SignUpForm = () => {
                 value={headline}
               ></input>
             </div>
+
             <div className="about-box">
               <label>About</label>
               <input
@@ -217,6 +231,28 @@ const SignUpForm = () => {
               ></input>
             </div>
 
+            <div className="experience-box">
+              <label>Experience</label>
+              <input
+                type="textarea"
+                name="experience"
+                placeholder=""
+                onChange={updateExperience}
+                value={experience}
+              ></input>
+            </div>
+
+            <div>
+            <label>Main Discripline</label>
+            <select className='skills-dropdown' value={skills} onChange={(e) => setSkills(e.target.value)}>
+                  <option value={0} disabled>Select Skills</option>
+                  {skillz.map(skill => (
+                    <option type="text" value={skill} key={skill}>{skill}</option>
+                  ))}
+              </select>
+          </div>
+
+
             <button className='continue-button' onClick={nextPage}>Continue</button>
             {!edit && <button className='back-button' onClick={prevPage}>Back</button>}
           </form>
@@ -224,13 +260,12 @@ const SignUpForm = () => {
 
         {pageNumber === 2 && (
           <form className="third-form-container">
-          <h1>Your profile helps you find new opportunities</h1>
+          <h1>Where are you based?</h1>
           <div>
             <label>City</label>
             <input
               type="text"
               name="city"
-              //  placeholder="City"
               onChange={updateCity}
               value={city}
             ></input>
@@ -238,7 +273,7 @@ const SignUpForm = () => {
 
           <div>
             <label>State</label>
-            <select className='state-dropdown' value={state} onChange={(e) => setState(e.target.value)}>
+            <select className='state-dropdown' value={state} onChange={updateState}>
                   <option value={0} disabled>Select State</option>
                   {states.map(state => (
                     <option type="text" value={state} key={state}>{state}</option>
@@ -283,7 +318,7 @@ const SignUpForm = () => {
         )}
         {pageNumber === 4 &&(
           <div className='validate_form'>
-            <h4>Please check if this information is correct</h4>
+            <h3>Please check if this information is correct</h3>
              <h5>
                 First name: {firstName}
                 </h5>
@@ -298,7 +333,7 @@ const SignUpForm = () => {
               </h5>
 
               <h5>
-              Headline = {headline}
+              Headline: {headline}
               </h5>
 
               <h5>
@@ -308,6 +343,14 @@ const SignUpForm = () => {
               <h5>
               About: {about}
               </h5>
+
+              <h5>
+                Experience: {experience}
+              </h5>
+              <h5>
+                Main Discipline: {skills}
+                </h5>
+
               {/* <input
               value = {cover}
               /> */}

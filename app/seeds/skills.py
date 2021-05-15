@@ -9,7 +9,6 @@ def seed_skills():
         'Fabric',
         'Dance trapeze',
         'Static trapeze',
-        'Dance trapeze',
         'Flying trapeze',
         'Corde lisse',
         'Pole',

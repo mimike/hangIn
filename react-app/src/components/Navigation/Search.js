@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import SearchResult from './SearchResult';
 import {useDispatch, useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import {getSearchResult} from '../../store/search'
 import "./Navigation.css";
+import SearchResult from "./SearchResult.js"
 
 const Search = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [search, setSearch] = useState("")
 
-    const onSubmit = (e) => {
+    const onType = (e) => {
         setSearch(e.target.value)
         e.preventDefault()
-        dispatch(getSearchResult(e.target.value));
+        // dispatch(getSearchResult(e.target.value));
+        history.push('/feed')
     }
-
 return (
     <>
         <div className="nav-bar-container">
-
          <li>
             <a>
              <i class="fab fa-linkedin" ></i>
@@ -28,16 +29,21 @@ return (
             <label htmlFor="header-search">
                 <span className="visually-hidden"></span>
             </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search"
-            name="s"
-            onChange={onSubmit}
-            />
+        <div className="search-field">
+            <input
+
+                type="text"
+                id="header-search"
+                placeholder="Search!!"
+                value = {search}
+                name="s"
+            onChange={onType}
+                />
+        </div>
+        <SearchResult/>
         </form>
         </div>
     </>
 )
 }
-export default Search
+export default Search;
