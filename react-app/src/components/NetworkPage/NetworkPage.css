@@ -8,7 +8,9 @@ body{
 }
 .test{
     display:flex;
-    margin: 50px;
+    margin-top: 80px;
+    margin-left: 100px;
+    margin-right: 200px;
     flex-direction: row;
     flex-wrap:wrap;
 }

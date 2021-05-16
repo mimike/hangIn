@@ -7,7 +7,6 @@ import {likePost, unlikePost} from "../../store/posts"
 // Post Likes / Unlikes
 function Likes({post}) {
 
-
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => state.posts)
@@ -24,7 +23,6 @@ function Likes({post}) {
   }, [user.likes[post.id], switched])
 
   const handleLike = async (e) => {
-
     await dispatch(likePost(post.id))
     setSwitched(true)
   }

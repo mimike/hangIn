@@ -4,9 +4,7 @@
 .upload-box-container{
     display: flex;
     justify-content: center;
-
 }
-
 .main-post-container{
     border-radius: 10px;
     display: block;
@@ -26,7 +24,6 @@
     border: 1px solid rgb(235, 234, 234);
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
-
 .single-post{
     width: 600px;
     height: auto;
@@ -48,7 +45,6 @@
 }
 .author-details{
     order: 2;
-
 }
 
 .top-post-container p{

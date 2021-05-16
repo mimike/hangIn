@@ -7,8 +7,6 @@ const GET_SINGLE_USER = 'session/GET_SINGLE_USER'
 const LIKE_POST = 'session/LIKE_POST'
 const UNLIKE_POST = 'session/UNLIKE_POST'
 
-
-
 const setUser = (user) => ({
     type: SET_USER,
     payload: user
@@ -127,7 +125,6 @@ export default function reducer(state = initialState, action) {
             console.log("unlike!", action.payload)
             delete state.user.likes[action.payload]
             return {...state}
-
 
         default:
             return state;

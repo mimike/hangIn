@@ -37,13 +37,12 @@
 }
 .my-headline{
     font-weight: 400;
-
     margin-left: 40px;
 
 }
 .my-location{
-
     margin-left: 40px;
+    margin-bottom: 20px;
 }
 .my-location h3{
     font-weight: 400;
@@ -82,7 +81,7 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 12%;
+    width: 15%;
     opacity: 0.5;
     border-radius: 30px;
     font-weight: bold;

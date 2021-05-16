@@ -1,7 +1,8 @@
-//actions
 const GET_USERS = "users/GET_USERS"
 const ADD_SINGLE_USER ="users/ADD_SINGLE_USER"
 const DELETE_USER = "users/DELETE_USER"
+
+const ALL_FOLLOWERS = "session/ALL_FOLLOWERS"
 
 const FOLLOW = 'session/FOLLOW'
 const UNFOLLOW = "session/UNFOLLOW"
@@ -17,19 +18,23 @@ const addUser = (user) => ({
 const deleteUser = () => ({
     type: DELETE_USER,
 })
-export const userFollowUser = (user) => ({
+const getAllFollowers = (user) => ({
+    type: ALL_FOLLOWERS,
+    payload: user
+})
+
+//dont need these ?
+const userFollowUser = (user) => ({
     type: FOLLOW,
     payload: user
-
 })
-export const userUnfollowUser = (user) => ({
+const userUnfollowUser = (user) => ({
     type: UNFOLLOW,
     payload: user
 })
 
 //thunk:
 export const getUsersThunk = () => async (dispatch) => {
-    console.log("TQWLVEE!")
     const response = await fetch('/api/users') //method: "GET" by default
     if (!response.ok){
         throw response
@@ -66,9 +71,25 @@ export const follow = (userId, currentUser) => async(dispatch) => {
        return {"follows": data}
    }
 }
+// export const allUserFollowInfo = (userId) => async dispatch => {
+//     const response = await fetch(`/api/followers/follows/${userId}`)
+// if (response.ok){
+//     const follows = await response.json()
+//     dispatch(getAllFollowers())
+// }
+export const allUserFollowInfo = (userId) => async dispatch => {
+    const response = await fetch(`/api/followers/follows/${userId}`)
+
+    const data = await response.json();
+    if (response.ok){
+        dispatch(getAllFollowers(data))
+        return {"follwing": data}
+    }
+}
+
 //reducer
 const initialState = {}
-const usersReducer = (users = initialState, action)=> {
+export default function usersReducer(users = initialState, action) {
     switch (action.type){
         case GET_USERS:
             const usersPayload = action.payload
@@ -80,38 +101,37 @@ const usersReducer = (users = initialState, action)=> {
                 //3: {id: 3, name: troy, city: etc}
             }
             return newUsers
+
         case ADD_SINGLE_USER:  //users/12
             const userPayload = action.payload
             const newUsersSingle = {...users} // ...state
             newUsersSingle[userPayload.id] = userPayload
             return newUsersSingle;
             // maintaining all the database info and just throwing in the new person
-        //ALTERNATE may delete later
-        // case ONLY_ONE_USER:
-        //     const newUser = {}
-        //     newUser[userPayload.id] = userPayload
-        //     return newUser;
-
-        //case DELETE_USER:
-
-
-        // to: i dont need a follow case. make a (all) followrs case, "followers": [...a.payload]
+        case ALL_FOLLOWERS:
+            return {...users, "following": [...action.payload], "followers": [...action.payload]}
+        // to do: i dont need a follow case.
+        //make a, (all) followers case, "followers": [...actiion.payload]
 
         case FOLLOW:
             return {...users, "follow": [action.payload]}
         case UNFOLLOW:
-
-
             default:
                 return users
-            }
-        }
-        export default usersReducer
+    }
+}
 
-        // for (const user of userPayload){
-        //     newUser[user.id] = user
-        // } line 52 taken out
+//         for (const user of userPayload){
+//             newUser[user.id] = user
+//         } line 52 taken out
 
 
-//user does something. (that fires off a useEffect that dispatches a thunk.)
-//it calls the thunk. thunk calls the back end. the backend responds w/a JSONIFIED object which represents all the users. comes back to the front end.
+// user does something. (that fires off a useEffect that dispatches a thunk.)
+// it calls the thunk. thunk calls the back end. the backend responds w/a JSONIFIED object which represents all the users. comes back to the front end.
+
+//ALTERNATE may delete later
+//        case ONLY_ONE_USER:
+//             const newUser = {}
+//             newUser[userPayload.id] = userPayload
+//             return newUser;
+//         case DELETE_USER:

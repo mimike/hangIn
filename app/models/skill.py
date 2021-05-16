@@ -2,8 +2,6 @@ from flask_login import UserMixin #isauthenticated
 from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
-
-
 class Skill(db.Model):
     __tablename__ = "skills"
     id = db.Column(db.Integer, primary_key=True, nullable=False)

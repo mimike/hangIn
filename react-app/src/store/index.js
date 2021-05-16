@@ -4,12 +4,10 @@ import session from './session'
 import usersReducer from './users'
 import postsReducers from './posts'
 
-
 const rootReducer = combineReducers({
     session,
     users: usersReducer,
     posts: postsReducers
-
 });
 
 let enhancer;

@@ -12,6 +12,10 @@
     font-weight: 300;
 
 }
+
+.fa-linkedin:before {
+    color: rgba(20, 81, 150, 0.884);
+}
 li-icon{
     margin: 3px;
 }

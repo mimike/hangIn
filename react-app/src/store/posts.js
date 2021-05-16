@@ -7,9 +7,6 @@ const ADD_LIKE = "posts/ADD_LIKE"
 const REMOVE_LIKE = "posts/REMOVE_LIKE"
 const SET_LIKES = "posts/SET_LIKES"
 
-
-
-
 const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
@@ -64,19 +61,14 @@ export const getAllUserPosts = () => async dispatch => {
     const response = await fetch ('api/posts/user/:id', )
 }
 
-
 export const getPostLikes = (post_id) => async dispatch => {
-    const response = await fetch (`api/posts/${post_id}`, {
+    const response = await fetch (`api/posts/${post_id}`)
         // headers: { 'Content-Type': 'application/json'}
-
-    })
-
     if (response.ok){
         const likes = await response.json()
         dispatch(setLikes(likes))
     }
 }
-
 export const likePost = (post_id) => async dispatch => {
 
     const response = await fetch ('/api/posts/like', {
@@ -86,7 +78,7 @@ export const likePost = (post_id) => async dispatch => {
             post_id
         })
     })
-    
+
     const data = await response.json()
     if(response.ok){
         await dispatch(userLikePost(data.post_id))
@@ -94,7 +86,6 @@ export const likePost = (post_id) => async dispatch => {
         return true;
     }
 }
-
 export const unlikePost = (post_id) => async dispatch => {
 
     const response = await fetch ('/api/posts/like', {
@@ -115,7 +106,7 @@ export const unlikePost = (post_id) => async dispatch => {
 
 //add a comment
 export const commentPost = (submission) => async dispatch => {
-    console.log("!!", submission)
+
     // const {postId} = submissions
     // const formData = new FormData()
     // formData.append("commentText", commentText)
@@ -142,7 +133,6 @@ export default function postsReducers(posts = initialState, action) {
             const newPosts = {...posts}  //...we dont want to get rid of other posts
             newPosts[postPayload.id] = postPayload
             return newPosts
-
         case DISPLAY_POSTS:
             const postsPayload = action.payload
             const newAllPosts = {}

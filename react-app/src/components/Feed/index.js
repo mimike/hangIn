@@ -29,7 +29,6 @@ useEffect(()=> {
   const profileLink = id => {
     history.push(`/user/${id}`)
   }
-
   // const success = await dispatch(commentPost())
   // if(success){
   //   dispatch(getAllPosts())
@@ -43,14 +42,20 @@ useEffect(()=> {
         <div className="feed-container">
           <div className="main-post-container">
               {Object.values(displayPosts).map((post, index) => {
+                const authorId = post.author.id
 
                   return(
-                      <div className="single-post" onClick={() => getAllPosts(post.id)} key={index}>
+                      <div className="single-post" onClick={() => getAllPosts(user)} key={index}>
                           <div className="top-post-container">
                             <img className="author-photo" alt="avatar" src={post.author.avatar_url}/>
                             <div className="author-details">
-                              <p className="author-name-post">{post.author.first_name} {post.author.last_name}</p>
-                              <p className="author-headline-post">{post.author.headline}</p>
+                              <p onClick={()=> profileLink(authorId)}
+                              className="author-name-post">{post.author.first_name} {post.author.last_name}
+                              </p>
+                              <p
+
+                              className="author-headline-post">{post.author.headline}
+                              </p>
                             </div>
                           </div>
 
@@ -72,10 +77,7 @@ useEffect(()=> {
 
                           <div className="comment-container" >
                           <CommentsBoxModal/>
-
                             <Comments post_id={post.id}/>
-
-
                             {post.comments.map((comment, index) => {
                               const commenterId = comment.author_id
                               // console.log("COMEnterid", commenterId)
@@ -93,8 +95,6 @@ useEffect(()=> {
                               )
                             })}
 
-
-
                           </div>
 
                       </div>
@@ -105,10 +105,7 @@ useEffect(()=> {
     </>
   );
 }
-
 export default Feed
-
-
 
 
 {/*

@@ -65,8 +65,9 @@ function User() {
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
                     <h3>{person?.city}, {person?.state}</h3>
-                    <span>138 Connections</span>
+                    <span className="num-connections">138 Connections</span>
                   </div>
+                  
               </div>
       </div>
             <div className="middle-container">
@@ -81,7 +82,7 @@ function User() {
                     </h5>
 
                     <h5>
-                      Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
+                      Circus Minors: (This is statically rendered.) Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
                     </h5>
 
                     <h5>
@@ -91,7 +92,10 @@ function User() {
                   </div>
               </div>
               <div className="last-container">
-                {person?.experience}
+                <h4>Experience</h4>
+                <h5>
+                  {person?.experience}
+                </h5>
               </div>
             </div>
     {/* <ul>

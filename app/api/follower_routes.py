@@ -44,6 +44,7 @@ def getAllFollowingFollower(id):
 
     return {"following": following, "followers": followers}
 
+
 # GETwe want to see who the users following GET ALL of my followers fklter follower_id ==
 # @follower_routes.route('/')
 # @login_required
@@ -51,11 +52,6 @@ def getAllFollowingFollower(id):
 #     users = User.follows.query.filter_by(follower_id == current_user.id).all()  #friend's id
 
 #     return users.get_follower_info()
-
-
-
-
-
 
 #post unfollow
 @follower_routes.route('/unfollows/<int:user_id>', methods=['POST'])
