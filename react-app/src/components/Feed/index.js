@@ -13,10 +13,10 @@ import displayPosts from '../../store/posts'
 function Feed() {
   const history = useHistory()
   const dispatch = useDispatch();
-  const [displayPosts, setDisplayPosts] = useState([])
   const posts = useSelector(state => state.posts)
   const user = useSelector(state =>  state.session.user)
   //const comments = posts[postId]  //this logic??
+  const [displayPosts, setDisplayPosts] = useState(posts)
 
 useEffect(() =>  {
   setDisplayPosts(posts)
@@ -42,19 +42,19 @@ useEffect(()=> {
         <div className="feed-container">
           <div className="main-post-container">
               {Object.values(displayPosts).map((post, index) => {
-                const authorId = post.author.id
+                const authorId = post.author?.id
 
                   return(
                       <div className="single-post" onClick={() => getAllPosts(user)} key={index}>
                           <div className="top-post-container">
-                            <img className="author-photo" alt="avatar" src={post.author.avatar_url}/>
+                            <img className="author-photo" alt="avatar" src={post.author?.avatar_url}/>
                             <div className="author-details">
                               <p onClick={()=> profileLink(authorId)}
-                              className="author-name-post">{post.author.first_name} {post.author.last_name}
+                              className="author-name-post">{post.author?.first_name} {post.author?.last_name}
                               </p>
                               <p
 
-                              className="author-headline-post">{post.author.headline}
+                              className="author-headline-post">{post.author?.headline}
                               </p>
                             </div>
                           </div>
@@ -70,7 +70,7 @@ useEffect(()=> {
                                   <i class="far fa-comment-dots commented"></i>
                             <div/>
                                   <div className="comment-numbers">
-                                    {posts[post.id].num_comments}
+                                    {posts[post.id]?.num_comments}
                                   </div>
                               </div>
                           </div>
@@ -78,7 +78,7 @@ useEffect(()=> {
                           <div className="comment-container" >
                           <CommentsBoxModal/>
                             <Comments post_id={post.id}/>
-                            {post.comments.map((comment, index) => {
+                            {post.comments?.map((comment, index) => {
                               const commenterId = comment.author_id
                               // console.log("COMEnterid", commenterId)
                               return(

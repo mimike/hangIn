@@ -25,13 +25,12 @@ const UploadForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
    const submission = { mediaUrl, textBody }
-
    const success = await dispatch(uploadPost(submission))
    if(success){
-    dispatch(getAllPosts())
+    await dispatch(getAllPosts())
     close.click()
    }
-    history.push('/feed')
+    // history.push('/feed')
   }
 
   const updateMediaUrl = (e) => {
@@ -48,7 +47,6 @@ const UploadForm = () => {
 //       setErrors(data.errors);
 //     }
 // };
-
     return (
       <>
         <div className="modal-container">
@@ -71,7 +69,6 @@ const UploadForm = () => {
             </div>
           </div>
 
-
           <div className="start-post-container">
                 <textarea className="post2-box"
                 type="text"
@@ -82,9 +79,9 @@ const UploadForm = () => {
           </div>
 
           <div className="upload-image-box">
-              <label className="upload-post-label" htmlFor="file"><i class="far fa-images" ></i> Photo</label>
+              <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Photo</label>
                   <input
-                  id = "file"
+                  id = "file3"
                   className="input-file"
                   name = "image"
                   type = "file"
@@ -94,15 +91,9 @@ const UploadForm = () => {
 
           <div className="share-story">
             <label
-            onClick={() => setShowModal(true)}><i class="far fa-newspaper" ></i> Write article</label>
+            onClick={() => {history.push('/story')}}><i class="far fa-newspaper" ></i> Write article</label>
 
-            {showModal && (
-              <Modal onClose={() => setShowModal(false)}>
-                <UploadText />
-              </Modal>
-            )}
         </div>
-
           <button className="submit-button" type="submit">Post</button>
         </form>
 
@@ -110,8 +101,16 @@ const UploadForm = () => {
         </div>
       </>
     );
-          };
+  };
 
+
+  {/* <label
+  onClick={() => setShowModal(true)}><i class="far fa-newspaper" ></i> Write article</label>
+
+  {showModal && (
+    <Modal onClose={() => setShowModal(false)}>
+      <UploadText />
+    </Modal> */}
   export default UploadForm;
   // import React, { useState } from 'react';
 // import * as sessionActions from '../../store/session';

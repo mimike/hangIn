@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import { commentPost } from '../../store/posts';
 import "./Comments.css"
-import { useParams} from "react-router-dom";
+//import { useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {getAllPosts} from "../../store/posts";
 function Comments({post_id}){

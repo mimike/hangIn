@@ -6,6 +6,7 @@ import SignUpForm from "./components/auth/SignUpForm";
 import SplashPage from "./components/SplashPage"
 import NetworkPage from "./components/NetworkPage";
 import Feed from "./components/Feed"
+import UploadText from "./components/UploadFormModal/UploadText"
 
 import ProfilePage from "./components/ProfilePage";
 //import ProfileTile from "./components/NetworkPage/ProfileTile"
@@ -44,6 +45,9 @@ function App() {
         <Route path="/explore">
           <Navigation />
             <NetworkPage />
+        </Route>
+        <Route path="/story">
+          <UploadText />
         </Route>
 
         <Route path="/feed">

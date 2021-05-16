@@ -114,9 +114,9 @@ def get_user_posts(id):
 
 # POST a Comment  ?? not tested
 # localhost5000:api/posts/12/comments
-@post_routes.route('/<int:id>/comments', methods=['POST'])
+@post_routes.route('/comments', methods=['POST'])
 @login_required
-def post_comment(id):
+def post_comment():
     #print(request.form['commentText'])
     #print(request.get_json())
     addedComment = Comment(

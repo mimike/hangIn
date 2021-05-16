@@ -15,12 +15,12 @@ follower_routes = Blueprint('follower', __name__)
 #     return {"user": user.to_dict()}
 
 #post follow
-@follower_routes.route('/follows/<int:id>', methods=['POST'])
+@follower_routes.route('/', methods=['POST'])
 @login_required
-def followUser(id):
-    print("ID!", id)
-    user = User.query.filter_by(id = id).first()  #friend's id
-    current_user.follows.append(user)
+def followUser():
+    user_id = request.json["userId"]
+    user = User.query.filter_by(id = user_id).first()  #friend's id
+    user.follows.append(current_user)
     db.session.add(current_user)
     db.session.commit()
     # return {"user": user.to_user_name_to_dic() }  # {"user": {"user": Jerry Wright}}
@@ -34,15 +34,25 @@ def getAllFollowingFollower(id):
     # how do u query FOLLOWS?? its a joins table!!!
     profileUser = User.query.filter_by(id = id).first()
     #users = User.follows.query.filter_by(user_id == current_user.id).all()  #friend's id
-    following = {
+    followers = {
         user.id: user.get_follower_info() for user in profileUser.follows
     }
-    followers = {
+    following = {
         follower.id: follower.get_follower_info() for follower in profileUser.followers
     }
     print("!!follow!", {"following": following, "followers": followers})
 
-    return {"following": following, "followers": followers}
+    return {"followers": followers, "following": following}
+
+@follower_routes.route('/', methods=['DELETE'])
+@login_required
+def deleteFollower():
+  user_id = request.json["userId"]
+  user = User.query.filter_by(id = user_id).first()
+  user.follows.remove(current_user)
+  db.session.commit()
+  return user.get_follower_info()
+
 
 
 # GETwe want to see who the users following GET ALL of my followers fklter follower_id ==

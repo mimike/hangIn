@@ -31,12 +31,14 @@ function Likes({post}) {
     await dispatch(unlikePost(post.id))
     setSwitched(false)
   }
-
+  if(!post[post.id]){
+    return null;
+  }
     return (
         <>
           <div className="likes-container">
           <div className="num-likes">
-            {posts[post.id].num_likes}
+            {posts[post.id]?.num_likes}
           </div>
 
           <div className = "like-icon">

@@ -12,24 +12,36 @@ function User() {
   // Notice we use useParams here instead of getting the params
   // From props.
   const { userId }  = useParams();
-  const currentUser = useSelector(state => state.session.user.id)
+  const currentUserId = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)
   // console.log("PERSON!", person)
 
   //hook
   const followButton = async(e) => {
-    e.preventDefault();
-    dispatch(follow(userId, currentUser))
-    return {
-      "userId": userId,
-      "currentUser": currentUser
-    }
+
+    await dispatch(follow(userId, currentUserId))
+    // return {
+    //   "userId": userId,
+    //   "currentUser": currentUser
+    // }
+  }
+  const unfollowButton = async(e) => {
+    await dispatch(unfollow(userId, currentUserId))
   }
 
+  
+
   function checkUser(){
-    if(currentUser != userId){
+    if(currentUserId != userId){
       return (
-        <button className="follow-me" onClick={followButton}>Connect</button>
+        <>
+          {people[userId]?.followers[`follower_id-${currentUserId}`] &&
+            <button className="unfollow-me" onClick={unfollowButton}>Unfollowww</button>
+          }
+          {!people[userId]?.followers[`follower_id-${currentUserId}`] &&
+          <button className="follow-me" onClick={followButton}>Followww</button>
+          }
+        </>
       )
     }
   }
@@ -67,7 +79,7 @@ function User() {
                     <h3>{person?.city}, {person?.state}</h3>
                     <span className="num-connections">138 Connections</span>
                   </div>
-                  
+
               </div>
       </div>
             <div className="middle-container">

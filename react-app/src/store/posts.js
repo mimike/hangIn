@@ -112,7 +112,7 @@ export const commentPost = (submission) => async dispatch => {
     // formData.append("commentText", commentText)
     // formData.append("postId", post_id)
 
-    const res = await fetch(`/api/posts/${submission.postId}/comments`, {
+    const res = await fetch("/api/posts/comments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
