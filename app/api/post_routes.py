@@ -26,7 +26,7 @@ def get_single_post(id):
     return {"post": post.to_dict()}
 
 # POST a single post:
-@post_routes.route('', methods=['POST'])
+@post_routes.route('/', methods=['POST'])
 @login_required
 def post_post():
 
