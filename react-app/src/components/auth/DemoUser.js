@@ -9,19 +9,6 @@ const DemoUser = () => {
 	let history = useHistory()
 	const dispatch = useDispatch()
 
-	//valid alternate:
-    //const setDemoLogin = async (e) => {
-	// 	e.preventDefault()
-	// 	const email = 'demo@aa.io'
-	// 	const password = 'password'
-	// 	const data = await dispatch(login(email, password))
-
-    //     if(data.errors){
-    //         setErrors(data.errors);
-    //     }
-	// 	if (!data.errors) history.push('/')
-	// }
-
     const demoLoginWrapper = async (e) => {
         e.preventDefault()
         await dispatch(demoLogin())

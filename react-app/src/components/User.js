@@ -14,32 +14,32 @@ function User() {
   const { userId }  = useParams();
   const currentUserId = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)
-  // console.log("PERSON!", person)
+
 
   //hook
   const followButton = async(e) => {
-
     await dispatch(follow(userId, currentUserId))
     // return {
     //   "userId": userId,
     //   "currentUser": currentUser
     // }
   }
+
   const unfollowButton = async(e) => {
     await dispatch(unfollow(userId, currentUserId))
   }
 
-  
-
+  //if people[user]
   function checkUser(){
     if(currentUserId != userId){
       return (
         <>
           {people[userId]?.followers[`follower_id-${currentUserId}`] &&
-            <button className="unfollow-me" onClick={unfollowButton}>Unfollowww</button>
+            <button className="follow-me" onClick={unfollowButton}>Unfollow</button>
           }
+
           {!people[userId]?.followers[`follower_id-${currentUserId}`] &&
-          <button className="follow-me" onClick={followButton}>Followww</button>
+          <button className="unfollow-me" onClick={followButton}>Follow</button>
           }
         </>
       )
@@ -49,20 +49,13 @@ function User() {
   useEffect(() => {
     dispatch(getUsersThunk())
   }, [dispatch])
-  // useEffect(() => {
-  //   if (!userId) {
-  //     return
-  //   }
-  //   (async () => {
-  //     const response = await fetch(`/api/users/${userId}`);
-  //     // const user = await response.json();
-  //     // setUser(user);
-  //   })();
-  // }, [userId]);
+
   if (!user) {
     return null;
   }
+
   const person = people[userId]
+
   return (
     <>
       <div className="profile-page-container">
