@@ -37,8 +37,11 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
-    const res = await fetch("/api/posts/", {
+    const res = await fetch("/api/posts", {
         method: "POST",
+        headers: {
+            "Accept": "application/json"
+         },
         body: formData
     })
     if(res.ok){
