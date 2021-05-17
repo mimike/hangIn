@@ -243,7 +243,7 @@ const SignUpForm = () => {
             </div>
 
             <div>
-            <label>Main Discripline</label>
+            <label>Main Discipline</label>
             <select className='skills-dropdown' value={skills} onChange={(e) => setSkills(e.target.value)}>
                   <option value={0} disabled>Select Skills</option>
                   {skillz.map(skill => (
