@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./NetworkPage.css";
 import ProfileTile from "./ProfileTile";
 import {getUsersThunk} from "../../store/users";
@@ -8,11 +8,18 @@ import "../SideBar/SideBar.css"
 
 function NetworkPage() {
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(true);
 
   useEffect(()=> {
-    console.log("WEGOTTOHEREEEEELKkdfjlsfdjasl")
-    dispatch(getUsersThunk())
+
+    dispatch(getUsersThunk()).then(() => {
+      setLoaded(false);
+
+    })
   }, [dispatch])   //dependancy array {}
+  if(loaded){
+    return <div><h4><i class="far fa-clock"></i> loading...</h4></div>
+  }
   return (
     <>
       <div className="page-container">

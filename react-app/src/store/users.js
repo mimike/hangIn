@@ -43,6 +43,7 @@ export const getUsersThunk = () => async (dispatch) => {
         }    // default 500 error
         const users = await response.json() //now we can read the backend dictionary
         dispatch(getUsers(users))
+        return
 }
 export const getUserThunk = (id) => async(dispatch) => {
     const response = await fetch(`/api/users/${id}`,{
