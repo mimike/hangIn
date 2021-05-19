@@ -21,7 +21,14 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
-
-
-
 #return jsonify([comment.to_dict() for comment in User.comments])
+
+@user_routes.route('/search', methods=['POST'])
+@login_required
+def search_user():
+    data = request.json["search"]
+
+    users = User.query.filter((User.first_name.ilike(f'%{data}%')) | (User.last_name.ilike(f'%{data}'))).all()
+    #skills = Skill.query     .join
+
+    return {"users": [user.to_dict() for user in users]}

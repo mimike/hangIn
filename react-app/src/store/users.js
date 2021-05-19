@@ -95,7 +95,6 @@ export const unfollow = (userId, currentUserId) => async dispatch => {
     }
 }
 
-
 export const allUserFollowInfo = (userId) => async dispatch => {
     const response = await fetch(`/api/followers/follows/${userId}`)
 

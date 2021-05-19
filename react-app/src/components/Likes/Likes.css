@@ -1,11 +1,11 @@
 .liked{
     color: blue;
     font-weight: bold;
-    background-color: green;
+
 }
 .unliked{
     color:black;
-    background-color: green;
+
 }
 
 .commented{
@@ -41,7 +41,7 @@
 }
 .like-icon{
     order: 1;
-    background-color:pink;
+    
     /* margin-top: 40px; */
 }
 .fa-thumbs-up:before{

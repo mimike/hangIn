@@ -90,8 +90,8 @@ class User(db.Model, UserMixin):
   def to_user_name_to_dict(self):
     return {
       "user": self.first_name + " " + self.last_name
-
     }
+
   def get_follower_info(self):
     return {
       "id": self.id,

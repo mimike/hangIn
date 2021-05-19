@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import {useDispatch} from 'react-redux'
-import {useHistory} from 'react-router-dom'
-import {getSearchResult} from '../../store/search'
+// import {useHistory} from 'react-router-dom'
+import {searchUserThunk} from '../../store/search'
 import "./Navigation.css";
 import SearchResult from "./SearchResult.js"
 
 const Search = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const [search, setSearch] = useState("")
 
     const onType = (e) => {
         setSearch(e.target.value)
         e.preventDefault()
         // dispatch(getSearchResult(e.target.value));
-        history.push('/feed')
+        dispatch(searchUserThunk(e.target.value))
+
     }
 return (
     <>
@@ -31,16 +32,17 @@ return (
             </label>
         <div className="search-field">
             <input
-
                 type="text"
+                autoComplete="off"
                 id="header-search"
                 placeholder="Search"
                 value = {search}
                 name="s"
-            onChange={onType}
+                onChange={onType}
                 />
         </div>
-        <SearchResult/>
+        {/* <button type="submit">Search</button> */}
+        <SearchResult search={search}/>
         </form>
         </div>
     </>

@@ -32,8 +32,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    console.log("!!!!av", avatar)
-    console.log("!!!!cv", cover)
+
     const formData = new FormData()
     let response;
     formData.append("password", password)
@@ -129,7 +128,9 @@ const SignUpForm = () => {
     setPageNumber(pageNumber-1)
   }
 
-  const states=['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
+  const states=[
+    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+  ]
 
   const skillz = ['Fabric', 'Hoop', "Rope", "Static trapeze"]
 
@@ -146,7 +147,6 @@ const SignUpForm = () => {
                   required
                   type="text"
                   name="email"
-                  // placeholder="Email"
                   onChange={updateEmail}
                   value={email}
                 ></input>
@@ -156,7 +156,6 @@ const SignUpForm = () => {
               <label>Password (6 or more characters)</label>
               <input
               required
-                // placeholder="Password (6 or more characters)"
                 type="password"
                 name="password"
                 onChange={updatePassword}
@@ -170,7 +169,6 @@ const SignUpForm = () => {
               required
                 type="password"
                 name="repeat_password"
-                // placeholder="Repeat Password"
                 onChange={updateRepeatPassword}
                 value={repeatPassword}
                 required={true}

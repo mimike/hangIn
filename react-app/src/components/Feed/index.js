@@ -66,7 +66,7 @@ useEffect(()=> {
                           </div>
                           <div className="likes-comments-icon-container">
                             <div>
-                              
+
                                 <Likes post={post}/>
                             </div>
 
@@ -84,7 +84,7 @@ useEffect(()=> {
                             <Comments post_id={post.id}/>
                             {post.comments?.map((comment, index) => {
                               const commenterId = comment.author_id
-                              // console.log("COMEnterid", commenterId)
+
                               return(
                                 <div className= "comment-by" key={`${post.id}-${comment.id}`}>
                                     <div className="click-me" id = {commenterId} onClick={()=> profileLink(commenterId)}>
@@ -112,11 +112,4 @@ useEffect(()=> {
 export default Feed
 
 
-{/*
-<div class="profile">
-  <img src="mimi.gif">
-  <div class="dets">
-      <p>Demo User :)</p>
-      <p>Dancer</p>
-  </div>
-</div> */}
+

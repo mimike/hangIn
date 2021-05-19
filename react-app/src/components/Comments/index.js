@@ -15,7 +15,7 @@ function Comments({post_id}){
         setCommentText(e.target.value)
     }
     const handleCommentSubmit = (e) => {
-        console.log("!!!!!")
+        
         e.preventDefault()
         const params = { postId: post_id, commentText }
         dispatch(commentPost(params))

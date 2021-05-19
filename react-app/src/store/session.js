@@ -122,7 +122,7 @@ export default function reducer(state = initialState, action) {
             state.user.likes[action.payload] = action.payload
             return {...state}
         case UNLIKE_POST:
-            console.log("unlike!", action.payload)
+            
             delete state.user.likes[action.payload]
             return {...state}
 

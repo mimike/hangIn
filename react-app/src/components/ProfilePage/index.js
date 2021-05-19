@@ -16,7 +16,7 @@ function ProfilePage() {
   // From props.
   // const { userId }  = useParams();
   const person= useSelector(state => state.session.user)
-  // console.log("person!", person)
+  
 
   useEffect(() => {
     dispatch(getUsersThunk())

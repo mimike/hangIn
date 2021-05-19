@@ -154,8 +154,7 @@ export default function postsReducers(posts = initialState, action) {
             }
             return {...posts}
         case SET_LIKES:
-            console.log("STATE", posts)
-            console.log("PAYLOAD", action.payload)
+            
         default:
             return posts;
     }
