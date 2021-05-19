@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-// import { } from "../../store/posts"
+
 import "./Likes.css"
 import "../Feed/Feed.css"
 import {likePost, unlikePost} from "../../store/posts"
-// Post Likes / Unlikes
+
 function Likes({post}) {
 
   const dispatch = useDispatch()
@@ -31,25 +31,27 @@ function Likes({post}) {
     await dispatch(unlikePost(post.id))
     setSwitched(false)
   }
-  if(!post[post.id]){
+  if(!posts[post.id]){
     return null;
   }
     return (
         <>
-          <div className="likes-container">
-          <div className="num-likes">
-            {posts[post.id]?.num_likes}
-          </div>
 
-          <div className = "like-icon">
-            { liked &&
-              <div onClick={handleUnlike}>
-                <i className="far fa-thumbs-up liked" ></i>
-                </div>
-            }
+          <div className="likes-container">
+            <div className="num-likes">
+              {posts[post.id]?.num_likes}
+            </div>
+
+            <div className = "like-icon">
+              { liked &&
+                <div onClick={handleUnlike}>
+                  <i class="far fa-thumbs-up liked" ></i>
+                  </div>
+              }
             { !liked &&
-              <div onClick={handleLike}>  <i className="far fa-thumbs-up unliked"></i></div>
+              <div onClick={handleLike}>  <i class="far fa-thumbs-up unliked"></i></div>
             }
+
 
 
             </div>

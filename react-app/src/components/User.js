@@ -31,11 +31,11 @@ function User() {
 
   //if people[user]
   function checkUser(){
-    if(currentUserId != userId){
+    if(currentUserId !== userId){
       return (
         <>
           {people[userId]?.followers[`follower_id-${currentUserId}`] &&
-            <button className="follow-me" onClick={unfollowButton}>Unfollow</button>
+            <button className="follow-me" onClick={unfollowButton}>Following</button>
           }
 
           {!people[userId]?.followers[`follower_id-${currentUserId}`] &&
@@ -61,7 +61,7 @@ function User() {
       <div className="profile-page-container">
               <div className="first-container">
                   <div className="cover-container">
-                      <img className="cover-pic1" src={person?.cover_url} />
+                      <img className="cover-pic1" alt="cover" src={person?.cover_url} />
                       <img className="avatar-pic1" src={person?.avatar_url} />
                   </div>
                   <div className="profile-text1">
@@ -76,8 +76,8 @@ function User() {
               </div>
       </div>
             <div className="middle-container">
-                  <div className="about-container">
-                    <h4>About</h4>
+            <div className="about-container">
+            <h4>About</h4>
                     <h5>
                       {person?.about}
                     <h5/>
@@ -94,6 +94,8 @@ function User() {
                       Other: Coding, Collaborating, Crashing
                     </h5>
                     </h5>
+
+
                   </div>
               </div>
               <div className="last-container">

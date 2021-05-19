@@ -100,3 +100,32 @@
 .profile-name{
     order: 2;
 }
+.share-container{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.upload-image-box{
+
+}
+.share-story{
+
+}
+
+#comment-submit-button{
+    border: none;
+    color: green;
+    border-radius: 10px;
+    width: 15%;
+    margin-top: 10px;
+    border-radius:50px;
+    background: green;
+    border: none;
+    height: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.5;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, #ff1d1d, #cabd08);
+}

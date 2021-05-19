@@ -77,6 +77,13 @@ li {
     padding: 12px 16px;
     z-index: 1;
 }
+button.profile-dropdown{
+    background: linear-gradient(45deg, #c964c5, #5248b3);
+
+    padding: 10px;
+    margin: 5px;
+}
+
 
 .search-field input [type=text]{
     color:rgb(44, 68, 114);

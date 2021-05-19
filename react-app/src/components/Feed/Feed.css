@@ -71,9 +71,15 @@
     margin-bottom: 20px;
     margin-left: 12px;
     font-size: 14px;
+    align-items: unset;
+}
+.photo-post-container{
+    text-align: center;
 }
 .photo-post{
-    width: 100%;
+    margin:auto;
+    width: 60%;
+    height: 60%;
     margin: 5px;
 }
 

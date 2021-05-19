@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
-import { uploadPost, getAllPosts } from "../../store/posts"
+import { uploadPost } from "../../store/posts"
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import './UploadForm.css';
@@ -35,11 +35,7 @@ const UploadText = () => {
                 e.preventDefault()
                 const convertedData = convertToRaw(editorState.getCurrentContent())
                 dispatch(uploadPost(convertedData))
-
-
-              }
-
-
+            }
 
 
     return (
@@ -59,7 +55,7 @@ const UploadText = () => {
                 <div className="preview" dangerouslySetInnerHTML={createMarkup(convertedContent)}></div>
 
                 <div id="comment-button-div">
-            <button onClick={handleSubmit} id="comment-submit-button" color="teal">Submit</button>
+            <button onClick={handleSubmit} id="comment-submit-button" >Submit</button>
           </div>
 
             </div>

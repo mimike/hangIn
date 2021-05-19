@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {getSearchResult} from '../../store/search'
 import "./Navigation.css";
@@ -34,7 +34,7 @@ return (
 
                 type="text"
                 id="header-search"
-                placeholder="Search!!"
+                placeholder="Search"
                 value = {search}
                 name="s"
             onChange={onType}

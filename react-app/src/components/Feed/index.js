@@ -36,6 +36,7 @@ useEffect(()=> {
 
   return (
     <>
+
         <div className="upload-box-container">
           <UploadBox/>
         </div>
@@ -60,9 +61,12 @@ useEffect(()=> {
                           </div>
 
                           <li className="text-post" >{post.text_body}</li>
-                          <img className="photo-post" alt="post-photo" src={post.media_url}/>
+                          <div className="photo-post-container">
+                            <img className="photo-post" alt="post-photo" src={post.media_url}/>
+                          </div>
                           <div className="likes-comments-icon-container">
                             <div>
+                              
                                 <Likes post={post}/>
                             </div>
 

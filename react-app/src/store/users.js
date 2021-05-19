@@ -37,7 +37,7 @@ const userUnfollowUser = (user) => ({
 
 //thunk:
 export const getUsersThunk = () => async (dispatch) => {
-    const response = await fetch('/api/users') //method: "GET" by default
+    const response = await fetch('/api/users/') //method: "GET" by default
     if (!response.ok){
         throw response
         }    // default 500 error
@@ -69,7 +69,7 @@ export const follow = (userId, currentUserId) => async(dispatch) => {
    //////////////
    const data = await response.json();
    if(response.ok){
-       data.currentUserId = currentUserId;  
+       data.currentUserId = currentUserId;
        dispatch(userFollowUser(data))
     //    return {"follows": data}
    }

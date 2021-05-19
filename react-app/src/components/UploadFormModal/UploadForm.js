@@ -3,8 +3,7 @@ import { uploadPost, getAllPosts } from "../../store/posts"
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 import './UploadForm.css';
-import UploadText from "./UploadText"
-import { Modal } from '../../context/Modal';
+
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState } from 'draft-js';
@@ -77,22 +76,22 @@ const UploadForm = () => {
                 onChange = {updateTextBody}
                 />
           </div>
+          <div className="share-container">
+            <div className="upload-image-box">
+                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Photo</label>
+                    <input
+                    id = "file3"
+                    className="input-file"
+                    name = "image"
+                    type = "file"
+                    onChange = {updateMediaUrl}
+                    />
+            </div>
 
-          <div className="upload-image-box">
-              <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Photo</label>
-                  <input
-                  id = "file3"
-                  className="input-file"
-                  name = "image"
-                  type = "file"
-                  onChange = {updateMediaUrl}
-                  />
+            <div className="share-story">
+              <label
+              onClick={() => {history.push('/story')}}><i class="far fa-newspaper" ></i> Write article</label>
           </div>
-
-          <div className="share-story">
-            <label
-            onClick={() => {history.push('/story')}}><i class="far fa-newspaper" ></i> Write article</label>
-
         </div>
           <button className="submit-button" type="submit">Post</button>
         </form>
