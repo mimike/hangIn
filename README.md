@@ -1,6 +1,6 @@
 # Welcome to Hangin!
 
-***[Hanging](https://hangin-hangin.herokuapp.com/)*** is a clone of LinkedIn that focuses on connecting aerialists and cultivating a community for professional networking and collaboration opportunities.
+***[Hangin](https://hangin-hangin.herokuapp.com/)*** is a clone of LinkedIn that focuses on connecting aerialists and cultivating a community for professional networking and collaboration opportunities.
 
 ## Technologies Used
 * React.js/Redux
