@@ -6,9 +6,11 @@ import "./Feed.css"
 import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
 import Comments from "../Comments"
+
 import Likes from "../Likes"
 import CommentsBoxModal from '../CommentsBoxModal';
 import displayPosts from '../../store/posts'
+import SideBar from '../SideBar';
 
 function Feed() {
   const history = useHistory()
@@ -41,11 +43,13 @@ useEffect(()=> {
           <UploadBox/>
         </div>
         <div className="feed-container">
+
           <div className="main-post-container">
               {Object.values(displayPosts).map((post, index) => {
                 const authorId = post.author?.id
 
                   return(
+
                       <div className="single-post" onClick={() => getAllPosts(user)} key={index}>
                           <div className="top-post-container">
                             <img className="author-photo" alt="avatar" src={post.author?.avatar_url}/>
@@ -110,6 +114,3 @@ useEffect(()=> {
   );
 }
 export default Feed
-
-
-

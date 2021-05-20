@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../store/users"
 import {follow, unfollow} from '../store/users'
 import "../components/ProfilePage/ProfilePage.css"
+import "../components/SideBar/SideBar.css"
 
 //profile page
 function User() {
@@ -14,6 +15,7 @@ function User() {
   const { userId }  = useParams();
   const currentUserId = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)
+  const aerialist = useSelector(state => state.session.user)
 
 
   //hook
@@ -56,8 +58,29 @@ function User() {
 
   const person = people[userId]
 
+
   return (
     <>
+            <div className="side-bar">
+
+            <li className="user-name">
+                <div>
+                    <img className="side-avatar-circle" src={aerialist.avatar_url}/>
+                </div>
+
+                {aerialist.first_name} {aerialist.last_name}</li>
+            <li>
+                <i class="fab fa-facebook-messenger messenger" ></i>
+                <span>Messages</span>
+            </li>
+
+            <li>
+                <i class="fas fa-walking walking"></i>
+                <span>Gigs</span>
+            </li>
+
+            <li><i class="fas fa-user-friends friends" ></i> Connections</li>
+            </div>
       <div className="profile-page-container">
               <div className="first-container">
                   <div className="cover-container">

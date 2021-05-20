@@ -1,10 +1,25 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import "./SplashPage.css"
+import ProfileDropDown from "../Navigation/ProfileDropDown"
+
 import splash from "../../images/photohang.jpeg"
 import SplashNav from "./SplashNav"
 
 
 function SplashPage() {
+  const user = useSelector(state =>  state.session.user)
+  let links;
+  if(user){
+    links= (
+      <ProfileDropDown/>
+    )
+  } else {
+    links=(
+      <SplashNav/>
+    )
+  }
+
   return (
     <>
       <SplashNav/>

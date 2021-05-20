@@ -13,6 +13,7 @@ import ProfilePage from "./components/ProfilePage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import SideBar from "./components/SideBar"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 // import UploadBox from "./components/UploadBox";
@@ -52,7 +53,6 @@ function App() {
 
         <Route path="/feed">
           <Navigation />
-
           <Feed/>
         </Route>
         <Route path="/profile">
@@ -75,6 +75,7 @@ function App() {
 
         <Route path="/user/:userId" exact={true} >
           <Navigation />
+          
           <User />
         </Route>
 

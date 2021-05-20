@@ -15,3 +15,9 @@
     font-weight: 500;
 
 }
+.splash-profile{
+    display:flex;
+    flex-direction: row-reverse;
+    margin-right: 100px;
+    margin-top: 20px;
+}

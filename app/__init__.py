@@ -9,7 +9,7 @@ from .models import db, User, Skill, Post, PostLike, Comment
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.post_routes import post_routes
-#from .api.search_routes import search_routes
+from .api.search_routes import search_routes
 from .api.follower_routes import follower_routes
 
 # from .api.skill_routes import skill_routes
@@ -38,7 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(follower_routes, url_prefix='/api/followers')
 # app.register_blueprint(skill_routes, url_prefix='/api/skills')
-# app.register_blueprint(search_routes, url_prefix='/api/search')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 
 db.init_app(app)
 Migrate(app, db)

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import {useSelector} from 'react-redux';
 import "./Navigation.css";
 import ProfileButton from "./ProfileDropDown";
 import Search from "./Search.js"
@@ -8,6 +9,7 @@ import SearchResult from './SearchResult';
 
 const Navigation = () => {
   const [search, setSearch] = useState("")
+  
   return (
     <nav>
       <div className="nav-bar-container">

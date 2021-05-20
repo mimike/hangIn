@@ -22,12 +22,15 @@ def user(id):
 
 #return jsonify([comment.to_dict() for comment in User.comments])
 
-@user_routes.route('/search', methods=['POST'])
-@login_required
-def search_user():
-    data = request.json["search"]
 
-    users = User.query.filter((User.first_name.ilike(f'%{data}%')) | (User.last_name.ilike(f'%{data}'))).all()
-    #skills = Skill.query     .join
+# @user_routes.route('/search', methods=['POST'])
+# @login_required
+# def search_user():
+#     data = request.json["search"]
 
-    return {"users": [user.to_dict() for user in users]}
+#     # users = User.query.filter((User.first_name.ilike(f'%{data}%')) | (User.query.filterlast_name.ilike(f'%{data}'))).all() | User.query.filter((User.main_skills.ilike(f'%{data}'))).all()
+
+#     users = User.query.filter((User.first_name.ilike(f'%{data}%')) | (User.last_name.ilike(f'%{data}')) | User.main_skills.ilike(f'%{data}'))
+#     #skills = Skill.query     .join
+
+#     return {"users": [user.to_dict() for user in users]}
