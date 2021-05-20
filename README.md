@@ -1,6 +1,12 @@
-# Flask React Project
+# Welcome to Hangin!
 
-This is the backend for the Flask React project.
+***[Hangin](https://hangin-hangin.herokuapp.com/)*** is a clone of LinkedIn that focuses on connecting aerialists and cultivating a community for professional networking and collaboration opportunities.
+
+## Technologies Used
+* React.js/Redux
+* SQLAlchemy
+* CSS3
+* Flask
 
 ## Getting started
 
