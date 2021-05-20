@@ -33,7 +33,7 @@ def login():
     """
     Logs a user in
     """
-    print("HEEEELL!!!!!!!!!!!!")
+
     form = LoginForm()
     print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the

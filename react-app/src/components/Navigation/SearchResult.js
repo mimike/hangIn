@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import {NavLink} from 'react-router-dom';
 import "./Navigation.css"
+import "./SearchResult.css"
 
 function SearchResult({search}){
     const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +19,6 @@ function SearchResult({search}){
     //         setShowMenu(true)
     //     } else {setShowMenu(false)}
 
-    //     console.log('useEffect')
 
     // }, [search])
 
@@ -34,7 +34,7 @@ function SearchResult({search}){
                             <div className="one-user">
                                 <img className="avatar-circle" src={search.avatar_url} />
                                 <div className="username">
-                                    <div className="username-searched">{search.first_name}</div>
+                                    <div className="username-searched">{search.first_name} {search.last_name}</div>
                                 </div>
                             </div>
 

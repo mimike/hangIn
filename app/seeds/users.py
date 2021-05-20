@@ -17,7 +17,7 @@ def seed_users():
     photo_object = response["results"]
     for photo in photo_object:
         new_list.append(photo["urls"]["regular"])
-    print("api here")
+
     pic_list = [
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/33511491_4674909669074_3860000440217239552_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=mimfYEtLwacAX-h9jq0&tn=JWSOvWr-z0BXHxBi&_nc_ht=scontent-msp1-1.xx&oh=b7ed98adff249601e6e06d2487686d65&oe=60BB4C92",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/48413309_4899175355576_999433533954981888_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=cdbe9c&_nc_ohc=HK1h-V9LR3sAX84jUot&_nc_ht=scontent-msp1-1.xx&oh=615dceb3a50eb5fa0ed0a81c2706c72d&oe=60BCE92C",
@@ -40,7 +40,7 @@ def seed_users():
         "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/18402290_10154581850965895_7194188292456553506_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=2eGUyST3VtkAX_5pVyJ&_nc_ht=scontent-msp1-1.xx&oh=b0e4b24aa980c1eb024cb79e2da09564&oe=60BBA183",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/105990717_10157082896541561_9222893570307527658_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=174925&_nc_ohc=9_D-xsFdLeEAX-aOQXM&_nc_ht=scontent-msp1-1.xx&oh=60636f981b6b74353e6c9253a89a6bf8&oe=60BE3C38"
     ]
-    print("after pic list!")
+
     demo = User(
         first_name="Mimi",
         last_name="K",
@@ -56,7 +56,7 @@ def seed_users():
         password='password'
         )
     db.session.add(demo)
-    print("before skillz!!")
+
     skills_list =[
         'Fabric',
         'Hoop',
@@ -67,7 +67,7 @@ def seed_users():
         'Hammock',
         'Invented apparatus'
     ]
-    print("after pic list!")
+
     for num in range(100):
         user=User(
             first_name=faker.first_name_nonbinary(),
@@ -84,7 +84,7 @@ def seed_users():
             password = faker.password(length=7)
             )
         db.session.add(user)
-    print("after add user!")
+    
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.

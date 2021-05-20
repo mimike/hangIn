@@ -7,7 +7,7 @@ import SearchResult from "./SearchResult.js"
 
 const Search = () => {
     const dispatch = useDispatch();
-    // const history = useHistory();
+
     const [search, setSearch] = useState("")
 
     const onType = (e) => {
@@ -26,7 +26,10 @@ return (
             </a>
         </li>
 
-        <form action="/" method="get">
+        <form
+        
+        // action="/" method="get"
+        >
             <label htmlFor="header-search">
                 <span className="visually-hidden"></span>
             </label>
@@ -41,7 +44,7 @@ return (
                 onChange={onType}
                 />
         </div>
-        {/* <button type="submit">Search</button> */}
+
         <SearchResult search={search}/>
         </form>
         </div>

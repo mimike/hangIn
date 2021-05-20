@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import Feed from "../../components/Feed"
 import "./CommentsBoxModal.css"
-import Test from "../../components/Test"
+// import Test from "../../components/Test"
 
 function CommentsBoxModal() {
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +15,7 @@ function CommentsBoxModal() {
           onClick={() => setShowModal(true)}>Add a comment!</button> */}
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <Test/>
+
             </Modal>
           )}
         </div>

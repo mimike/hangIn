@@ -32,7 +32,7 @@ def post_post():
 
     form = UploadForm()
     data = request.json
-    print("DATA!!!", data)
+
     if "mediaUrl" not in request.files:
         return {"errors": "image required"}, 400
 
@@ -43,7 +43,7 @@ def post_post():
 
     media_url.filename = get_unique_filename(media_url.filename)
     upload = upload_file_to_s3(media_url)
-    print("uplaod!!!!!!", upload)
+    # print("uplaod!!!!!!", upload)
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -52,19 +52,19 @@ def post_post():
 
     url = upload["url"]
     form['media_url'].data = url   # uploadform variab
-    print(request.form["textBody"])
+    # print(request.form["textBody"])
     form['text_body'].data = request.form["textBody"]
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("we got to here!!!!!!!")
-    print("REQUEST", request)
+
+
     if form.validate_on_submit():
         post = Post(
             media_url=form.media_url.data,
             author_id=current_user.id,
             text_body=form.text_body.data
         )
-        print(post)
+        
         db.session.add(post)
         db.session.commit()
         return post.to_dict()
@@ -104,7 +104,7 @@ def delete_post(id):
 @login_required
 def get_user_posts(id):
     posts = Post.query.filter_by(author_id=id).all()
-    print("1111111111", posts)
+
     return {"posts": [post.to_dict() for post in posts]}
 
 

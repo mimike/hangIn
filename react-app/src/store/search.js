@@ -6,7 +6,6 @@ const searchUser = (searchList) => ({
     payload: searchList
 })
 
-
 export const searchUserThunk = (searchField) => async (dispatch) => {
     const response = await fetch ('/api/users/search', {
         method: 'POST',
