@@ -16,11 +16,15 @@
 .splash-text h1{
     font-weight: 200;
     font-family: sans-serif;
-    line-height: 70px;
-    font-size: 4rem;
+    line-height:80px;
     font-weight: 300;
-    font-size: 50px;
+    font-size: 65px;
+    background: -webkit-linear-gradient(#5f2c82, #49a09d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
+
 .splash-text h3{
     font-weight: 200;
     line-height: 70px;

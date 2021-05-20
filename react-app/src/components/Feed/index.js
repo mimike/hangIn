@@ -75,7 +75,8 @@ useEffect(()=> {
                             </div>
 
                             <div className="num-comments-icon">
-                                  <i class="far fa-comment-dots commented"></i>
+                                  <i class="far fa-comment-dots commented" ></i>
+                                  Comments
                             <div/>
                                   <div className="comment-numbers">
                                     {posts[post.id]?.num_comments}

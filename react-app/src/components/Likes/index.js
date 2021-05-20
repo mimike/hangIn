@@ -10,6 +10,7 @@ function Likes({post}) {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => state.posts)
+
   const [liked, setLiked] = useState(false)
   const [ switched, setSwitched ] = useState("")
 
@@ -34,6 +35,8 @@ function Likes({post}) {
   if(!posts[post.id]){
     return null;
   }
+
+
     return (
         <>
 
@@ -45,11 +48,13 @@ function Likes({post}) {
             <div className = "like-icon">
               { liked &&
                 <div onClick={handleUnlike}>
-                  <i class="far fa-thumbs-up liked" ></i>
+                  <i class="far fa-thumbs-up liked"></i>
+                  <div className = "like-word">Like</div>
                   </div>
               }
             { !liked &&
-              <div onClick={handleLike}>  <i class="far fa-thumbs-up unliked"></i></div>
+              <div onClick={handleLike}>  <i class="far fa-thumbs-up unliked"></i> <div className="unlike-word" >Like </div>
+              </div>
             }
 
 

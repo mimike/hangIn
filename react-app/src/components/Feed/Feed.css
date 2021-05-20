@@ -85,6 +85,9 @@
 
 .comment-container{
    margin: 10px;
+
+   overflow-y:  scroll;
+   max-height: 300px;
 }
 .comment-by{
     display: flex;
@@ -93,6 +96,9 @@
     padding: 15px;
     margin: 10px;
     width: 400px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
     /* width: auto
     height: 180px;
     padding: 15px;

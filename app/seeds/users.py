@@ -43,7 +43,7 @@ def seed_users():
 
     demo = User(
         first_name="Mimi",
-        last_name="K",
+        last_name="Me",
         headline="Aerialist | Choreographer",
         city="Chicago",
         state="Illinois",
@@ -77,14 +77,14 @@ def seed_users():
             state = faker.state(),
             avatar_url = pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)],
             main_skills = skills_list[faker.pyint(min_value=0, max_value=len(skills_list)-1)],
-            about=faker.paragraph(nb_sentences=6),
-            experience=faker.paragraph(nb_sentences=6),
+            about=faker.paragraph(nb_sentences=10),
+            experience=faker.paragraph(nb_sentences=10),
             cover_url=new_list[random.randrange(0, len(new_list) -1)],
             email=faker.email(),
             password = faker.password(length=7)
             )
         db.session.add(user)
-    
+
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
