@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {  useHistory } from "react-router-dom";
-import {getAllPosts, getPostLikes } from "../../store/posts";
+import {getAllPosts, getPostLikes, uploadPost } from "../../store/posts";
 import "./Feed.css"
 import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
 import Comments from "../Comments"
-
 import Likes from "../Likes"
 import CommentsBoxModal from '../CommentsBoxModal';
 import displayPosts from '../../store/posts'
@@ -17,16 +16,26 @@ function Feed() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts)
   const user = useSelector(state =>  state.session.user)
-  //const comments = posts[postId]  //this logic??
   const [displayPosts, setDisplayPosts] = useState(posts)
+  const [loaded, setLoaded] = useState(true)
+  
 
-useEffect(() =>  {
-  setDisplayPosts(posts)
-}, [posts])
 
-useEffect(()=> {
-  dispatch(getAllPosts())
-}, [dispatch])   //dependancy array {}
+
+  useEffect(() =>  {
+    setDisplayPosts(posts)
+  }, [posts])
+
+  useEffect(()=> {
+    dispatch(getAllPosts()).then(() => {
+      setLoaded(false);
+    })
+  }, [dispatch])
+
+  if(loaded){
+    return <div><h4><i class="far fa-clock"></i> feed page uploading...</h4></div>
+  }
+
 
   const profileLink = id => {
     history.push(`/user/${id}`)
@@ -38,7 +47,6 @@ useEffect(()=> {
 
   return (
     <>
-
         <div className="upload-box-container">
           <UploadBox/>
         </div>
@@ -66,8 +74,11 @@ useEffect(()=> {
 
                           <li className="text-post" >{post.text_body}</li>
                           <div className="photo-post-container">
-                            <img className="photo-post" alt="post-photo" src={post.media_url}/>
+                            {  post.media_url && post.media_url?.endsWith("mp4") || post.media_url?.endsWith("mov") ?
+                            <video controls src= {post.media_url}/> : <img src={post.media_url}/> }
                           </div>
+
+
                           <div className="likes-comments-icon-container">
                             <div>
 

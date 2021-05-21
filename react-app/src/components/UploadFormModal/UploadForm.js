@@ -18,12 +18,15 @@ const UploadForm = () => {
   const [textBody, setTextBody] = useState("")  //TEXTBODY
   const [photoCreated, setPhotoCreated] = useState()
   const [errors, setErrors] = useState([])
+  const [mediaType, setMediaType] = useState(false); //isVideo, setIsVideo
+  const [postLoading, setPostLoading] = useState(false);
 
   let close = document.getElementById("modal-background")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
    const submission = { mediaUrl, textBody }
+   setPostLoading(true);
    const success = await dispatch(uploadPost(submission))
    if(success){
     await dispatch(getAllPosts())
@@ -39,6 +42,13 @@ const UploadForm = () => {
     setTextBody(e.target.value)
   }
 
+  // if(mediaUrl){
+  //   console.log("!!!!", mediaUrl.name)
+  //   if(mediaUrl.name.includes("mp4") || mediaUrl.includes("mov")){
+  //     setMediaType(true);
+  //   }
+  // }
+
 // const onPost = async (e) => {
 //     e.preventDefault();
 //     const data = await dispatch(uploadPost(submission));
@@ -49,6 +59,7 @@ const UploadForm = () => {
     return (
       <>
         <div className="modal-container">
+          {postLoading && <div><h4><i class="far fa-clock"></i> photo video uploading...</h4></div>}
         <form className="upload-post-form" onSubmit={handleSubmit}>
           {/* <ul>
             {errors.map((error) => (
@@ -76,8 +87,10 @@ const UploadForm = () => {
                 onChange = {updateTextBody}
                 />
           </div>
+
           <div className="share-container">
-            <div className="upload-image-box">
+
+            {!mediaType && <div className="upload-image-box">
                 <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Photo</label>
                     <input
                     id = "file3"
@@ -86,7 +99,19 @@ const UploadForm = () => {
                     type = "file"
                     onChange = {updateMediaUrl}
                     />
-            </div>
+            </div>}
+
+
+            {mediaType && <div className="upload-image-box">
+                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Video</label>
+                    <input
+                    id = "file3"
+                    className="input-file"
+                    name = "video"
+                    type = "file"
+                    onChange = {updateMediaUrl}
+                    />
+            </div>}
 
             <div className="share-story">
               <label

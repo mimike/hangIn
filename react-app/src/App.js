@@ -7,6 +7,7 @@ import SplashPage from "./components/SplashPage"
 import NetworkPage from "./components/NetworkPage";
 import Feed from "./components/Feed"
 import UploadText from "./components/UploadFormModal/UploadText"
+import Follows from "./components/Follows"
 
 import ProfilePage from "./components/ProfilePage";
 //import ProfileTile from "./components/NetworkPage/ProfileTile"
@@ -75,8 +76,12 @@ function App() {
 
         <Route path="/user/:userId" exact={true} >
           <Navigation />
-          
+
           <User />
+        </Route>
+
+        <Route path="/connections">
+          <Follows />
         </Route>
 
       </Switch>

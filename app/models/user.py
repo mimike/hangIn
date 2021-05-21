@@ -79,8 +79,8 @@ class User(db.Model, UserMixin):
       "cover_url": self.cover_url,
       "email": self.email,
       "likes": {like.post_id: like.post_id for like in self.user_post_likes},
-      "following": {f"user_id-{user.id}": user.id for user in self.followers},
-      "followers": {f"follower_id-{follower.id}": follower.id for follower in self.follows}
+      "following": {f"user_id": user.id for user in self.followers},
+      "followers": {f"follower_id": follower.id for follower in self.follows}
 
       # object containing all the likes via the post id.
       # [{PostLike: {userid: 3, post_id: 3}}, {PostLike: {userid: 4, post_id: 5}}]

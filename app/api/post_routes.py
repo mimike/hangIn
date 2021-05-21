@@ -54,7 +54,6 @@ def post_post():
     form['media_url'].data = url   # uploadform variab
     # print(request.form["textBody"])
     form['text_body'].data = request.form["textBody"]
-
     form['csrf_token'].data = request.cookies['csrf_token']
 
 
@@ -64,7 +63,7 @@ def post_post():
             author_id=current_user.id,
             text_body=form.text_body.data
         )
-        
+
         db.session.add(post)
         db.session.commit()
         return post.to_dict()
