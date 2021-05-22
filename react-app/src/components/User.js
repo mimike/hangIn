@@ -62,7 +62,7 @@ function User() {
 
   return (
     <>
-            <div className="side-bar">
+            {/* <div className="side-bar">
 
             <li className="user-name">
                 <div>
@@ -81,7 +81,7 @@ function User() {
             </li>
 
             <li><i class="fas fa-user-friends friends" ></i> Connections</li>
-            </div>
+            </div> */}
       <div className="profile-page-container">
               <div className="first-container">
                   <div className="cover-container">

@@ -15,7 +15,7 @@ function Comments({post_id}){
         setCommentText(e.target.value)
     }
     const handleCommentSubmit = (e) => {
-        
+
         e.preventDefault()
         const params = { postId: post_id, commentText }
         dispatch(commentPost(params))
@@ -29,6 +29,14 @@ function Comments({post_id}){
         }
         dispatch(getAllPosts())
     }
+
+    // const handleDeleteComment = (e) => {
+    //     dispatch(deleteComment)
+    //     dispatch(getAllPosts())
+    // }
+
+    //if comments.author_id === user.id
+
 
     return(
         <>
@@ -48,7 +56,7 @@ function Comments({post_id}){
             </div>
             {/* <button onClick ={handleCommentSubmit} type="submit" className="post-comment">Post</button> */}
         </form>
-        {/* <button type="submit" className="see-comments">Comments</button> */}
+
         </>
     )
 }

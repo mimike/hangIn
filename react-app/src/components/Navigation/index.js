@@ -9,7 +9,7 @@ import SearchResult from './SearchResult';
 
 const Navigation = () => {
   const [search, setSearch] = useState("")
-  
+
   return (
     <nav>
       <div className="nav-bar-container">
@@ -17,7 +17,7 @@ const Navigation = () => {
         <SearchResult search={search}/>
         <li>
             <li>
-              <i class="fas fa-home"></i>
+              <i class="fas fa-home house"></i>
               <NavLink to="/feed" exact={true} activeClassName="active">
                 Home
               </NavLink>
@@ -25,14 +25,14 @@ const Navigation = () => {
         </li>
 
         <li>
-          <i class="fas fa-users"></i>
+          <i class="fas fa-users users"></i>
           <NavLink to="/explore" exact={true} activeClassName="active">
             My Network
           </NavLink>
         </li>
 
         <li>
-          <i class="fas fa-briefcase"></i>
+          <i class="fas fa-briefcase briefcase"></i>
           <NavLink to="/feed" exact={true} activeClassName="active">
             Feed
           </NavLink>

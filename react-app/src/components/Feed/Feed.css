@@ -18,6 +18,7 @@
 }
 .post-container{
     border-radius: 10px;
+    background-color:white;
     padding: 4px;
     width: 600px;
     padding-top: 8px;
@@ -25,6 +26,7 @@
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
 .single-post{
+    background: white;
     width: 600px;
     height: auto;
     padding: 25px;
@@ -82,10 +84,15 @@
     height: 60%;
     margin: 5px;
 }
+.video-post{
+    margin:auto;
+    width: 90%;
+    height: 90%;
+    margin: 5px;
+}
 
 .comment-container{
    margin: 10px;
-
    overflow-y:  scroll;
    max-height: 300px;
 }

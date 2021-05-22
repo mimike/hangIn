@@ -30,12 +30,16 @@ function SearchResult({search}){
                 {Object.values(searches).map(search => (
                     <li key={search.id} className="one-list">
                         <NavLink to={`/user/${search.id}`} exact={true}>
-
                             <div className="one-user">
-                                <img className="avatar-circle" src={search.avatar_url} />
-                                <div className="username">
-                                    <div className="username-searched">{search.first_name} {search.last_name}</div>
+                                <div>
+                                    <img className="avatar-circle-search" src={search.avatar_url} />
                                 </div>
+                                <div className="username">
+                                    <div className="username-searched">{search.first_name} {search.last_name } </div>
+                                </div>
+                                <span>   { '\u2022'} {search.skills}</span>
+                                <span>  {'\u2022'} {search.headline}</span>
+                                <span> {'\u2022'} {search.city}, {search.state}</span>
                             </div>
 
                         </NavLink>

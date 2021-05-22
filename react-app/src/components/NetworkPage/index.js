@@ -28,11 +28,12 @@ function NetworkPage() {
         </div>
 
         <div className="main-container">
+
+
+          <div className="network-container">
           <div className="people">
             <h2>People you may know</h2>
           </div>
-
-          <div>
             <ProfileTile/>
           </div>
         </div>

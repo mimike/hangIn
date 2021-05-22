@@ -29,6 +29,8 @@ WTForms = "==2.3.3"
 faker = "*"
 requests = "*"
 boto3 = "*"
+flask-socketio = "*"
+eventlet = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

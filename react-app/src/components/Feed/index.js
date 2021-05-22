@@ -18,9 +18,6 @@ function Feed() {
   const user = useSelector(state =>  state.session.user)
   const [displayPosts, setDisplayPosts] = useState(posts)
   const [loaded, setLoaded] = useState(true)
-  
-
-
 
   useEffect(() =>  {
     setDisplayPosts(posts)
@@ -75,7 +72,7 @@ function Feed() {
                           <li className="text-post" >{post.text_body}</li>
                           <div className="photo-post-container">
                             {  post.media_url && post.media_url?.endsWith("mp4") || post.media_url?.endsWith("mov") ?
-                            <video controls src= {post.media_url}/> : <img src={post.media_url}/> }
+                            <video controls src= {post.media_url} className="video-post" /> : <img src={post.media_url} className="photo-post"/> }
                           </div>
 
 
