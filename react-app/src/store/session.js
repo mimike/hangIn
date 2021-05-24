@@ -112,7 +112,7 @@ export const signUp = (formData) => async (dispatch)=> {
 const initialState = { user: null };
 //not logged in user null
 // useSelector(state => state.session.user)
-export default function reducer(state = initialState, action) {
+export default function sessionReducer(state = initialState, action) {
     switch (action.type) {
         case SET_USER:
             return { user: action.payload };
@@ -122,7 +122,7 @@ export default function reducer(state = initialState, action) {
             state.user.likes[action.payload] = action.payload
             return {...state}
         case UNLIKE_POST:
-            
+
             delete state.user.likes[action.payload]
             return {...state}
 

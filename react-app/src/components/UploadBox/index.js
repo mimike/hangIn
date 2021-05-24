@@ -17,7 +17,7 @@ function UploadBox(){
   const [mediaUrl, setMediaUrl] = useState("");
 
   const [postLoading, setPostLoading] = useState(false);
-
+  let close = document.getElementById("modal-background")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ function UploadBox(){
     return (
         <>
           <div className="post-container">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e) => e.preventDefault()}>
             <div className="post-top">
               <img className="avatar-circle" alt="circle" src={user.avatar_url}/>
               <div className="post-bottom">

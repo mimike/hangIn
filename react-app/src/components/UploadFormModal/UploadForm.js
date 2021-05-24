@@ -7,6 +7,7 @@ import './UploadForm.css';
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState } from 'draft-js';
+import {hideUploadForm} from '../../store/uploadForm'
 
 //this is the modal box to submit
 const UploadForm = () => {
@@ -21,19 +22,21 @@ const UploadForm = () => {
   const [mediaType, setMediaType] = useState(false); //isVideo, setIsVideo
   const [postLoading, setPostLoading] = useState(false);
 
-  let close = document.getElementById("modal-background")
+
 
   const handleSubmit = async (e) => {
+    // let close = document.getElementById("modal-background")
     e.preventDefault();
-    
+    console.log("weeeee")
+
    const submission = { mediaUrl, textBody }
    setPostLoading(true);
    const success = await dispatch(uploadPost(submission))
-   if(success){
+   if(success.ok){  // just success is always a truthy value even if it failed. success.ok is res
     await dispatch(getAllPosts())
-    close.click()
+    setPostLoading(false)
+    dispatch(hideUploadForm())
    }
-
   }
 
   const updateMediaUrl = (e) => {
@@ -42,6 +45,7 @@ const UploadForm = () => {
   const updateTextBody = (e) => {
     setTextBody(e.target.value)
   }
+
 
   // if(mediaUrl){
   //   console.log("!!!!", mediaUrl.name)

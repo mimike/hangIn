@@ -10,7 +10,7 @@ const SET_LIKES = "posts/SET_LIKES"
 const DELETE_POST = "posts/DELETE_POST"
 const DELETE_COMMENT = "posts/DELETE_COMMENT"
 
-const createPost = (submission) => ({  //not calling this
+const createPost = (submission) => ({
     type: UPLOAD_POST,
     payload: submission
 })
@@ -82,7 +82,9 @@ export const uploadPost = (submission) => async (dispatch) =>{
         //  },
     })
     if(res.ok){
-        dispatch(createPost(submission))
+        const data = await res.json()
+        dispatch(createPost(data))
+        return res   //why return res
     }
 }
 

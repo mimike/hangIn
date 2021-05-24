@@ -3,11 +3,16 @@
 3. thunk for likePost / deletePost
 
 
+git checkout -b newbranchname
+
+
+
+
 things to do:
 error handling for users
 likes/unlikes
 
-may 19th: search by name, favicon, get all following followers, sign up validation 
+may 19th: search by name, favicon, get all following followers, sign up validation
 
 
 Clone and create repo
