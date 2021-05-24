@@ -52,7 +52,7 @@ function User() {
     dispatch(getUsersThunk())
   }, [dispatch])
 
-  if (!user) {
+  if (!Object.values(people).length) {
     return null;
   }
 
@@ -97,7 +97,7 @@ function User() {
                     <h3>{person?.city}, {person?.state}</h3>
                     {/* <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.following).length} following {Object.values(person?.followers).length} followers</span> */}
 
-                    {/* <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.followers).length} followers</span> */}
+                    <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.followers).length} followers</span>
 
                   </div>
 

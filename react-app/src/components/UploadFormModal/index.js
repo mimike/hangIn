@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import { useDispatch, useSelector} from 'react-redux'
 // import UploadBox from './UploadBox';
+import {showUploadForm, hideUploadForm} from "../../store/uploadForm"
 
 
 import "./UploadForm.css"
@@ -8,9 +10,13 @@ import UploadForm from "./UploadForm"
 import "./UploadForm.css"
 
 function UploadFormModal() {
+  const dispatch = useDispatch()
+  const formStatus = useSelector(state => state.uploadForm.showForm)
 
-  const [showModal, setShowModal] = useState(false);
-  // const user = useSelector(state => state.session.user)
+  // const handleForm = function(){
+  //   setShowModal(true);
+  //   dispatch(showUploadForm());
+  // }
 
   return (
     <>
@@ -18,15 +24,15 @@ function UploadFormModal() {
       <div className=".post-container">
         <div className="post-box">
           <button
-          onClick={() => setShowModal(true)}>What's on your mind?</button>
-          {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
+          onClick={() => dispatch(showUploadForm())}>What's on your mind?</button>
+          {formStatus && (
+            <Modal onClose={() => dispatch(hideUploadForm())}>
               <UploadForm />
             </Modal>
           )}
         </div>
       </div>
-      
+
 
     </>
   );
