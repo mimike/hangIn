@@ -10,16 +10,28 @@ import "./NetworkPage.css"
 function ProfileTile (){
     const dispatch = useDispatch()
     const users = useSelector(state => state.users)
+    const currentUser = useSelector(state => state.session.user)
+    const following = {};
+
+
+    useEffect(() =>{
+        for (let key in currentUser.following){
+            following[currentUser.following[key]] = users[currentUser.following[key]]
+        }
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(getUsersThunk())
     }, [dispatch])
+    if(!Object.values(users).length){
+        return <h1>No friends...</h1>
+    }
 
 
     return (
         <>
             <div className="test">
-                {Object.values(users).map(user => {
+                {Object.values(following).map(user => {
                     return(
                         <div className="tile-container" key={user.id}>
                             <div className="photo-container">

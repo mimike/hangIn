@@ -23,10 +23,12 @@ def seed_posts():
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/90877455_10200567978500289_7850133888377552896_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=_a0Se84QRUcAX8VmrAg&_nc_ht=scontent-msp1-1.xx&oh=8f45720de148147d7cb4a114b9dd6fa4&oe=60CCAC17",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/104301167_10200718473502570_6014009332255373109_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=E5sR1xi-e9oAX_Hu_we&_nc_ht=scontent-msp1-1.xx&oh=ba5785a3ac0967ca9fe38c055cb31b74&oe=60CC9174"
 
+
     ]
 
     for num in range(20):
-        post = Post(author_id=num+1, text_body=faker.paragraph(nb_sentences=10), media_url=pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)])
+        post = Post(
+            author_id=num+1, text_body=faker.paragraph(nb_sentences=10), media_url=pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)])
         db.session.add(post)
     db.session.commit()
 

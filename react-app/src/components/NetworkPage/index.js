@@ -32,7 +32,7 @@ function NetworkPage() {
 
           <div className="network-container">
           <div className="people">
-            <h2>People you may know</h2>
+            <h2>People you follow</h2>
           </div>
             <ProfileTile/>
           </div>

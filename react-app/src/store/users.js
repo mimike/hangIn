@@ -1,6 +1,3 @@
-
-
-
 const GET_USERS = "users/GET_USERS"
 const ADD_SINGLE_USER ="users/ADD_SINGLE_USER"
 const DELETE_USER = "users/DELETE_USER"
@@ -96,6 +93,7 @@ export const unfollow = (userId, currentUserId) => async dispatch => {
     }
 }
 
+//work in progress, potential feature
 export const allUserFollowInfo = (userId) => async dispatch => {
     const response = await fetch(`/api/followers/follows/${userId}`)
 

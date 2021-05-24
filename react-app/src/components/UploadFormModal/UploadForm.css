@@ -38,9 +38,10 @@
     align-items: center;
 }
 .post-box{
-    background-color:#f1f1f1;
+    background-color:white;
     border-radius:50px;
     height: 40px;
+    border: 0.3px solid lightgray;
 }
 .post-box button{
     border: 1px solid gray;
@@ -52,7 +53,10 @@
     cursor: pointer;
     text-align: left;
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: 13px;
+}
+.post-box:hover{
+    background-color:#f1f1f1;
 }
 
 .upload-post-form{
@@ -62,6 +66,7 @@
     border-radius: 25px;
 
 }
+
 .top-modal{
     border-bottom: 1px solid gray;
 }

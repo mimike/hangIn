@@ -8,6 +8,8 @@ function SideBar(){
     const history = useHistory()
     const user = useSelector(state => state.session.user)
 
+
+
     return(
         <>
         <div className="side-bar">
@@ -30,7 +32,7 @@ function SideBar(){
 
             <li>
                 <i class="fas fa-user-friends friends" ></i>
-                <span onClick={() => history.push("/feed")}>Connections</span>
+                <span >Connections</span>
             </li>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../store/users"
 import {follow, unfollow} from '../store/users'
@@ -8,6 +8,7 @@ import "../components/SideBar/SideBar.css"
 
 //profile page
 function User() {
+  const history = useHistory()
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
   // Notice we use useParams here instead of getting the params
@@ -16,7 +17,6 @@ function User() {
   const currentUserId = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)
   const aerialist = useSelector(state => state.session.user)
-
 
   //hook
   const followButton = async(e) => {
@@ -84,6 +84,7 @@ function User() {
             </div> */}
       <div className="profile-page-container">
               <div className="first-container">
+
                   <div className="cover-container">
                       <img className="cover-pic1" alt="cover" src={person?.cover_url} />
                       <img className="avatar-pic1" src={person?.avatar_url} />
@@ -94,7 +95,9 @@ function User() {
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
                     <h3>{person?.city}, {person?.state}</h3>
-                    <span className="num-connections">Connections</span>
+                    {/* <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.following).length} following {Object.values(person?.followers).length} followers</span> */}
+
+                    {/* <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.followers).length} followers</span> */}
 
                   </div>
 

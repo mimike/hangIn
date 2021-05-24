@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {  useHistory } from "react-router-dom";
-import {getAllPosts, getPostLikes, uploadPost } from "../../store/posts";
+import {getAllPosts, getPostLikes, uploadPost, deleteCommentThunk } from "../../store/posts";
 import "./Feed.css"
 import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
@@ -16,12 +16,12 @@ function Feed() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts)
   const user = useSelector(state =>  state.session.user)
-  const [displayPosts, setDisplayPosts] = useState(posts)
+  // const [displayPosts, setDisplayPosts] = useState(posts)
   const [loaded, setLoaded] = useState(true)
 
-  useEffect(() =>  {
-    setDisplayPosts(posts)
-  }, [posts])
+  // useEffect(() =>  {
+  //   setDisplayPosts(posts)
+  // }, [posts])
 
   useEffect(()=> {
     dispatch(getAllPosts()).then(() => {
@@ -33,7 +33,6 @@ function Feed() {
     return <div><h4><i class="far fa-clock"></i> feed page uploading...</h4></div>
   }
 
-
   const profileLink = id => {
     history.push(`/user/${id}`)
   }
@@ -41,6 +40,14 @@ function Feed() {
   // if(success){
   //   dispatch(getAllPosts())
   // }
+  const handleDeleteComment = async (commentId, postId) => {
+    await dispatch(deleteCommentThunk(postId, commentId));
+    await dispatch(getAllPosts());
+}
+
+// if (comments.author_id === user.id){
+
+// }
 
   return (
     <>
@@ -50,7 +57,7 @@ function Feed() {
         <div className="feed-container">
 
           <div className="main-post-container">
-              {Object.values(displayPosts).map((post, index) => {
+              {Object.values(posts).map((post, index) => {
                 const authorId = post.author?.id
 
                   return(
@@ -92,14 +99,19 @@ function Feed() {
                               </div>
                           </div>
 
-                          <div className="comment-container" >
+                      <div className="comment-container" >
                           <CommentsBoxModal/>
                             <Comments post_id={post.id}/>
-                            {post.comments?.map((comment, index) => {
+                            {Object.values(post.comments).map((comment, index) => {
                               const commenterId = comment.author_id
 
                               return(
                                 <div className= "comment-by" key={`${post.id}-${comment.id}`}>
+                                  { user.id === comment.author_id &&
+                                    <div onClick={() => handleDeleteComment(comment.id, post.id)}>
+                                      <i className="fas fa-trash"></i>
+                                    </div>
+                                  }
                                     <div className="click-me" id = {commenterId} onClick={()=> profileLink(commenterId)}>
                                       <img className="comment-photo" src={comment.photo}/>
                                     </div>

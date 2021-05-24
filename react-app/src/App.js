@@ -80,7 +80,7 @@ function App() {
           <User />
         </Route>
 
-        <Route path="/connections">
+        <Route path="/connections/:userId">
           <Follows />
         </Route>
 

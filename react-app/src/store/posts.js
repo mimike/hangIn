@@ -7,6 +7,9 @@ const ADD_LIKE = "posts/ADD_LIKE"
 const REMOVE_LIKE = "posts/REMOVE_LIKE"
 const SET_LIKES = "posts/SET_LIKES"
 
+const DELETE_POST = "posts/DELETE_POST"
+const DELETE_COMMENT = "posts/DELETE_COMMENT"
+
 const createPost = (submission) => ({  //not calling this
     type: UPLOAD_POST,
     payload: submission
@@ -27,13 +30,47 @@ const setLikes = (info) => ({
     type: SET_LIKES,
     payload: info
 })
+const deletePost = (postId) =>({
+    type: DELETE_POST,
+    payload: postId
+})
+const deleteComment = (commentId) =>({
+    type: DELETE_COMMENT,
+    payload: commentId
+})
 
+export const deletePostThunk = (postId) => async (dispatch) =>{
+    const response = await fetch('/api/posts/', {
+        method: "DELETE",
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            postId
+        })
+    })
+    if(response.ok){
+        dispatch(deletePost(postId))
+    }
+}
+
+export const deleteCommentThunk = (postId, commentId) => async (dispatch) => {
+    const response = await fetch('/api/posts/comments/',{
+        method: "DELETE",
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            commentId
+        })
+    })
+    if(response.ok){
+        dispatch(deleteComment({commentId, postId}))
+    }
+}
 export const uploadPost = (submission) => async (dispatch) =>{
     const { mediaUrl, textBody } = submission  //textbody!
 
     const formData = new FormData()
     formData.append("textBody", textBody)
     //formData.append("mediaUrl", mediaUrl)
+    console.log(mediaUrl ? true : false)
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
@@ -47,17 +84,14 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if(res.ok){
         dispatch(createPost(submission))
     }
-    return true;
 }
 
 export const getAllPosts = () => async (dispatch) => {
-    const response = await fetch('/api/posts/', {
-        method: "GET",
-    });
+    const response = await fetch('/api/posts/');
     if (response.ok) {
-        const posts = await response.json();
-        dispatch(displayPosts(posts))
-        return posts
+        const data = await response.json();
+        dispatch(displayPosts(data.posts))
+        // return posts;
     }
 }
 export const getAllUserPosts = () => async dispatch => {
@@ -127,22 +161,25 @@ export const commentPost = (submission) => async dispatch => {
     //return //? u have to return IT DEPENDS
 }
 
+
 const initialState = {}
 export default function postsReducers(posts = initialState, action) {
     let postId;
+    let newPosts;
     switch (action.type) {
         case UPLOAD_POST:
             const postPayload = action.payload
-            const newPosts = {...posts}  //...we dont want to get rid of other posts
+            newPosts = {...posts}  //...we dont want to get rid of other posts
             newPosts[postPayload.id] = postPayload
             return newPosts
         case DISPLAY_POSTS:
-            const postsPayload = action.payload
-            const newAllPosts = {}
-            for (const post of postsPayload.posts){
-                newAllPosts[post.id] = post
-            }
-            return newAllPosts
+            // const postsPayload = action.payload
+            // const newAllPosts = {}
+            // for (const post of postsPayload.posts){
+            //     newAllPosts[post.id] = post
+            // }
+            // return newAllPosts
+            return {...action.payload}
         case ADD_LIKE:
             postId = action.payload
             posts[postId].num_likes++;
@@ -153,8 +190,15 @@ export default function postsReducers(posts = initialState, action) {
                 posts[postId].num_likes--;
             }
             return {...posts}
-        case SET_LIKES:
-            
+        case DELETE_COMMENT:
+            newPosts = Object.assign({}, posts); //copy of old state
+            delete newPosts[action.payload.postId].comments[action.payload.commentId]
+            return newPosts;
+        case DELETE_POST:
+            newPosts = Object.assign({}, posts); //copy of old state
+            delete newPosts[action.payload]
+            return newPosts;
+
         default:
             return posts;
     }

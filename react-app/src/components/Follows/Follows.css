@@ -1,0 +1,13 @@
+.single-connection{
+    border: 1px solid lightgrey;
+
+}
+.follower-name{
+    font-weight: bold;
+}
+.follower-headline{
+    font-weight: 400;
+}
+.follower-location{
+    font-weight: 200;
+}

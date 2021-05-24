@@ -5,7 +5,10 @@
 }
 .first-container{
     border-radius: 10px;
-    margin: 40px;
+    background: white;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
     border: 1px solid lightgray;
 
 }
@@ -48,11 +51,18 @@
     margin-bottom: 20px;
 }
 .my-location h3{
-    font-weight: 400;
+    color: grey;
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: -10px;
 }
-
+span.num-connections{
+    color: #0073b1;
+    font-weight: 600;
+}
 .middle-container{
     border: 0.5px solid lightgray;
+    background-color: white;
     border-radius: 10px;
     margin-left: 40px;
 }
@@ -65,9 +75,12 @@
     font-weight: 300;
 }
 .last-container{
+    background:white;
     border: 0.5px solid lightgray;
     border-radius: 10px;
-    margin: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
 }
 .last-container h4{
     margin: 20px;

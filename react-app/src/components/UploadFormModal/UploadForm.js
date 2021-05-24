@@ -25,6 +25,7 @@ const UploadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
    const submission = { mediaUrl, textBody }
    setPostLoading(true);
    const success = await dispatch(uploadPost(submission))
@@ -32,7 +33,7 @@ const UploadForm = () => {
     await dispatch(getAllPosts())
     close.click()
    }
-    // history.push('/feed')
+
   }
 
   const updateMediaUrl = (e) => {
@@ -102,8 +103,8 @@ const UploadForm = () => {
             </div>}
 
 
-            {mediaType && <div className="upload-image-box">
-                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Video</label>
+            {!mediaType && <div className="upload-image-box">
+                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Videeeo</label>
                     <input
                     id = "file3"
                     className="input-file"

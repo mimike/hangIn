@@ -59,8 +59,12 @@
     font-weight: bold;
     margin-bottom: -2px;
 }
-.author-headine-post{
-    font-size: 10px
+p.author-name-post{
+    font-weight:550;
+}
+author-headine-post{
+    font-size: 10px;
+    color: gray;
 }
 .author-photo{
     border-radius:100%;
@@ -92,10 +96,12 @@
 }
 
 .comment-container{
+
    margin: 10px;
    overflow-y:  scroll;
    max-height: 300px;
 }
+
 .comment-by{
     display: flex;
     flex-direction: row;

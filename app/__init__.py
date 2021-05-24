@@ -1,17 +1,19 @@
 import os
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit, join_room, leave_room
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
-from .models import db, User, Skill, Post, PostLike, Comment
+
+from .models import db, User, Skill, Post, PostLike, Comment, Messaging
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.post_routes import post_routes
 from .api.search_routes import search_routes
 from .api.follower_routes import follower_routes
+
 
 # from .api.skill_routes import skill_routes
 
@@ -20,12 +22,41 @@ from .seeds import seed_commands
 from .config import Config
 
 app = Flask(__name__)
-socketio = SocketIO()
 
 if os.environ.get("FLASK_ENV") == "production":
     origins = ["https://hangin-hangin-heroku.com", "http://hangin-hangin-heroku.com"]
 else:
     origins = "*"
+
+socketio = SocketIO(app, cors_allowed_orgins=origins)
+#localhost:5000/api/private
+#room is roomId "username comnination here"
+@socketio.on("join_room", namespace = "/private")
+def join(room):
+    join_room(room["room"])
+    return None
+
+@socketio.on("leave_room", namespace = "/private")
+def leave(room):
+    leave_room(room["room"])
+    return None
+
+@socketio.on("private_message", namespace = "/private")
+def private(data):
+    #making an instance of Messaging
+    #this way or can do request.json("sender_id")
+    private_message = Messaging(
+        sender_id = data["sender_id"],
+        receiver_id = data["receiver_id"],
+        message = data["message"],
+        created_at = data["created_at"]
+    )
+    db.session.add(private_message)
+    db.session.commit()
+    emit("private_message", data, to = data["room"], namespace = "/private",)
+    #the to= dataroom and namespace to make sure we are sending it to the right room
+
+
 
 
 

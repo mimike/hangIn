@@ -1,16 +1,50 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {getUsersThunk} from "../../store/users"
+
+import "."
 function Follows(){
-    const user = useSelector(state =>  state.session.user)
+    const dispatch = useDispatch();
+    const { userId } = useParams();
+    const user = useSelector(state => state.users[userId]);
+    const users = useSelector(state => state.users)
+    const following = {};
+    const followers = {}
+
+    useEffect(() => {
+        dispatch(getUsersThunk())
+    }, [dispatch])
+
+    if(!Object.values(users).length){
+        return <h1>no connections</h1>
+    }
+
+    for (let key in user.following ){
+        following[user.following[key]] = users[user.following[key]]
+    }
+
+    // for (let key in user.followers){
+    //     followers[user.followers[key]] = users[user.followers[key]]
+    // }
 
     return (
         <>
         <div className="follow-container">
-            {Object.values(user).map(follower => {
-                const followerId = user.followers
+            {Object.values(following).map(follower => {
+
                 return(
                     <div className="single-connection">
+                        {follower.first_name}, {follower.last_name}
+                        <div>
+                            {follower.headline}
+                        </div>
+                        <div>
+                            {follower.city}, {follower.state}
+                        </div>
                     </div>
+
+
                 )
             })}
         </div>

@@ -5,10 +5,10 @@ import "./Comments.css"
 //import { useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {getAllPosts} from "../../store/posts";
+
 function Comments({post_id}){
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
-
     const [commentText, setCommentText] = useState("")
 
     const updateComment = (e) => {
@@ -30,12 +30,6 @@ function Comments({post_id}){
         dispatch(getAllPosts())
     }
 
-    // const handleDeleteComment = (e) => {
-    //     dispatch(deleteComment)
-    //     dispatch(getAllPosts())
-    // }
-
-    //if comments.author_id === user.id
 
 
     return(
@@ -54,6 +48,8 @@ function Comments({post_id}){
                     onKeyPress={handleCommentEnter}
                 />
             </div>
+
+            
             {/* <button onClick ={handleCommentSubmit} type="submit" className="post-comment">Post</button> */}
         </form>
 

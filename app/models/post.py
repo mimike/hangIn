@@ -9,7 +9,6 @@ class Post(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False) #foreign key
     text_body = db.Column(db.Text, nullable=False)
 
-
     # just a counter of the post likes
     post_likes = db.relationship('PostLike', backref="like_post", cascade="all, delete")
     comments = db.relationship('Comment', backref="post", cascade="all, delete")
@@ -20,9 +19,10 @@ class Post(db.Model):
             "id": self.id,
             "media_url": self.media_url,
             "text_body": self.text_body,
-            "comments": [comment.to_dict() for comment in self.comments],
+            "comments": {comment.id: comment.to_dict() for comment in self.comments},
             "author": self.user.to_dict(),
             "num_likes": len(self.post_likes),
             "num_comments": len(self.comments)
             #{id: 34, author: {id: 3, firstname: mimi, etc}}
         }
+

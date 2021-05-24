@@ -13,7 +13,7 @@ post_routes = Blueprint('posts', __name__)
 @login_required
 def get_posts():
     posts = Post.query.all()
-    return {"posts": [post.to_dict() for post in posts]}
+    return {"posts": {post.id: post.to_dict() for post in posts}}
 
 # GET a single post: localhost:5000/api/post/12
 @post_routes.route('/<int:id>')
@@ -32,7 +32,7 @@ def post_post():
 
     form = UploadForm()
     data = request.json
-
+    print("\n\n\n\n", request.files, "\n\n\n\n")
     if "mediaUrl" not in request.files:
         return {"errors": "image required"}, 400
 
@@ -87,15 +87,19 @@ def patch_post(id):
     return redirect('/')
 
 # DELETE a single post: localhost:5000/api/posts/1 works
-@post_routes.route('/<int:id>', methods=['DELETE'])
+@post_routes.route('/', methods=['DELETE'])
 @login_required
-def delete_post(id):
-    post = Post.query.get(id)
-    if(post):
+def delete_post():
+    if request.json.has_key("postId"):
+        return {"errors": "no post id"}, 400
+    try:
+        post = Post.query.get(request.json["postId"])
         db.session.delete(post)
         db.session.commit()
-        return jsonify("deleted!")
-    return jsonify("failed")
+        return jsonify("deleted!"), 204
+    except:
+        return jsonify("failed"), 500
+    #return {"err": "something went wrong with the route"}, 500
 
 #GET all posts for a single User WORKS!
 #localhost:5000/api/posts/user/1
@@ -105,9 +109,6 @@ def get_user_posts(id):
     posts = Post.query.filter_by(author_id=id).all()
 
     return {"posts": [post.to_dict() for post in posts]}
-
-
-
 
 # COMMENT ROUTES.....
 
@@ -129,14 +130,21 @@ def post_comment():
     return addedComment.to_dict() #redirect('/feed)
 
 #DELETE a Comment  ?? doesn't work.
-@post_routes.route('/<int:id>/comments', methods=['DELETE'])
+@post_routes.route('/comments/', methods=['DELETE'])
 @login_required
-def delete_comment(commentId): #commentId frontEnd state varaiable name?
-    comment = Comment.query(commentId)
-    db.session.delete(commentId)
-    db.session.commit()
-    return redirect ('/feed')  # redirect vs return {"delete": "post deleted!"}
+def delete_comment(): #commentId frontEnd state varaiable name?
+    try:
+        comment_id = request.json["commentId"]
+        comment = Comment.query.get(comment_id)
+        db.session.delete(comment)
+        db.session.commit()
+        return {"message": "delete suceeded"}
+    except NameError:
+        return {"error": "comment does not exist"}, 500
 
+    #return redirect ('/feed')
+    # except:
+    #     return {"error": "not deleted"}, 500
 
 #LIKES
 
