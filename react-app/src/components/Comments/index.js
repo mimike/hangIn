@@ -18,7 +18,9 @@ function Comments({post_id}){
 
         e.preventDefault()
         const params = { postId: post_id, commentText }
-        dispatch(commentPost(params))
+        dispatch(commentPost(params)).then(() => {
+            setCommentText("")  // check to see if it clears
+        })
         dispatch(getAllPosts())
         //dispatch(getAllPosts()) limit(10)
     }
@@ -49,7 +51,7 @@ function Comments({post_id}){
                 />
             </div>
 
-            
+
             {/* <button onClick ={handleCommentSubmit} type="submit" className="post-comment">Post</button> */}
         </form>
 

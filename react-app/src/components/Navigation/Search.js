@@ -7,15 +7,13 @@ import SearchResult from "./SearchResult.js"
 
 const Search = () => {
     const dispatch = useDispatch();
-
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
 
     const onType = (e) => {
         setSearch(e.target.value)
         e.preventDefault()
         // dispatch(getSearchResult(e.target.value));
         dispatch(searchUserThunk(e.target.value))
-
     }
 return (
     <>
@@ -27,7 +25,7 @@ return (
         </li>
 
         <form
-        
+
         // action="/" method="get"
         >
             <label htmlFor="header-search">
@@ -45,7 +43,8 @@ return (
                 />
         </div>
 
-        <SearchResult search={search}/>
+        <SearchResult search={search} setSearch={setSearch}/>
+
         </form>
         </div>
     </>

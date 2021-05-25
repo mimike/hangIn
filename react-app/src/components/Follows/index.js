@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {getUsersThunk} from "../../store/users"
+import "./Follows.css"
 
 import "."
 function Follows(){

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import { useDispatch, useSelector} from 'react-redux'
-// import UploadBox from './UploadBox';
-import {showUploadForm, hideUploadForm} from "../../store/uploadForm"
 
-
+import {showUploadForm, hideUploadForm} from "../../store/modal"
 import "./UploadForm.css"
 import UploadForm from "./UploadForm"
 import "./UploadForm.css"
 
 function UploadFormModal() {
   const dispatch = useDispatch()
-  const formStatus = useSelector(state => state.uploadForm.showForm)
+  const formStatus = useSelector(state => state.modal.showUploadForm)
 
   // const handleForm = function(){
   //   setShowModal(true);
