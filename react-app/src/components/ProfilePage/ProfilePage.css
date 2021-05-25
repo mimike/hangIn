@@ -56,7 +56,7 @@
     font-size: 15px;
     margin-top: -10px;
 }
-span.num-connections{
+div.num-connections{
     color: #0073b1;
     font-weight: 600;
 }

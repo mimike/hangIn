@@ -44,8 +44,6 @@ function Follows(){
                             {follower.city}, {follower.state}
                         </div>
                     </div>
-
-
                 )
             })}
         </div>

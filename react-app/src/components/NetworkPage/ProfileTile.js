@@ -23,6 +23,7 @@ function ProfileTile (){
     useEffect(() => {
         dispatch(getUsersThunk())
     }, [dispatch])
+
     if(!Object.values(users).length){
         return <h1>No friends...</h1>
     }
@@ -31,7 +32,7 @@ function ProfileTile (){
     return (
         <>
             <div className="test">
-                {Object.values(following).map(user => {
+                {Object.values(users).map(user => {
                     return(
                         <div className="tile-container" key={user.id}>
                             <div className="photo-container">
