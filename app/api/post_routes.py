@@ -21,8 +21,6 @@ def get_posts():
 def get_single_post(id):
     post = Post.query.get(id)
     #likes = PostLike.query.filter(PostLike.post_id == id)
-
-
     return {"post": post.to_dict()}
 
 # POST a single post:
@@ -115,12 +113,7 @@ def get_user_posts(id):
     return {"posts": [post.to_dict() for post in reversed]}
 
 # COMMENT ROUTES.....
-@post_routes.route('/comments')
-@login_required
-def all_comments():
-    comments = Comment.query.all()
-    backwards = comments.order_by(Comment.id.asc()).all()
-    return {"comments": [comment.to_dict() for comment in backwards]}
+
 
 # POST a Comment  ?? not tested
 # localhost5000:api/posts/12/comments

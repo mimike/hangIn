@@ -66,8 +66,12 @@
 .fa-comment-dots:before{
     cursor: pointer;
 }
+.comment-by{
+    display: flex;
+    flex-direction: row;
+}
 .fa-trash {
     /* margin-left: 400px;
     margin-top: 20px; */
-
+    
 }

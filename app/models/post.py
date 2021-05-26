@@ -19,7 +19,7 @@ class Post(db.Model):
             "id": self.id,
             "media_url": self.media_url,
             "text_body": self.text_body,
-            "comments": {comment.id: comment.to_dict() for comment in self.comments.reverse()},
+            "comments": {comment.id: comment.to_dict() for comment in self.comments},
             "author": self.user.to_dict(),
             "num_likes": len(self.post_likes),
             "num_comments": len(self.comments)
