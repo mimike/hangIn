@@ -20,13 +20,17 @@ function Follows(){
     if(!Object.values(users).length){
         return <h1>no connections</h1>
     }
-
-    for (let key in user.following ){
-        following[user.following[key]] = users[user.following[key]]
+    
+    if(Object.values(user.following).length){
+        for (let key in user.following ){
+            following[user.following[key]] = users[user.following[key]]
+        }
     }
 
-    for (let key in user.followers){
-        followers[user.followers[key]] = users[user.followers[key]]
+    if(Object.values(user.followers).length){
+        for (let key in user.followers){
+            followers[user.followers[key]] = users[user.followers[key]]
+        }
     }
 
     return (

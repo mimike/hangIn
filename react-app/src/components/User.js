@@ -93,14 +93,14 @@ function User() {
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
                     <h3>{person?.city}, {person?.state}</h3>
-                    <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                    {/* <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections"> */}
                       {/* {Object.values(person?.followers).length} */}
-                    Followers
-                    </div>
+                    {/* Followers
+                    </div> */}
 
-                    <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                    <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections2">
                       {/* {Object.values(person?.following).length} */}
-                      Following</div>
+                      Connections</div>
 
 
 

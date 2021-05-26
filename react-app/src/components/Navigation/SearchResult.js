@@ -4,19 +4,17 @@ import {NavLink} from 'react-router-dom';
 import "./Navigation.css"
 import "./SearchResult.css"
 
-function SearchResult({search, setSearch}){
+function SearchResult({search, setSearch}){  // setSearch prop so search bar clears after enter
     const [searchTerm, setSearchTerm] = useState("");
     const searched_users = useSelector(state => state.search.search) || {};
     const searches = searched_users.users || {}
     const [showMenu, setShowMenu] = useState(true);
-    const [searchField, setSearchField] = useState("")
 
     let onClick = (e) => {
         setSearchTerm(e.target.value)
         setShowMenu(false);
         setSearch("");
     }
-    
 
     let searchResult = null;
     if (showMenu && Object.values(searches).length) {

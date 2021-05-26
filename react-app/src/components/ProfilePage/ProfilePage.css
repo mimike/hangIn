@@ -59,6 +59,15 @@
 div.num-connections{
     color: #0073b1;
     font-weight: 600;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+div.num-connections2{
+    color: #0073b1;
+    font-weight: 600;
+    margin-bottom: 30px;
+    cursor: pointer;
 }
 .middle-container{
     border: 0.5px solid lightgray;

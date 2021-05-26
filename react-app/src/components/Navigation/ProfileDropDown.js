@@ -59,6 +59,11 @@ function ProfileButton() {
                     <li>
                       <Link className="view-profile" onClick={() => history.push('/profile')} style={{textDecoration:"none", color:"white", fontWeight:"bold"}}>View Profile</Link>
                     </li>
+
+                    <li>
+                      <Link className="view-profile" onClick={() => history.push('/explore')} style={{textDecoration:"none", color:"white", fontWeight:"bold"}}>Feed </Link>
+                    </li>
+
                   </div>
                 </div>
 

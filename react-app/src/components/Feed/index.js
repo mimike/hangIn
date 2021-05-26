@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {  useHistory } from "react-router-dom";
-import {getAllPosts, getPostLikes, uploadPost, deleteCommentThunk, deletePostThunk } from "../../store/posts";
+import {getAllPosts, deleteCommentThunk, deletePostThunk } from "../../store/posts";
 import "./Feed.css"
 import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
@@ -14,10 +14,22 @@ function Feed() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts)
   const user = useSelector(state =>  state.session.user)
-  // const [displayPosts, setDisplayPosts] = useState(posts)
   const [loaded, setLoaded] = useState(true)
-  // const thing = document.querySelector()
-  // document.getElementById(".comment-container").style.display="";
+  const [showMenu, setShowMenu] = useState(false);
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+}
+
+  useEffect(() => {
+    if (!showMenu) return;
+    const closeMenu = () => {
+        setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+    return (() => document.removeEventListener('click', closeMenu))
+  }, [showMenu]);
 
 
   useEffect(()=> {
@@ -33,10 +45,7 @@ function Feed() {
   const profileLink = id => {
     history.push(`/user/${id}`)
   }
-  // const success = await dispatch(commentPost())
-  // if(success){
-  //   dispatch(getAllPosts())
-  // }
+
 
   const handleDeletePost = async (postId) => {
     await dispatch(deletePostThunk(postId));
@@ -59,28 +68,36 @@ function Feed() {
                 const authorId = post.author?.id
 
                   return(
-
                       <div className="single-post" onClick={() => getAllPosts(user)} key={index}>
-                           {
-                          user.id === post.author.id &&
-                          <div onClick={() => handleDeletePost(post.id)}>
-                            <i className="fas fa-trash"></i>
-                          </div>
-                          }
-
-
                           <div className="top-post-container">
+
                             <img className="author-photo" alt="avatar" src={post.author?.avatar_url}/>
                             <div className="author-details">
                               <p onClick={()=> profileLink(authorId)}
                               className="author-name-post">{post.author?.first_name} {post.author?.last_name}
                               </p>
                               <p
-
                               className="author-headline-post">{post.author?.headline}
                               </p>
                             </div>
                           </div>
+
+                          <div>
+                          <div className="edit-drop-down">
+                              <button className="edit-button" onClick={openMenu}>
+                            <i class="fas fa-ellipsis-h"></i>
+                            </button>
+
+                          </div>
+                            {showMenu && (
+                                <button className="edit-dropdown">
+                                  <li onClick={() => handleDeletePost( post.id)}>
+                                  Delete post<i className="fas fa-trash"></i>
+                                  </li>
+                                </button>
+                              )}
+                          </div>
+
 
                           <li className="text-post" >{post.text_body}</li>
                           <div className="photo-post-container">
@@ -88,10 +105,8 @@ function Feed() {
                             <video controls src= {post.media_url} className="video-post" /> : <img src={post.media_url} className="photo-post"/> }
                           </div>
 
-
                           <div className="likes-comments-icon-container">
                             <div>
-
                                 <Likes post={post}/>
                             </div>
 
@@ -99,7 +114,8 @@ function Feed() {
                                   <i class="far fa-comment-dots commented" ></i>
                                   Comments
                             <div/>
-                                <button onClick={() => { if (document.getElementById(`${post.id}`).style.display === "none") document.getElementById(`${post.id}`).style.display = ""
+                                <button
+                                className="display-comments" onClick={() => { if (document.getElementById(`${post.id}`).style.display === "none") document.getElementById(`${post.id}`).style.display = ""
                                  else document.getElementById(`${post.id}`).style.display = "none"
                               }} >
                                   <div className="comment-numbers">
@@ -113,7 +129,7 @@ function Feed() {
                       style={{display: "none"}}>
                           <CommentsBoxModal/>
                             <Comments post_id={post.id}/>
-                            {Object.values(post.comments).map((comment, index) => {
+                            {Object.values(post.comments).reverse().map((comment, index) => {
                               const commenterId = comment.author_id
 
                               return(

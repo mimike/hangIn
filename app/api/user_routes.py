@@ -8,7 +8,7 @@ user_routes = Blueprint('users', __name__)
 @user_routes.route('/')
 # @login_required
 def users():
-    users = User.query.all()
+    users = User.query.filter(User.id != current_user.id).all()
     return {"users": [user.to_dict() for user in users]}
 
     # return jsonify([user.to_dict() for user in users])  # for every value in users, we turn it into a dic, so now it's in a list/array instead of obj/dict
@@ -21,8 +21,6 @@ def user(id):
     return user.to_dict()
 
 #return jsonify([comment.to_dict() for comment in User.comments])
-
-
 # @user_routes.route('/search', methods=['POST'])
 # @login_required
 # def search_user():

@@ -20,7 +20,8 @@
 
 .comment-numbers {
     order: 1;
-    margin-left: 10px;
+
+
 }
 .likes-comments-icon-container{
     margin-left: 10px;
@@ -35,6 +36,11 @@
     margin-right: 20px;
     font-weight: 150;
     color:rgb(95, 93, 93);
+}
+.display-comments{
+    border: none;
+    background-color: white;
+    color: black;
 }
 .likes-container{
     display: flex;
@@ -59,4 +65,9 @@
 }
 .fa-comment-dots:before{
     cursor: pointer;
+}
+.fa-trash {
+    /* margin-left: 400px;
+    margin-top: 20px; */
+
 }

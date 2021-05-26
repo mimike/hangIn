@@ -25,7 +25,6 @@ return (
         </li>
 
         <form
-
         // action="/" method="get"
         >
             <label htmlFor="header-search">
@@ -42,9 +41,7 @@ return (
                 onChange={onType}
                 />
         </div>
-
         <SearchResult search={search} setSearch={setSearch}/>
-
         </form>
         </div>
     </>

@@ -53,12 +53,12 @@ function ProfilePage() {
                     <h3>{person?.city}, {person?.state}</h3>
                   </div>
 
-                  <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                  <div onClick={() => history.push(`/connections/${currentUserId}`)} className="num-connections">
                     Followers
                   </div>
 
-                  <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
-                    Following</div>
+                  {/* <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                    Following</div> */}
 
               </div>
 

@@ -90,7 +90,8 @@ def patch_post(id):
 @post_routes.route('/', methods=['DELETE'])
 @login_required
 def delete_post():
-    if request.json.has_key("postId"):
+    print("!! got here!!")
+    if not request.json["postId"]:
         return {"errors": "no post id"}, 400
     try:
         post = Post.query.get(request.json["postId"])
@@ -107,10 +108,19 @@ def delete_post():
 @login_required
 def get_user_posts(id):
     posts = Post.query.filter_by(author_id=id).all()
+    reversed= posts.order_by(Post.id.asc()).all()
+    # posts= Post.query.order_by(post.id.desc()).all()
+    #recipes = Recipe.query.order_by(Recipe.id.desc()).all()
 
-    return {"posts": [post.to_dict() for post in posts]}
+    return {"posts": [post.to_dict() for post in reversed]}
 
 # COMMENT ROUTES.....
+@post_routes.route('/comments')
+@login_required
+def all_comments():
+    comments = Comment.query.all()
+    backwards = comments.order_by(Comment.id.asc()).all()
+    return {"comments": [comment.to_dict() for comment in backwards]}
 
 # POST a Comment  ?? not tested
 # localhost5000:api/posts/12/comments
@@ -123,11 +133,12 @@ def post_comment():
         author_id = current_user.id,
         post_id = request.json["postId"],  #form vs .json
         comment_text = request.json['commentText']
-
     )
     db.session.add(addedComment)
     db.session.commit()
     return addedComment.to_dict() #redirect('/feed)
+
+#recipes = Recipe.query.order_by(Recipe.id.desc()).all()
 
 #DELETE a Comment  ?? doesn't work.
 @post_routes.route('/comments/', methods=['DELETE'])

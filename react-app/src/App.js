@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector} from "react-redux";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import SplashPage from "./components/SplashPage"
@@ -21,7 +21,13 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation/index.js"
 import "./index.css"
 
+
 function App() {
+  const history = useHistory();
+  let user = useSelector(state => state.users);
+  if (!user){
+    history.push("/")
+  }
   // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false);
@@ -55,7 +61,7 @@ function App() {
         <Route path="/feed">
           <Navigation />
           <Feed/>
-          
+
         </Route>
         <Route path="/profile">
           <Navigation />
