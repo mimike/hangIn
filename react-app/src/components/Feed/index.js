@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {  useHistory } from "react-router-dom";
-import {getAllPosts, getPostLikes, uploadPost, deleteCommentThunk } from "../../store/posts";
+import {getAllPosts, getPostLikes, uploadPost, deleteCommentThunk, deletePostThunk } from "../../store/posts";
 import "./Feed.css"
 import "../UploadBox/UploadBox.css"
 import UploadBox from "../UploadBox"
 import Comments from "../Comments"
 import Likes from "../Likes"
 import CommentsBoxModal from '../CommentsBoxModal';
-import displayPosts from '../../store/posts'
-import SideBar from '../SideBar';
 
 function Feed() {
   const history = useHistory()
@@ -18,10 +16,9 @@ function Feed() {
   const user = useSelector(state =>  state.session.user)
   // const [displayPosts, setDisplayPosts] = useState(posts)
   const [loaded, setLoaded] = useState(true)
+  // const thing = document.querySelector()
+  // document.getElementById(".comment-container").style.display="";
 
-  // useEffect(() =>  {
-  //   setDisplayPosts(posts)
-  // }, [posts])
 
   useEffect(()=> {
     dispatch(getAllPosts()).then(() => {
@@ -40,14 +37,16 @@ function Feed() {
   // if(success){
   //   dispatch(getAllPosts())
   // }
+
+  const handleDeletePost = async (postId) => {
+    await dispatch(deletePostThunk(postId));
+    await dispatch(getAllPosts());
+
+  }
   const handleDeleteComment = async (commentId, postId) => {
     await dispatch(deleteCommentThunk(postId, commentId));
     await dispatch(getAllPosts());
 }
-
-// if (comments.author_id === user.id){
-
-// }
 
   return (
     <>
@@ -55,7 +54,6 @@ function Feed() {
           <UploadBox/>
         </div>
         <div className="feed-container">
-
           <div className="main-post-container">
               {Object.values(posts).map((post, index) => {
                 const authorId = post.author?.id
@@ -63,6 +61,14 @@ function Feed() {
                   return(
 
                       <div className="single-post" onClick={() => getAllPosts(user)} key={index}>
+                           {
+                          user.id === post.author.id &&
+                          <div onClick={() => handleDeletePost(post.id)}>
+                            <i className="fas fa-trash"></i>
+                          </div>
+                          }
+
+
                           <div className="top-post-container">
                             <img className="author-photo" alt="avatar" src={post.author?.avatar_url}/>
                             <div className="author-details">
@@ -93,13 +99,18 @@ function Feed() {
                                   <i class="far fa-comment-dots commented" ></i>
                                   Comments
                             <div/>
+                                <button onClick={() => { if (document.getElementById(`${post.id}`).style.display === "none") document.getElementById(`${post.id}`).style.display = ""
+                                 else document.getElementById(`${post.id}`).style.display = "none"
+                              }} >
                                   <div className="comment-numbers">
                                     {posts[post.id]?.num_comments}
                                   </div>
+                                </button>
                               </div>
                           </div>
 
-                      <div className="comment-container" >
+                      <div className="comment-container" id={post.id}
+                      style={{display: "none"}}>
                           <CommentsBoxModal/>
                             <Comments post_id={post.id}/>
                             {Object.values(post.comments).map((comment, index) => {

@@ -10,6 +10,8 @@ import "./UploadForm.css"
 function UploadFormModal() {
   const dispatch = useDispatch()
   const formStatus = useSelector(state => state.modal.showUploadForm)
+  //true or false. starts as false, when u call showUpload form, state = true.
+  // when u calle hideUploadForm, state = false;
 
   // const handleForm = function(){
   //   setShowModal(true);

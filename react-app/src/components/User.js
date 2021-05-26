@@ -58,8 +58,6 @@ function User() {
 
   const person = people[userId]
 
-
-
   return (
     <>
             {/* <div className="side-bar">

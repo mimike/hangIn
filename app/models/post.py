@@ -25,4 +25,3 @@ class Post(db.Model):
             "num_comments": len(self.comments)
             #{id: 34, author: {id: 3, firstname: mimi, etc}}
         }
-
