@@ -4,23 +4,19 @@ import {NavLink} from 'react-router-dom';
 import "./Navigation.css"
 import "./SearchResult.css"
 
-function SearchResult({search}){
+function SearchResult({search, setSearch}){
     const [searchTerm, setSearchTerm] = useState("");
     const searched_users = useSelector(state => state.search.search) || {};
     const searches = searched_users.users || {}
     const [showMenu, setShowMenu] = useState(true);
+    const [searchField, setSearchField] = useState("")
 
     let onClick = (e) => {
         setSearchTerm(e.target.value)
         setShowMenu(false);
+        setSearch("");
     }
-    // useEffect( () => {
-    //     if (search.length){
-    //         setShowMenu(true)
-    //     } else {setShowMenu(false)}
-
-
-    // }, [search])
+    
 
     let searchResult = null;
     if (showMenu && Object.values(searches).length) {

@@ -23,6 +23,7 @@ function ProfileTile (){
     useEffect(() => {
         dispatch(getUsersThunk())
     }, [dispatch])
+
     if(!Object.values(users).length){
         return <h1>No friends...</h1>
     }
@@ -31,7 +32,7 @@ function ProfileTile (){
     return (
         <>
             <div className="test">
-                {Object.values(following).map(user => {
+                {Object.values(users).map(user => {
                     return(
                         <div className="tile-container" key={user.id}>
                             <div className="photo-container">
@@ -52,22 +53,6 @@ function ProfileTile (){
                     )
                 })}
             </div>
-            {/* <div className="test">
-                <div className="tile-container">
-                    <div className="photo-container">
-                        <img className="cover-pic" alt="sahara" src={cover}/>
-                        <img className="avatar-pic" alt="nancy" src={pic}/>
-                    </div>
-                    <div className="profile-text">
-                        <p className="name">Nancy E. Smith</p>
-                        <p className="job">Artistic Director <br/>
-                    Frequent Flyers Aerial Dance</p>
-                    </div>
-                    <div className="connect-btn">
-                        <button className="connect">Connect</button>
-                    </div>
-                </div>
-            </div> */}
         </>
     )
 }

@@ -55,6 +55,7 @@ function App() {
         <Route path="/feed">
           <Navigation />
           <Feed/>
+          
         </Route>
         <Route path="/profile">
           <Navigation />

@@ -88,9 +88,10 @@ li {
 button.profile-dropdown{
     background: linear-gradient(45deg, #c964c5, #5248b3);
 
-    padding: 10px;
+    padding: 20px;
     margin: 5px;
 }
+
 
 
 .search-field input [type=text]{

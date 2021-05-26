@@ -56,13 +56,17 @@ function ProfileButton() {
                 <div className="drop-down-links">
 
                   <div>
-                    <Link className="view-profile" onClick={() => history.push('/profile')} style={{textDecoration:"none", color:"white", fontWeight:"bold"}}>View Profile</Link>
+                    <li>
+                      <Link className="view-profile" onClick={() => history.push('/profile')} style={{textDecoration:"none", color:"white", fontWeight:"bold"}}>View Profile</Link>
+                    </li>
                   </div>
-
                 </div>
+
                 <div className="log-out-drop-down-links">
                   <div>
-                    <Link className="sign-out-dropdown" onClick={logout} style={{textDecoration:"none", color:"white"}}>Sign out</Link>
+                    <li>
+                      <Link className="sign-out-dropdown" onClick={logout} style={{textDecoration:"none", color:"white"}}>Sign out</Link>
+                    </li>
                   </div>
                 </div>
               </button>

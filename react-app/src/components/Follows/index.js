@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {getUsersThunk} from "../../store/users"
+import "./Follows.css"
 
 import "."
 function Follows(){
@@ -24,30 +25,50 @@ function Follows(){
         following[user.following[key]] = users[user.following[key]]
     }
 
-    // for (let key in user.followers){
-    //     followers[user.followers[key]] = users[user.followers[key]]
-    // }
+    for (let key in user.followers){
+        followers[user.followers[key]] = users[user.followers[key]]
+    }
 
     return (
         <>
-        <div className="follow-container">
-            {Object.values(following).map(follower => {
+            <p> this person's following</p>
+            <div className="follow-container">
+                {Object.values(following).map(follower => {
 
-                return(
-                    <div className="single-connection">
-                        {follower.first_name}, {follower.last_name}
-                        <div>
-                            {follower.headline}
+                    return(
+
+                        <div className="single-connection">
+                            {follower.first_name}, {follower.last_name}
+                            <div>
+                                {follower.headline}
+                            </div>
+                            <div>
+                                {follower.city}, {follower.state}
+                            </div>
                         </div>
-                        <div>
-                            {follower.city}, {follower.state}
+                    )
+                })}
+            </div>
+
+
+            <p> this person's followers</p>
+            <div className="follow-container">
+                {Object.values(followers).map(follower => {
+
+                    return(
+
+                        <div className="single-connection">
+                            {follower.first_name}, {follower.last_name}
+                            <div>
+                                {follower.headline}
+                            </div>
+                            <div>
+                                {follower.city}, {follower.state}
+                            </div>
                         </div>
-                    </div>
-
-
-                )
-            })}
-        </div>
+                    )
+                })}
+            </div>
 
         </>
     )

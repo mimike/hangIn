@@ -58,8 +58,6 @@ function User() {
 
   const person = people[userId]
 
-
-
   return (
     <>
             {/* <div className="side-bar">
@@ -95,9 +93,16 @@ function User() {
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
                     <h3>{person?.city}, {person?.state}</h3>
-                    {/* <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.following).length} following {Object.values(person?.followers).length} followers</span> */}
+                    <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                      {/* {Object.values(person?.followers).length} */}
+                    Followers
+                    </div>
 
-                    <span onClick={() => history.push(`/connections/${userId}`)} className="num-connections">{Object.values(person?.followers).length} followers</span>
+                    <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
+                      {/* {Object.values(person?.following).length} */}
+                      Following</div>
+
+
 
                   </div>
 

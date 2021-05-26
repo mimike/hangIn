@@ -7,7 +7,7 @@ import './UploadForm.css';
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState } from 'draft-js';
-import {hideUploadForm} from '../../store/uploadForm'
+import {hideUploadForm} from '../../store/modal'
 
 //this is the modal box to submit
 const UploadForm = () => {
