@@ -64,7 +64,7 @@ function Feed() {
         </div>
         <div className="feed-container">
           <div className="main-post-container">
-              {Object.values(posts).map((post, index) => {
+              {Object.values(posts).reverse().map((post, index) => {
                 const authorId = post.author?.id
 
                   return(

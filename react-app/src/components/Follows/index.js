@@ -8,7 +8,8 @@ import "."
 function Follows(){
     const dispatch = useDispatch();
     const { userId } = useParams();
-    const user = useSelector(state => state.users[userId]);
+    
+    const currentUser = useSelector(state => state.session.user)
     const users = useSelector(state => state.users)
     const following = {};
     const followers = {}
@@ -20,16 +21,22 @@ function Follows(){
     if(!Object.values(users).length){
         return <h1>no connections</h1>
     }
-    
-    if(Object.values(user.following).length){
-        for (let key in user.following ){
-            following[user.following[key]] = users[user.following[key]]
+
+    // if(currentUser){
+    //     for (let key in user.following ){
+    //         following[user.following[key]] = users[user.following[key]]
+    //     }
+    // }
+    console.log(users, "!USER!")
+    if(Object.values(currentUser.following).length){
+        for (let key in currentUser.following ){
+            following[currentUser.following[key]] = users[currentUser.following[key]]
         }
     }
 
-    if(Object.values(user.followers).length){
-        for (let key in user.followers){
-            followers[user.followers[key]] = users[user.followers[key]]
+    if(Object.values(currentUser.followers).length){
+        for (let key in currentUser.followers){
+            followers[currentUser.followers[key]] = users[currentUser.followers[key]]
         }
     }
 
@@ -62,12 +69,12 @@ function Follows(){
                     return(
 
                         <div className="single-connection">
-                            {follower.first_name}, {follower.last_name}
+                            {follower?.first_name}, {follower?.last_name}
                             <div>
-                                {follower.headline}
+                                {follower?.headline}
                             </div>
                             <div>
-                                {follower.city}, {follower.state}
+                                {follower?.city}, {follower?.state}
                             </div>
                         </div>
                     )

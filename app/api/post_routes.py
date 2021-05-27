@@ -13,6 +13,7 @@ post_routes = Blueprint('posts', __name__)
 @login_required
 def get_posts():
     posts = Post.query.all()
+    # reversed= posts.objects.all().order_by(Post.id.asc())
     return {"posts": {post.id: post.to_dict() for post in posts}}
 
 # GET a single post: localhost:5000/api/post/12
@@ -20,6 +21,7 @@ def get_posts():
 @login_required
 def get_single_post(id):
     post = Post.query.get(id)
+
     #likes = PostLike.query.filter(PostLike.post_id == id)
     return {"post": post.to_dict()}
 

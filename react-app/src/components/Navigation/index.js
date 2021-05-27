@@ -26,7 +26,7 @@ const Navigation = () => {
 
         <li>
           <i class="fas fa-users users"></i>
-          <NavLink to="/explore" exact={true} activeClassName="active">
+          <NavLink to="/network" exact={true} activeClassName="active">
             My Network
           </NavLink>
         </li>

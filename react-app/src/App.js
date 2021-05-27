@@ -50,7 +50,7 @@ function App() {
         <Route path="/" exact={true}>
             <SplashPage />
         </Route>
-        <Route path="/explore">
+        <Route path="/network">
           <Navigation />
             <NetworkPage />
         </Route>
