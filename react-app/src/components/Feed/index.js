@@ -135,7 +135,7 @@ function Feed() {
                               return(
                                 <div className= "comment-by" key={`${post.id}-${comment.id}`}>
                                   { user.id === comment.author_id &&
-                                    <div onClick={() => handleDeleteComment(comment.id, post.id)}>
+                                    <div className="delete-comment" onClick={() => handleDeleteComment(comment.id, post.id)}>
                                       <i className="fas fa-trash"></i>
                                     </div>
                                   }
