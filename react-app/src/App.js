@@ -88,6 +88,7 @@ function App() {
         </Route>
 
         <Route path="/connections/:userId">
+        <Navigation />
           <Follows />
         </Route>
 

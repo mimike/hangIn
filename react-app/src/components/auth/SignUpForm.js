@@ -53,10 +53,10 @@ const SignUpForm = () => {
       response = await dispatch(signUp(formData));
     }; // formData instead of passing: firstName, lastName, city, state, headline, email, password, avatar
     if(response.ok){
-      history.push('/explore')
+      history.push('/feed')
 
     } else {
-      alert("HEY not good")
+      alert("Please check that all input fields have been filled")
     }
   };
 

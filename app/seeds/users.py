@@ -42,13 +42,13 @@ def seed_users():
     ]
 
     demo = User(
-        first_name="Mimi",
-        last_name="Me",
-        headline="Aerialist | Choreographer",
-        city="Chicago",
-        state="Illinois",
-        about="I've been a software engineer for more than two decades. I've coded in dozens of programming languages and worked with teams and companies of all sizes. I find value in working with diverse teams, because each individual can give new insights into any project, and my favorite aspect of my career has always been mentoring others. Now I get to use my skills and experience to instruct a new generation of programmers in the art of coding.",
-        experience="15 years of they usually perform as part of a group and know a variety of dance styles, including ballet, tap, and modern dance. In addition to traditional performances in front of a live audience, many perform on TV, in videos on the Internet, and in music videos, in which they also may sing or act. Many dancers perform in shows at casinos, in theme parks, and on cruise ships.",
+        first_name="Meme",
+        last_name="Fly",
+        headline="Aerialist | Choreographer | Teacher",
+        city="Leadville",
+        state="Colorado",
+        about="After 500 years as a Javascript Ninjess in the land of Among Us, Mimi metamorphosized into an aerial dancer. She believes in improvisation as the most fluid way to create work.  Her approach as a performer is greatly influenced by twenty years of dance training and her background as a yoga practitioner and teacher.  She is an energetic and soulful mover who lights up any event blending classical lines, story telling and genuine connection with her audience.",
+        experience="Warlos School of Flying: 1972-1999",
         main_skills="Fabric",
         avatar_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/46636067_4869486253367_7726473666732490752_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=174925&_nc_ohc=O9iItk8vEzcAX9mCQo2&_nc_ht=scontent-msp1-1.xx&oh=64324826657ae61f4751f2e2b7fea7aa&oe=60C247F3",
         cover_url="https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/32247261_4662155230221_6666452128644464640_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=19026a&_nc_ohc=vIh0ZNiE2yoAX9U8A_y&tn=P88s18J4M9h37Kox&_nc_ht=scontent-msp1-1.xx&oh=3cdfe1a83e5b357ec81ae5c463434b60&oe=60BC4E1C",

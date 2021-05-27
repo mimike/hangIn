@@ -32,7 +32,7 @@ const Navigation = () => {
         </li>
 
         <li>
-          <i class="fas fa-briefcase briefcase"></i>
+          <i class="fas fa-briefcase briefcase" ></i>
           <NavLink to="/feed" exact={true} activeClassName="active">
             Feed
           </NavLink>

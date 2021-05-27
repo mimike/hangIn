@@ -74,6 +74,7 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
+    console.log("we got in front of fetch", formData)
     const res = await fetch("/api/posts/", {
         method: "POST",
         body: formData
@@ -81,11 +82,15 @@ export const uploadPost = (submission) => async (dispatch) =>{
         //     "Accept": "application/json"
         //  },
     })
+    console.log("we got in after of fetch", res)
     if(res.ok){
         const data = await res.json()
         dispatch(createPost(data))
         return res   //why return res
     }
+
+
+
 }
 
 export const getAllPosts = () => async (dispatch) => {

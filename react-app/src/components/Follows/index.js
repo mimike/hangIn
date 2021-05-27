@@ -8,7 +8,7 @@ import "."
 function Follows(){
     const dispatch = useDispatch();
     const { userId } = useParams();
-    
+
     const currentUser = useSelector(state => state.session.user)
     const users = useSelector(state => state.users)
     const following = {};
@@ -42,13 +42,18 @@ function Follows(){
 
     return (
         <>
-            <p> this person's following</p>
+
+            <div className = "single-connection2"> {currentUser.first_name} is following</div>
             <div className="follow-container">
                 {Object.values(following).map(follower => {
 
                     return(
-
                         <div className="single-connection">
+                            <div className= "avatar-container">
+                                <img className="avatar-circle" src={follower.avatar_url} />
+                            </div>
+
+                            <div className="follower-info-container">
                             {follower.first_name}, {follower.last_name}
                             <div>
                                 {follower.headline}
@@ -56,27 +61,46 @@ function Follows(){
                             <div>
                                 {follower.city}, {follower.state}
                             </div>
+                            </div>
+
                         </div>
                     )
                 })}
             </div>
 
 
-            <p> this person's followers</p>
+            <div className="single-connection2"> {currentUser.first_name}'s followers</div>
             <div className="follow-container">
                 {Object.values(followers).map(follower => {
 
                     return(
-
                         <div className="single-connection">
-                            {follower?.first_name}, {follower?.last_name}
+                            <div className= "avatar-container">
+                                <img className="avatar-circle" src={follower.avatar_url} />
+                            </div>
+
+                            <div className="follower-info-container">
+                            {follower.first_name}, {follower.last_name}
                             <div>
-                                {follower?.headline}
+                                {follower.headline}
                             </div>
                             <div>
-                                {follower?.city}, {follower?.state}
+                                {follower.city}, {follower.state}
                             </div>
+                            </div>
+
                         </div>
+
+                        // <div className="single-connection">
+                        //     <img className="avatar-circle" src={follower.avatar_url} />
+                        //     {follower?.first_name}, {follower?.last_name}
+                        //     <div>
+                        //         {follower?.headline}
+                        //     </div>
+                        //     <div>
+                        //         {follower?.city}, {follower?.state}
+                        //     </div>
+                        // </div>
                     )
                 })}
             </div>

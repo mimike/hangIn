@@ -40,19 +40,23 @@
 .my-name{
     font-weight: 500;
     margin-left: 40px;
+    font-size: 19px;
 }
 .my-headline{
     font-weight: 400;
     margin-left: 40px;
+    font-weight: 300;
+    margin-top: -14px;
 
 }
 .my-location{
     margin-left: 40px;
     margin-bottom: 20px;
+    margin-top: -13px;
 }
 .my-location h3{
     color: grey;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
     margin-top: -10px;
 }
@@ -68,6 +72,7 @@ div.num-connections2{
     font-weight: 600;
     margin-bottom: 30px;
     cursor: pointer;
+    margin-top: -5px;
 }
 .middle-container{
     border: 0.5px solid lightgray;
@@ -81,7 +86,8 @@ div.num-connections2{
 }
 .middle-container h5{
     margin: 20px;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 15px;
 }
 .last-container{
     background:white;
@@ -97,7 +103,8 @@ div.num-connections2{
 }
 .last-container h5{
     margin: 20px;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 15px;
 }
 .follow-me{
     background-image: linear-gradient(45deg, #682679, #d18da4);

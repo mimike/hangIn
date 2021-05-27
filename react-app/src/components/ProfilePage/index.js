@@ -1,11 +1,11 @@
-//this needs to be deleted after refactoring to person.js
+
 import React, {useState, useEffect} from 'react';
 import "./ProfilePage.css"
 import { useParams, useHistory } from "react-router-dom";
 import ProfileTile from "../NetworkPage/ProfileTile"
 import "./ProfilePage.css"
-import cover from "../../images/mimicover.jpeg"
-import pic from "../../../src/images/profilepic.jpg"
+// import cover from "../../images/mimicover.jpeg"
+// import pic from "../../../src/images/profilepic.jpg"
 import {getUsersThunk} from "../../store/users"
 import {useDispatch, useSelector} from "react-redux";
 import {follow, unfollow} from '../../store/users'
@@ -50,11 +50,11 @@ function ProfilePage() {
                       <h3 className="my-name">{person?.first_name} {person?.last_name}</h3>
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
-                    <h3>{person?.city}, {person?.state}</h3>
+                    <h3>{person?.city}, {person?.state}, United States</h3>
                   </div>
 
                   <div onClick={() => history.push(`/connections/${currentUserId}`)} className="num-connections">
-                    Followers
+                    Connections
                   </div>
 
                   {/* <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections">
@@ -86,7 +86,10 @@ function ProfilePage() {
               </div>
               <div className="last-container">
                 <h4>Experience</h4>
-                <h5>As a Portfolio Analyst, it was my job to work closely with project managers and keep track of financial information and the status of projects. I met regularly with three project managers and reviewed project plans, analyzed possible risks a project might have, and submitted projects for approval to the program manager.</h5>
+                <h5>
+                  {person?.experience}
+                </h5>
+                {/* As a Portfolio Analyst, it was my job to work closely with project managers and keep track of financial information and the status of projects. I met regularly with three project managers and reviewed project plans, analyzed possible risks a project might have, and submitted projects for approval to the program manager.</> */}
               </div>
             </div>
     {/* <ul>

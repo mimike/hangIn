@@ -12,7 +12,9 @@
     font-weight: 300;
 
 }
-
+.fas, .fas {
+    text-align: center;
+}
 .fa-linkedin:before {
     color: rgba(20, 81, 150, 0.884);
 }
@@ -44,7 +46,7 @@ a {
     font-size:14px;
 }
 li {
-    
+
     cursor: pointer;
     list-style-type: none;
     margin: 4px;

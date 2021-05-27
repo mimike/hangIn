@@ -1,6 +1,19 @@
-.single-connection{
-    border: 1px solid lightgrey;
+.follow-container{
+   border: 0.5px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
 
+.single-connection{
+    margin: 20px;
+    display: flex;
+
+}
+.avatar-container{
+    margin-right: 20px;
 }
 .follower-name{
     font-weight: bold;
@@ -10,4 +23,9 @@
 }
 .follower-location{
     font-weight: 200;
+}
+.single-connection2{
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }

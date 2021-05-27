@@ -92,7 +92,7 @@ function User() {
                       <h3 className="my-name">{person?.first_name} {person?.last_name}</h3>
                       <h3 className="my-headline">{person?.headline}</h3>
                   <div className="my-location">
-                    <h3>{person?.city}, {person?.state}</h3>
+                    <h3>{person?.city}, {person?.state}, United States</h3>
                     {/* <div onClick={() => history.push(`/connections/${userId}`)} className="num-connections"> */}
                       {/* {Object.values(person?.followers).length} */}
                     {/* Followers
@@ -120,7 +120,7 @@ function User() {
                     </h5>
 
                     <h5>
-                      Circus Minors: (This is statically rendered.) Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
+                      Circus Minors: Rope, Hoop, Invented Apparatus, Rope and harness, Bungee, Low-Flying Trapeze
                     </h5>
 
                     <h5>

@@ -158,16 +158,16 @@ author-headine-post{
 }
 .edit-dropdown{
     background-color: white;
-    width: 150px;
+    width: 140px;
     position: absolute;
-    height: 80px;
+    height: 60px;
     color: black;
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
     border: none;
-    right: 5px;
+    right: 400px;
     text-align: left;
-
+    padding: 20px;
 }
 .edit-drop-down button{
     border: none;

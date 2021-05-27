@@ -21,14 +21,14 @@ def seed_posts():
         "https://scontent-msp1-1.xx.fbcdn.net/v/t31.18172-8/17545182_4068686273868_5738819897108392369_o.jpg?_nc_cat=111&ccb=1-3&_nc_sid=174925&_nc_ohc=9tIAnjMLfZYAX8gsif8&_nc_ht=scontent-msp1-1.xx&oh=7f70598b550f7867d87745f70877c6f2&oe=60C9F493",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/104202825_10200718475462619_3888687563125005719_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=FXfDRA7iV1QAX_qZNGE&_nc_ht=scontent-msp1-1.xx&oh=beef8eb34c005d127087908027023822&oe=60CCC6A9",
         "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/90877455_10200567978500289_7850133888377552896_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=_a0Se84QRUcAX8VmrAg&_nc_ht=scontent-msp1-1.xx&oh=8f45720de148147d7cb4a114b9dd6fa4&oe=60CCAC17",
-        "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/104301167_10200718473502570_6014009332255373109_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=E5sR1xi-e9oAX_Hu_we&_nc_ht=scontent-msp1-1.xx&oh=ba5785a3ac0967ca9fe38c055cb31b74&oe=60CC9174"
-
+        "https://scontent-msp1-1.xx.fbcdn.net/v/t1.6435-9/104301167_10200718473502570_6014009332255373109_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=E5sR1xi-e9oAX_Hu_we&_nc_ht=scontent-msp1-1.xx&oh=ba5785a3ac0967ca9fe38c055cb31b74&oe=60CC9174",
+        "https://hangin.s3.us-east-2.amazonaws.com/b3a1878a249746a7b444b16a0ef6179f.mp4"
 
     ]
 
     for num in range(20):
         post = Post(
-            author_id=num+1, text_body=faker.paragraph(nb_sentences=10), media_url=pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)])
+            author_id=num+1, text_body=faker.paragraph(nb_sentences=12), media_url=pic_list[faker.pyint(min_value=0, max_value=len(pic_list)-1)])
         db.session.add(post)
     db.session.commit()
 

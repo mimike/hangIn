@@ -21,12 +21,19 @@
 .comment-numbers {
     order: 1;
     margin-top: -15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(95, 93, 93);
 }
 .likes-comments-icon-container{
     margin-left: 10px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+.commented {
+    margin-right: 8px;
 }
 .num-comments-icon{
     display: flex;
@@ -63,7 +70,7 @@
     cursor: pointer;
 }
 .fa-comment-dots:before{
-    cursor: pointer;
+    
 }
 
 .fa-trash {

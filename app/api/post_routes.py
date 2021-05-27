@@ -29,6 +29,7 @@ def get_single_post(id):
 @post_routes.route('/', methods=['POST'])
 @login_required
 def post_post():
+    print("we got here in the backend")
 
     form = UploadForm()
     data = request.json
