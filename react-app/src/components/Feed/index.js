@@ -6,6 +6,7 @@ import {
   deleteCommentThunk,
   deletePostThunk,
 } from "../../store/posts";
+import SideBar from "../../components/SideBar"
 import "./Feed.css";
 import "../UploadBox/UploadBox.css";
 import UploadBox from "../UploadBox";

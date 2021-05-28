@@ -8,6 +8,9 @@ import "."
 function Follows(){
     const dispatch = useDispatch();
     const { userId } = useParams();
+    const people = useSelector(state => state.users)
+    const person = people[userId]
+    console.log(person?.last_name, "USERAME")
 
     const currentUser = useSelector(state => state.session.user)
     const users = useSelector(state => state.users)
@@ -43,7 +46,7 @@ function Follows(){
     return (
         <>
 
-            <div className = "single-connection2"> {currentUser.first_name} is following</div>
+            <div className = "single-connection2"> {person?.first_name} Following: </div>
             <div className="follow-container">
                 {Object.values(following).map(follower => {
 
@@ -69,7 +72,7 @@ function Follows(){
             </div>
 
 
-            <div className="single-connection2"> {currentUser.first_name}'s followers</div>
+            <div className="single-connection2"> {person?.first_name} Followers</div>
             <div className="follow-container">
                 {Object.values(followers).map(follower => {
 

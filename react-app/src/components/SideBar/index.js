@@ -8,8 +8,6 @@ function SideBar(){
     const history = useHistory()
     const user = useSelector(state => state.session.user)
 
-
-
     return(
         <>
         <div className="side-bar">
@@ -35,7 +33,6 @@ function SideBar(){
                 <span >Connections</span>
             </li>
         </div>
-
 
         </>
     )

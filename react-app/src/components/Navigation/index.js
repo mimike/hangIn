@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import {useSelector} from 'react-redux';
 import "./Navigation.css";
@@ -9,7 +9,8 @@ import SearchResult from './SearchResult';
 
 const Navigation = () => {
   const [search, setSearch] = useState("")
-
+  const userId = useSelector(state => state.session.user.id)
+ console.log(userId)
   return (
     <nav>
       <div className="nav-bar-container">
@@ -33,8 +34,8 @@ const Navigation = () => {
 
         <li>
           <i class="fas fa-briefcase briefcase" ></i>
-          <NavLink to="/feed" exact={true} activeClassName="active">
-            Feed
+          <NavLink to="/connections/${userId}" exact={true} activeClassName="active">
+            Connections
           </NavLink>
         </li>
         <li>

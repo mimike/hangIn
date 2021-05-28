@@ -88,7 +88,7 @@ const UploadForm = () => {
                 <textarea className="post2-box"
                 type="text"
                 value = {textBody}
-                placeholder = "What do u wanna talk about?"
+                placeholder = "What do you want to talk about?"
                 onChange = {updateTextBody}
                 />
           </div>
@@ -108,7 +108,7 @@ const UploadForm = () => {
 
 
             {!mediaType && <div className="upload-image-box">
-                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Videeeo</label>
+                <label className="upload-post-label" htmlFor="file3"><i class="far fa-images" ></i> Video</label>
                     <input
                     id = "file3"
                     className="input-file"

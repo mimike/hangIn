@@ -7,7 +7,9 @@ body{
     border-radius: 10px;
     background: white;
     margin-right: 200px;
-    margin-top: 100px;
+    margin-top: 140px;
+    margin-left: 200px;
+    margin-bottom: 100px;
 
 }
 .people h2{
@@ -21,7 +23,7 @@ body{
     display:flex;
     margin-top: 40px;
     margin-left: 40px;
-
+    margin-bottom: 30px;
     flex-direction: row;
     flex-wrap:wrap;
 }
@@ -50,7 +52,7 @@ body{
 
 } */
 .cover-pic{
-    position: relative;
+    /* position: relative; */
     background-size: cover;
     width: 190px;
     height: 70px;
@@ -65,11 +67,13 @@ body{
     width: 90px;
     left: 45px;
     top: -60px;
-    position: relative;
+    margin-top: -55px;
+    margin-left: 50px;
+
 
 }
 .connect-btn{
-    text-align: center;
+
 
 }
 .photo-container{
@@ -112,19 +116,26 @@ p{
     border-radius: 10px */
     font-size: 0.5rem;
 
-
 }
-.connect-btn {
+/* a{
+    margin-left: 40px;
+} */
+.connect-btn a{
 
     border: 1px solid rgb(60, 60, 196);
     border-radius: 50px;
     width: 140px;
     height:25px;
-    margin-left: 20px;
+    margin-left: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
 
-
-
+}
+.connect-btn{
+    text-align: center;
 }
 .connect-link{
     /* width: 550px; */
@@ -134,6 +145,7 @@ p{
     cursor: pointer;
     /* border: 0.5px solid rgb(30, 98, 199); */
     width: 400px;
+    text-align: center;
 
     color: rgb(30, 98, 199);
     font-weight: bold;

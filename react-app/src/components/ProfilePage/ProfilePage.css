@@ -13,7 +13,7 @@
 
 }
 .cover-pic1{
-    position: relative;
+   
     background-size: cover;
     width: 100%;
     height: 250px;
@@ -23,14 +23,13 @@
 }
 .avatar-pic1{
     border-radius: 50%;
-
-    z-index: 1;
-    position:absolute;
-    top: 300px;
-    left: 80px;
     border: 5px solid white;
     height: 150px;
     width: 150px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -90px;
+    margin-left: 20px;
 
 }
 .cover-container{
@@ -52,7 +51,7 @@
 .my-location{
     margin-left: 40px;
     margin-bottom: 20px;
-    margin-top: -13px;
+    margin-top: -11px;
 }
 .my-location h3{
     color: grey;

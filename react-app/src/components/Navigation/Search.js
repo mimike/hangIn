@@ -19,7 +19,7 @@ return (
     <>
         <div className="nav-bar-container">
          <li>
-            <a>
+            <a href="/feed">
              <i class="fab fa-linkedin" ></i>
             </a>
         </li>

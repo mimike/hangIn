@@ -101,12 +101,12 @@ function ProfileTile() {
                   <p className="job">{user.headline}</p>
                 </div>
 
-                <div className="connect-btn">
+                <a className= "connect-btn" href={`/user/${user.id}`} className="connect-btn">
                   <Link className="connect-link" to={`/user/${user.id}`}>
-                    Connect
+                    View Profile
                   </Link>
                   {/* <button className="connect">Connect</button> */}
-                </div>
+                </a>
               </div>
             );
           })}

@@ -24,7 +24,7 @@ function NetworkPage() {
     <>
       <div className="page-container">
         <div className="left-container">
-          <SideBar />
+          {/* <SideBar /> */}
         </div>
 
         <div className="main-container">

@@ -21,7 +21,7 @@
     border: none;
 }
 .upload-box-container{
-    margin-top: 40px;
+    margin-top: 140px;
     display: flex;
 
 }
@@ -119,12 +119,12 @@
 
 #comment-submit-button{
     border: none;
-    color: green;
+    color: rgb(160, 224, 160);
     border-radius: 10px;
     width: 15%;
     margin-top: 10px;
     border-radius:50px;
-    background: green;
+    background: rgb(193, 247, 193);
     border: none;
     height: 40px;
     color: white;

@@ -5,7 +5,8 @@
 }
 .like-word{
     color: rgb(24, 99, 211);
-    font-weight: 550;
+    font-weight: 500;
+
 }
 .unliked{
     color:rgb(95, 93, 93);
@@ -22,7 +23,8 @@
     order: 1;
     margin-top: -15px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 400;
     color: rgb(95, 93, 93);
 }
 .likes-comments-icon-container{
@@ -30,7 +32,7 @@
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 .commented {
     margin-right: 8px;
@@ -41,7 +43,7 @@
     margin-left: 20px;
     margin-right: 20px;
     font-weight: 150;
-    color:rgb(95, 93, 93);
+    color:black;
 }
 .display-comments{
     border: none;
@@ -54,9 +56,9 @@
 }
 .num-likes{
     order: 2;
-    margin-left: 10px;
+    margin-left: 5px;
     color: rgb(95, 92, 92);
-    font-weight: 150;
+    font-weight: 450;
     /* margin-left: 30px;
     margin-top: 40px;
     margin-right: 30px; */
@@ -68,9 +70,6 @@
 }
 .fa-thumbs-up:before{
     cursor: pointer;
-}
-.fa-comment-dots:before{
-    
 }
 
 .fa-trash {
