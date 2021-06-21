@@ -19,18 +19,32 @@ def seed_users():
         new_list.append(photo["urls"]["regular"])
 
     pic_list = [
-        'https://hangin.s3.us-east-2.amazonaws.com/april.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mandy.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/jess.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/maya.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/sarah.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/nancy.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi7.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi6.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi5.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi4.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi3.jpeg',
-        'https://hangin.s3.us-east-2.amazonaws.com/mimi2.jpeg'
+        # 'https://hangin.s3.us-east-2.amazonaws.com/april.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mandy.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/jess.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/maya.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/sarah.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/nancy.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi7.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi6.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi5.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi4.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi3.jpeg',
+        # 'https://hangin.s3.us-east-2.amazonaws.com/mimi2.jpeg'
+        "https://i.ibb.co/X262cDB/sarah.jpg",
+        "https://i.ibb.co/YNPP8Fr/maya.jpg",
+        "https://i.ibb.co/0hQMJ6R/april.jpg",
+        "https://i.ibb.co/NrYHjCv/april2.jpg",
+        "https://i.ibb.co/rtXzcQ0/mimi3.jpg",
+        "https://i.ibb.co/KmQ51H3/mimi2.jpg",
+        "https://i.ibb.co/RbMv0sQ/mimi5.jpg",
+        "https://i.ibb.co/SsYhfkd/mimi4.jpg",
+        "https://i.ibb.co/fdLm8WT/mimi7.jpg",
+        "https://i.ibb.co/BwVyTpZ/mimi6.jpg",
+        "https://i.ibb.co/yB8hDV7/mimicover.jpg",
+        "https://i.ibb.co/Lxp2MTv/DSC09223.jpg",
+        "https://i.ibb.co/g9J282B/DSC00832-Recovered.jpg",
+        "https://i.ibb.co/vqFHMY3/DSC00630.jpg"
 
     ]
 
@@ -43,8 +57,8 @@ def seed_users():
         about="After 500 years as a Javascript Ninjess in the land of Among Us, Mimi metamorphosized into an aerial dancer. She believes in improvisation as the most fluid way to create work.  Her approach as a performer is greatly influenced by twenty years of dance training and her background as a yoga practitioner and teacher.  She is an energetic and soulful mover who lights up any event blending classical lines, story telling and genuine connection with her audience.",
         experience="Warlos School of Flying: 1972-1999",
         main_skills="Fabric",
-        avatar_url="https://hangin.s3.us-east-2.amazonaws.com/mimi5.jpeg",
-        cover_url="https://hangin.s3.us-east-2.amazonaws.com/mimicover.jpeg",
+        avatar_url="https://i.ibb.co/XYgwz67/profile.jpg",
+        cover_url="https://i.ibb.co/yB8hDV7/mimicover.jpg",
         email='demo@aa.io',
         password='password'
         )
