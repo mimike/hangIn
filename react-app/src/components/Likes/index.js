@@ -49,11 +49,11 @@ function Likes({post}) {
               { liked &&
                 <div onClick={handleUnlike}>
                   <i class="far fa-thumbs-up liked"></i>
-                  <div className = "like-word">Like</div>
+                  <span className = "like-word"> {" Like"}</span>
                   </div>
               }
             { !liked &&
-              <div onClick={handleLike}>  Like<i className="far fa-thumbs-up unliked"></i> <div className="unlike-word" > </div>
+              <div onClick={handleLike}>  {"Like"} <i className="far fa-thumbs-up unliked"></i> <div className="unlike-word" > </div>
               </div>
             }
 

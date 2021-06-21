@@ -38,6 +38,7 @@
     margin-right: 8px;
 }
 .num-comments-icon{
+    cursor: pointer;
     display: flex;
     order: 1;
     margin-left: 20px;

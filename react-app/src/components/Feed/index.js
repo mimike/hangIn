@@ -137,13 +137,7 @@ function Feed() {
                       <Likes post={post} />
                     </div>
 
-                    <div className="num-comments-icon">
-                      <i class="far fa-comment-dots commented"></i>
-                      Comments
-                      <div />
-                      <button
-                        className="display-comments"
-                        onClick={() => {
+                    <div className="num-comments-icon" onClick={() => {
                           if (
                             document.getElementById(`${post.id}`).style
                               .display === "none"
@@ -155,11 +149,17 @@ function Feed() {
                             document.getElementById(
                               `${post.id}`
                             ).style.display = "none";
-                        }}
+                        }}>
+                      <i class="far fa-comment-dots commented"></i>
+                      Comments
+                      <div />
+                      <button
+                        className="display-comments"
+
                       >
-                        <div className="comment-numbers">
+                        <span className="comment-numbers">
                           {posts[post.id]?.num_comments}
-                        </div>
+                        </span>
                       </button>
                     </div>
                   </div>
