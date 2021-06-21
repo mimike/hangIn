@@ -29,15 +29,14 @@ function ProfileTile() {
       const numKey = key.split("-")[1]; //3, 69
       following[currentUser.following[key]] = users[numKey];
     }
-      // all users minus the sessionUser
-
+    // all users minus the sessionUser
   }, [dispatch]);
 
   if (!Object.values(currentUser.following).length) {
     return (
       <>
         <div className="test">
-          <h1>all the peoples</h1>
+          <h1></h1>
           {Object.values(users).length &&
             Object.values(users).map((user) => {
               return (
@@ -101,7 +100,11 @@ function ProfileTile() {
                   <p className="job">{user.headline}</p>
                 </div>
 
-                <a className= "connect-btn" href={`/user/${user.id}`} className="connect-btn">
+                <a
+                  className="connect-btn"
+                  href={`/user/${user.id}`}
+                  className="connect-btn"
+                >
                   <Link className="connect-link" to={`/user/${user.id}`}>
                     View Profile
                   </Link>

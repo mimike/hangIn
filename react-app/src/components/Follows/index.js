@@ -10,7 +10,6 @@ function Follows(){
     const { userId } = useParams();
     const people = useSelector(state => state.users)
     const person = people[userId]
-    console.log(person?.last_name, "USERAME")
 
     const currentUser = useSelector(state => state.session.user)
     const users = useSelector(state => state.users)
