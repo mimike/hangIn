@@ -46,3 +46,6 @@ def like_post():
     print("existin!!", existing_like)
     # w/o .first we will return a query object (funky) which isn't a model
 # return {user_id: 3, post_id: 1} vs redirect ?
+
+
+hero
