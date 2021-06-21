@@ -27,7 +27,9 @@ function ProfileTile() {
 
     for (let key in currentUser.following) {
       const numKey = key.split("-")[1]; //3, 69
-      following[currentUser.following[key]] = users[numKey];
+      if(Number(numKey) !== currentUser.id){
+        following[currentUser.following[key]] = users[numKey];
+      }
     }
     // all users minus the sessionUser
   }, [dispatch]);
@@ -66,7 +68,7 @@ function ProfileTile() {
                       <Link className="connect-link" to={`/user/${user.id}`}>
                         Connect
                       </Link>
-                      {/* <button className="connect">Connect</button> */}
+
                     </div>
                   </div>
                 </>
@@ -83,32 +85,32 @@ function ProfileTile() {
         {Object.values(following).length &&
           Object.values(following).map((user) => {
             return (
-              <div className="tile-container" key={user.id}>
+              <div className="tile-container" key={user?.id}>
                 <div className="photo-container">
-                  <img className="cover-pic" alt="cover" src={user.cover_url} />
+                  <img className="cover-pic" alt="cover" src={user?.cover_url} />
                   <img
                     className="avatar-pic"
                     alt="profile"
-                    src={user.avatar_url}
+                    src={user?.avatar_url}
                   />
                 </div>
 
                 <div className="profile-text">
                   <p className="name">
-                    {user.first_name} {user.last_name}
+                    {user?.first_name} {user?.last_name}
                   </p>
-                  <p className="job">{user.headline}</p>
+                  <p className="job">{user?.headline}</p>
                 </div>
 
                 <a
                   className="connect-btn"
-                  href={`/user/${user.id}`}
+                  href={`/user/${user?.id}`}
                   className="connect-btn"
                 >
-                  <Link className="connect-link" to={`/user/${user.id}`}>
+                  <Link className="connect-link" to={`/user/${user?.id}`}>
                     View Profile
                   </Link>
-                  {/* <button className="connect">Connect</button> */}
+
                 </a>
               </div>
             );
