@@ -181,16 +181,7 @@ function Feed() {
                             className="comment-by"
                             key={`${post.id}-${comment.id}`}
                           >
-                            {user.id === comment.author_id && (
-                              <div
-                                className="delete-comment"
-                                onClick={() =>
-                                  handleDeleteComment(comment.id, post.id)
-                                }
-                              >
-                                <i className="fas fa-trash"></i>
-                              </div>
-                            )}
+
                             <div
                               className="click-me"
                               id={commenterId}
@@ -211,6 +202,16 @@ function Feed() {
                             <div className="comment-text">
                               {comment.comment_text}
                             </div>
+                            {user.id === comment.author_id && (
+                              <div
+                                className="delete-comment"
+                                onClick={() =>
+                                  handleDeleteComment(comment.id, post.id)
+                                }
+                              >
+                                <i className="fas fa-trash"></i>
+                              </div>
+                            )}
                           </div>
                         );
                       })}
