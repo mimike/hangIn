@@ -47,12 +47,12 @@ function ProfileTile() {
                     <div className="photo-container">
                       <img
                         className="cover-pic"
-                        alt="cover"
+                        alt="cover image"
                         src={user.cover_url}
                       />
                       <img
                         className="avatar-pic"
-                        alt="profile"
+                        alt="profile image"
                         src={user.avatar_url}
                       />
                     </div>
@@ -87,7 +87,7 @@ function ProfileTile() {
             return (
               <div className="tile-container" key={user?.id}>
                 <div className="photo-container">
-                  <img className="cover-pic" alt="cover" src={user?.cover_url} />
+                  <img className="cover-pic" alt="cover image" src={user?.cover_url} />
                   <img
                     className="avatar-pic"
                     alt="profile"

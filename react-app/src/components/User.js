@@ -84,7 +84,7 @@ function User() {
               <div className="first-container">
 
                   <div className="cover-container">
-                      <img className="cover-pic1" alt="cover" src={person?.cover_url} />
+                      <img className="cover-pic1" alt="user cover image" src={person?.cover_url} />
                       <img className="avatar-pic1" src={person?.avatar_url} />
                   </div>
                   <div className="profile-text1">

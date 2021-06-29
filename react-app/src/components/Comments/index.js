@@ -39,7 +39,7 @@ function Comments({post_id}){
         <form className= "comment-form" onSubmit={handleCommentSubmit}>
             <div className="user-comment-box">
                 <label>
-                    <img className="avatar-circle-comment" alt="circle" src={user.avatar_url}/>
+                    <img className="avatar-circle-comment" alt="profile circular image" src={user.avatar_url}/>
                 </label>
                 <input
                     className="comment-input"
