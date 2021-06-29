@@ -45,7 +45,7 @@ function Follows(){
     return (
         <>
 
-            <div className = "single-connection2"> {person?.first_name} Following: </div>
+            <div className = "single-connection2"> {person?.first_name} Following </div>
             <div className="follow-container">
                 {Object.values(following).map(follower => {
 
