@@ -18,7 +18,7 @@ const DemoUser = () => {
     return (
         <>
             <form onSubmit={demoLoginWrapper}>
-                <div className="demo-link">
+                <div className="demo-link splash-demo">
                     <input type="submit" value="Demo"/>
                 </div>
             </form>

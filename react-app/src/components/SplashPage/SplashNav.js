@@ -1,11 +1,23 @@
 import React from 'react';
 import "./SplashNav.css"
-import {useSelector} from 'react-redux'
-import { NavLink } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
+import { NavLink, useHistory } from 'react-router-dom';
 import ProfileButton from "../Navigation/ProfileDropDown"
+import DemoUser from "../auth/DemoUser"
+
+
+import { demoLogin} from "../../store/session";
 
 function SplashNav() {
+  let history = useHistory()
+  const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+
+  const handleDemo = async (e) => {
+    e.preventDefault()
+    await dispatch(demoLogin())
+    history.push('/feed')
+  }
 
   function isLoggedIn(){
     if(!user){
@@ -24,6 +36,11 @@ function SplashNav() {
                 Sign Up
               </NavLink>
             </div>
+
+            <div className="splash-demo" onClick={handleDemo}>
+                  Demo
+              </div>
+
 
           </div>
         </>
