@@ -116,6 +116,9 @@
 .share-story{
 
 }
+.modal-container i{
+    margin: 16px;
+}
 
 #comment-submit-button{
     border: none;

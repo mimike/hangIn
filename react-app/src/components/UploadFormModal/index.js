@@ -3,6 +3,7 @@ import { Modal } from '../../context/Modal';
 import { useDispatch, useSelector} from 'react-redux'
 
 import {showUploadForm, hideUploadForm} from "../../store/modal"
+import UploadModal from "../UploadFormModal";
 import "./UploadForm.css"
 import UploadForm from "./UploadForm"
 import "./UploadForm.css"

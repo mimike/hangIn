@@ -13,6 +13,7 @@ function UploadBox(){
   const dispatch= useDispatch()
   const user = useSelector(state => state.session.user)
 
+
   const [showModal, setShowModal] = useState(false);
   const [mediaUrl, setMediaUrl] = useState("");
 
@@ -53,7 +54,7 @@ function UploadBox(){
             </div>
             </div>
 
-            <div className="icon-container">
+            {/* <div className="icon-container">
 
             <div className="upload-image-box">
               <label className="upload-post-label" htmlFor="file"><i class="far fa-images" ></i> Photo</label>
@@ -89,7 +90,7 @@ function UploadBox(){
               </Modal>
             )}
           </div>
-          </div>
+          </div> */}
           {/* <button className="submit-button" type="submit">Post</button> */}
           </form>
         </div>
