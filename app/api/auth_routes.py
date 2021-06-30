@@ -35,7 +35,6 @@ def login():
     """
 
     form = LoginForm()
-    print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -65,8 +64,6 @@ def sign_up():
     # if "image" not in request.files:
     #     return {"errors": "image required"}, 400
 
-    for what in request.files:
-        print(what)
 
     avatarImage = None
     avatarUpload = None

@@ -29,11 +29,11 @@ def get_single_post(id):
 @post_routes.route('/', methods=['POST'])
 @login_required
 def post_post():
-    print("we got here in the backend")
+
 
     form = UploadForm()
     data = request.json
-    print("\n\n\n\n", request.files, "\n\n\n\n")
+
     if "mediaUrl" not in request.files:
         return {"errors": "image required"}, 400
 
@@ -44,7 +44,7 @@ def post_post():
 
     media_url.filename = get_unique_filename(media_url.filename)
     upload = upload_file_to_s3(media_url)
-    # print("uplaod!!!!!!", upload)
+
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -91,7 +91,7 @@ def patch_post(id):
 @post_routes.route('/', methods=['DELETE'])
 @login_required
 def delete_post():
-    print("!! got here!!")
+
     if not request.json["postId"]:
         return {"errors": "no post id"}, 400
     try:

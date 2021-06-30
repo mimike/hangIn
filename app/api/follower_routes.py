@@ -41,7 +41,6 @@ def getAllFollowingFollower(id):
     following = {
         follower.id: follower.get_follower_info() for follower in profileUser.followers
     }
-    print("!!follow!", {"following": following, "followers": followers})
 
     return {"followers": followers, "following": following}
 
@@ -68,7 +67,6 @@ def deleteFollower():
 @follower_routes.route('/unfollows/<int:user_id>', methods=['POST'])
 @login_required
 def unfollowUser(id):
-    print("ID!", id)
     user = User.query.filter_by(id = id).first()  #friend's id
     current_user.follows.remove(user)
     db.session.add(current_user)

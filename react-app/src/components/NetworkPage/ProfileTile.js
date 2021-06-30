@@ -39,7 +39,7 @@ function ProfileTile() {
       <>
         <div className="test">
           <h1></h1>
-          {Object.values(users).length &&
+          {Object.values(users).length ?
             Object.values(users).map((user) => {
               return (
                 <>
@@ -73,7 +73,7 @@ function ProfileTile() {
                   </div>
                 </>
               );
-            })}
+            }) : null}
         </div>
       </>
     );
@@ -82,7 +82,7 @@ function ProfileTile() {
   return (
     <>
       <div className="test">
-        {Object.values(following).length &&
+        {Object.values(following).length ?
           Object.values(following).map((user) => {
             return (
               <div className="tile-container" key={user?.id}>
@@ -114,7 +114,7 @@ function ProfileTile() {
                 </a>
               </div>
             );
-          })}
+          }) : null}
       </div>
     </>
   );
