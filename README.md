@@ -2,18 +2,53 @@
 
 ***[Hangin](https://hangin-hangin.herokuapp.com/)*** is a clone of LinkedIn that focuses on connecting aerialists and cultivating a community for professional networking and collaboration opportunities.
 
+## Overall Structure
+
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white%22%3E" /> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white%22/%3E" />
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white%22%3E" />
+<img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white"/>
+<img alt="Flask" src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/SQL-Alchemy-orange?style=for-the-badge&logoColor=white">
+<img alt="Heroku" src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white"/>
+
 ## Technologies Used
 * React.js/Redux
 * SQLAlchemy
 * CSS3
 * Flask
+* Unsplash Image API
+
+## How to Use Hangin
+
+1.  Go to  [https://hangin-hangin.herokuapp.com/](https://hangin-hangin.herokuapp.com/)
+2. Choose Demo or create an account to connect with other users. 
+3. Users can network by following other users, post images or videos and comment and like other users posts.
+
+## UI Design
+
+### Splash page:
+<a href="https://ibb.co/Qfx0c2C"><img src="https://i.ibb.co/rmX9tCc/Screen-Shot-2021-07-29-at-19-59-01.png" alt="Screen-Shot-2021-07-29-at-19-59-01" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+
+### Feed page:
+   
+<a href="https://ibb.co/Mcy6CCC"><img src="https://i.ibb.co/ZBRmMMM/Screen-Shot-2021-07-29-at-20-00-27.png" alt="Screen-Shot-2021-07-29-at-20-00-27" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+
+### Networking page:
+   
+<a href="https://ibb.co/Ch0kJKL"><img src="https://i.ibb.co/nzkH3Mp/Screen-Shot-2021-07-29-at-20-01-05.png" alt="Screen-Shot-2021-07-29-at-20-01-05" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+
+### Comments:
+   
+<a href="https://ibb.co/RHcwRp8"><img src="https://i.ibb.co/MN70FDd/Screen-Shot-2021-07-29-at-20-03-50.png" alt="Screen-Shot-2021-07-29-at-20-03-50" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
 
 ## Getting started
 
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/mimike/hangIn
    ```
 
 2. Install dependencies
@@ -61,45 +96,5 @@ pip install --dev -r dev-requirements.txt && pip install -r requirements.txt
    There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
 ***
 
-## Deploy to Heroku
 
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
 
-   ```bash
-   heroku login
-   ```
-
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
