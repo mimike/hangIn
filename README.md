@@ -19,6 +19,7 @@
 * CSS3
 * Flask
 * Unsplash Image API
+* AWS S3
 
 ## How to Use Hangin
 
