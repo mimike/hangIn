@@ -29,19 +29,19 @@
 ## UI Design
 
 ### Splash page:
-<a href="https://ibb.co/Qfx0c2C"><img src="https://i.ibb.co/rmX9tCc/Screen-Shot-2021-07-29-at-19-59-01.png" alt="Screen-Shot-2021-07-29-at-19-59-01" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+<a href="https://ibb.co/Qfx0c2C"><img src="https://i.ibb.co/rmX9tCc/Screen-Shot-2021-07-29-at-19-59-01.png" alt="Screen-Shot-2021-07-29-at-19-59-01" border="0"></a><br />
 
 ### Feed page:
    
-<a href="https://ibb.co/Mcy6CCC"><img src="https://i.ibb.co/ZBRmMMM/Screen-Shot-2021-07-29-at-20-00-27.png" alt="Screen-Shot-2021-07-29-at-20-00-27" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+<a href="https://ibb.co/Mcy6CCC"><img src="https://i.ibb.co/ZBRmMMM/Screen-Shot-2021-07-29-at-20-00-27.png" alt="Screen-Shot-2021-07-29-at-20-00-27" border="0"></a><br />
 
 ### Networking page:
    
-<a href="https://ibb.co/Ch0kJKL"><img src="https://i.ibb.co/nzkH3Mp/Screen-Shot-2021-07-29-at-20-01-05.png" alt="Screen-Shot-2021-07-29-at-20-01-05" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+<a href="https://ibb.co/Ch0kJKL"><img src="https://i.ibb.co/nzkH3Mp/Screen-Shot-2021-07-29-at-20-01-05.png" alt="Screen-Shot-2021-07-29-at-20-01-05" border="0"></a>
 
 ### Comments:
    
-<a href="https://ibb.co/RHcwRp8"><img src="https://i.ibb.co/MN70FDd/Screen-Shot-2021-07-29-at-20-03-50.png" alt="Screen-Shot-2021-07-29-at-20-03-50" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/audi-0-60-times'>
+<a href="https://ibb.co/RHcwRp8"><img src="https://i.ibb.co/MN70FDd/Screen-Shot-2021-07-29-at-20-03-50.png" alt="Screen-Shot-2021-07-29-at-20-03-50" border="0"></a>
 
 ## Getting started
 
