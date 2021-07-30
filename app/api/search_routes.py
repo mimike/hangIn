@@ -2,13 +2,13 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import User
 
-search_routes = Blueprint("search", __name__)
+search_routes = Blueprint("search", __name__) #unique url_prefix /api/search
 
 
 @search_routes.route('/search', methods=['POST'])
 @login_required
 def search_user():
-    data = request.json["search"]
+    data = request.json["search"]  # coming from line 10, "search" line 16.
 
 
     users = User.query.filter((User.first_name.ilike(f'%{data}%')) | (User.last_name.ilike(f'%{data}')) | User.main_skills.ilike(f'%{data}'))
@@ -22,4 +22,3 @@ def search_user():
     #     "firstResults": {},
     #     "lastResults": {}
     # }
-

@@ -1,24 +1,25 @@
 const SEARCH_USER = "search/SEARCH_USER"
 const DELETE_SEARCH = "search/DELETE_SEARCH"
 
-const searchUser = (searchList) => ({
+const searchUser = (searchQuery) => ({
     type: SEARCH_USER,
-    payload: searchList
+    payload: searchQuery
 })
 
-export const searchUserThunk = (searchField) => async (dispatch) => {
+export const searchUserThunk = (searchQuery) => async (dispatch) => {
     const response = await fetch ('/api/search/search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            search: searchField
+            search: searchQuery
         })
     })
-
+    // after we assign the obj to response
     const data = await response.json();
     dispatch(searchUser(data))
+    // line 28 in order to change the state
 }
 
 

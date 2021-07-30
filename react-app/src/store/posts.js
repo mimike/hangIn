@@ -1,5 +1,5 @@
 import {userLikePost, userUnlikePost } from "./session"
-
+//action verbs
 const UPLOAD_POST = "posts/UPLOAD_POST"
 const DISPLAY_POSTS = "posts/DISPLAY_POSTS"
 
@@ -74,7 +74,7 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if (mediaUrl){
         formData.append("mediaUrl", mediaUrl)
     }
-    console.log("we got in front of fetch", formData)
+
     const res = await fetch("/api/posts/", {
         method: "POST",
         body: formData
@@ -86,10 +86,8 @@ export const uploadPost = (submission) => async (dispatch) =>{
     if(res.ok){
         const data = await res.json()
         dispatch(createPost(data))
-        return res   //why return res
+        return res
     }
-
-
 
 }
 
@@ -164,11 +162,11 @@ export const commentPost = (submission) => async dispatch => {
         body: JSON.stringify(submission)  // we send this to backend route it gets commited
     })
 
-    const data = await res.json()
-    //return //? u have to return IT DEPENDS
+    await res.json()
+
 }
 
-
+// pl is the action. key value pair in ur action that is passed from ur
 const initialState = {}
 export default function postsReducers(posts = initialState, action) {
     let postId;
@@ -203,7 +201,7 @@ export default function postsReducers(posts = initialState, action) {
             return newPosts;
         case DELETE_POST:
             newPosts = Object.assign({}, posts); //copy of old state
-            delete newPosts[action.payload]
+            delete newPosts[action.payload]  //postId
             return newPosts;
 
         default:

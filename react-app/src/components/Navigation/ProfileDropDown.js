@@ -33,6 +33,7 @@ function ProfileButton() {
         document.addEventListener('click', closeMenu);
         return (() => document.removeEventListener('click', closeMenu))
     }, [showMenu]);
+    //before it fires, checks the dependency array, showMenu.
 
     const logout = (e) => {
         e.preventDefault();

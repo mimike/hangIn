@@ -16,7 +16,7 @@ function Follows(){
     const following = {};
     const followers = {}
 
-    useEffect(() => {
+    useEffect(() => { // we will run line 20 before rendering anything
         dispatch(getUsersThunk())
     }, [dispatch])
 

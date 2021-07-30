@@ -40,7 +40,6 @@ input[type=text]:focus, input[type=password], input[type=textarea]:focus {
     outline: none;
   }
   select {
-
     opacity: 0.9;
   }
 

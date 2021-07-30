@@ -22,15 +22,13 @@ const UploadForm = () => {
   const [mediaType, setMediaType] = useState(false); //isVideo, setIsVideo
   const [postLoading, setPostLoading] = useState(false);
 
-
-
   const handleSubmit = async (e) => {
-    // let close = document.getElementById("modal-background")
+
     e.preventDefault();
-    console.log("weeeee")
+
 
    const submission = { mediaUrl, textBody }
-   setPostLoading(true);
+   setPostLoading(true); 
    const success = await dispatch(uploadPost(submission))
    if(success.ok){  // just success is always a truthy value even if it failed. success.ok is res
     await dispatch(getAllPosts())

@@ -11,8 +11,6 @@ function User() {
   const history = useHistory()
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
-  // Notice we use useParams here instead of getting the params
-  // From props.
   const { userId }  = useParams();
   const currentUserId = useSelector(state => state.session.user.id)
   const people = useSelector(state => state.users)

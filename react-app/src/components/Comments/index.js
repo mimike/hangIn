@@ -15,11 +15,10 @@ function Comments({post_id}){
         setCommentText(e.target.value)
     }
     const handleCommentSubmit = (e) => {
-
         e.preventDefault()
         const params = { postId: post_id, commentText }
         dispatch(commentPost(params)).then(() => {
-            setCommentText("")  // check to see if it clears
+            setCommentText("")  // clear the comment box after commenting
         })
         dispatch(getAllPosts())
         //dispatch(getAllPosts()) limit(10)
@@ -31,7 +30,6 @@ function Comments({post_id}){
         }
         dispatch(getAllPosts())
     }
-
 
 
     return(

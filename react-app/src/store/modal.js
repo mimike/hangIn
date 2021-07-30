@@ -1,7 +1,7 @@
 const SHOW_UPLOAD_FORM = "uploadForm/SHOW_UPLOAD_FORM"
 const HIDE_UPLOAD_FORM = "uploadForm/HIDE_UPLOAD_FORM"
-const SHOW_MESSENGER = "uploadForm/SHOW_MESSENGER"
-const HIDE_MESSENGER = "uploadForm/HIDE_"
+// const SHOW_MESSENGER = "uploadForm/SHOW_MESSENGER"
+// const HIDE_MESSENGER = "uploadForm/HIDE_MESSENGER"
 
 export const showUploadForm = () => ({
     type: SHOW_UPLOAD_FORM,

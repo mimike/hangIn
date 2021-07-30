@@ -29,8 +29,6 @@ def get_single_post(id):
 @post_routes.route('/', methods=['POST'])
 @login_required
 def post_post():
-
-
     form = UploadForm()
     data = request.json
 
@@ -57,7 +55,7 @@ def post_post():
     form['text_body'].data = request.form["textBody"]
     form['csrf_token'].data = request.cookies['csrf_token']
 
-
+    # form is an instance of the UploadForm class. Access methods from FlaskForm
     if form.validate_on_submit():
         post = Post(
             media_url=form.media_url.data,

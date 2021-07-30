@@ -6,14 +6,14 @@ import "./SearchResult.css"
 
 function SearchResult({search, setSearch}){  // setSearch prop so search bar clears after enter
     const [searchTerm, setSearchTerm] = useState("");
-    const searched_users = useSelector(state => state.search.search) || {};
+    const searched_users = useSelector(state => state.search.search) || {}; 
     const searches = searched_users.users || {}
     const [showMenu, setShowMenu] = useState(true);
 
     let onClick = (e) => {
         setSearchTerm(e.target.value)
         setShowMenu(false);
-        setSearch("");
+        setSearch("");  //wiping the slate after user clicks enter
     }
 
     let searchResult = null;
@@ -31,7 +31,7 @@ function SearchResult({search, setSearch}){  // setSearch prop so search bar cle
                                 <div className="username">
                                     <div className="username-searched">{search.first_name} {search.last_name } </div>
                                 </div>
-                                <span>   { '\u2022'} {search.skills}</span>
+                                <span>  {'\u2022'} {search.skills}</span>
                                 <span>  {'\u2022'} {search.headline}</span>
                                 <span> {'\u2022'} {search.city}, {search.state}</span>
                             </div>
